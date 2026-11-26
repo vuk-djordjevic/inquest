@@ -1,0 +1,11 @@
+node_modules/
+dashboard/node_modules/
+dashboard/dist/
+.env
+data/inquest.db
+data/inquest.db-*
+data/raw/real/
+runs/
+*.log
+data/cache/*.db-wal
+data/cache/*.db-shm

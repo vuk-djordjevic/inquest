@@ -1,0 +1,78 @@
+{
+  "_comment": "Normalized spending categories shared by the Python data prep and the TypeScript agents. 'unit' is the comparison unit for unit-price signals; 'comparable' marks categories where price comparison is meaningful; 'naturalMonopoly' marks categories where a single recipient is expected (concentration signals are skipped); 'marketSearch' marks categories where the Price agent may look up market references on the internet.",
+  "categories": {
+    "excursion":          { "label": "School excursion / trip",      "unit": "student_day", "comparable": true,  "marketSearch": true,  "naturalMonopoly": false, "cpv": [] },
+    "painting":           { "label": "Painting / wall works",         "unit": "m2",      "comparable": true,  "marketSearch": true,  "naturalMonopoly": false, "cpv": ["45442100"] },
+    "road_repair":        { "label": "Road surface repair",           "unit": "m2",      "comparable": true,  "marketSearch": true,  "naturalMonopoly": false, "cpv": ["45233142", "45233141"] },
+    "laptop":             { "label": "Laptop computers",              "unit": "piece",   "comparable": true,  "marketSearch": true,  "naturalMonopoly": false, "cpv": ["30213100"] },
+    "desktop_pc":         { "label": "Desktop computers",             "unit": "piece",   "comparable": true,  "marketSearch": true,  "naturalMonopoly": false, "cpv": ["30213300", "30213000"] },
+    "toner":              { "label": "Printer toner",                 "unit": "piece",   "comparable": true,  "marketSearch": true,  "naturalMonopoly": false, "cpv": ["30125100", "30125000"] },
+    "gloves":             { "label": "Medical gloves",                "unit": "box",     "comparable": true,  "marketSearch": true,  "naturalMonopoly": false, "cpv": ["33141420"] },
+    "office_paper":       { "label": "Office paper",                  "unit": "ream",    "comparable": true,  "marketSearch": true,  "naturalMonopoly": false, "cpv": ["30197630", "30197600"] },
+    "fuel":               { "label": "Motor fuel",                    "unit": "liter",   "comparable": true,  "marketSearch": false, "naturalMonopoly": false, "cpv": ["09134100", "09132000"] },
+    "maintenance":        { "label": "Maintenance services",          "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["50000000"] },
+    "cleaning_services":  { "label": "Cleaning services",             "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["90910000", "90911200"] },
+    "consulting":         { "label": "Consulting services",           "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["79411000", "79400000"] },
+    "it_services":        { "label": "IT services",                   "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["72000000"] },
+    "street_lighting":    { "label": "Street lighting works",         "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["34993000", "45316110"] },
+    "events":             { "label": "Event organization",            "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["79952000"] },
+    "equipment":          { "label": "Equipment and furniture",       "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["39100000"] },
+    "teaching_materials": { "label": "Teaching materials",            "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["22100000"] },
+    "medical_consumables":{ "label": "Medical consumables",           "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["33140000"] },
+    "canteen_food":       { "label": "Canteen food",                  "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["15000000"] },
+    "rent":               { "label": "Rent / lease",                  "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": ["70130000"] },
+    "electricity":        { "label": "Electricity",                   "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": true,  "cpv": ["09310000"] },
+    "water_utilities":    { "label": "Water and utilities",           "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": true,  "cpv": ["65100000"] },
+    "other":              { "label": "Other",                         "unit": "service", "comparable": false, "marketSearch": false, "naturalMonopoly": false, "cpv": [] }
+  },
+  "allowedActivityPrefixes": {
+    "_comment": "Two-digit NACE divisions that plausibly supply each category. A recipient whose registered activity is outside this list gets a code-level mismatch, which the Recipient network agent then judges.",
+    "excursion": ["79", "49", "55"],
+    "painting": ["43", "41"],
+    "road_repair": ["42", "43"],
+    "laptop": ["46", "47", "62", "95"],
+    "desktop_pc": ["46", "47", "62", "95"],
+    "toner": ["46", "47"],
+    "gloves": ["46", "47", "21", "32"],
+    "office_paper": ["46", "47", "17"],
+    "fuel": ["46", "47", "19"],
+    "maintenance": ["43", "33", "81", "95", "41", "42"],
+    "cleaning_services": ["81"],
+    "consulting": ["69", "70", "71", "72", "73", "74", "85"],
+    "it_services": ["62", "63", "58"],
+    "street_lighting": ["43", "42", "27"],
+    "events": ["82", "90", "93", "56", "79", "73"],
+    "equipment": ["46", "47", "31", "43"],
+    "teaching_materials": ["46", "47", "58", "85"],
+    "medical_consumables": ["46", "47", "21", "32"],
+    "canteen_food": ["46", "47", "10", "56"],
+    "rent": ["68"],
+    "electricity": ["35"],
+    "water_utilities": ["36", "37", "38"]
+  },
+  "categoryGroups": {
+    "_comment": "Categories that are bought from the same kind of supplier are grouped for supplier-concentration and splitting checks. Categories not listed form their own group.",
+    "it_equipment": ["laptop", "desktop_pc", "toner"]
+  },
+  "approvalThresholdsRsd": {
+    "_comment": "Amount above which a payment needs extra approval (board decision / open procedure). Configurable assumptions, not legal advice.",
+    "school": 100000,
+    "health_center": 500000,
+    "utility": 500000,
+    "local_community": 100000,
+    "municipality": 1000000,
+    "ministry": 1000000
+  },
+  "procurementExemptionThresholdRsd": {
+    "goods": 1000000,
+    "services": 1000000,
+    "works": 3000000
+  },
+  "minimumTenderDays": {
+    "_comment": "Simplified minimum tender periods per procurement method (days between tender start and bid deadline).",
+    "open": 30,
+    "selective": 30,
+    "limited": 10
+  },
+  "eurToRsd": 117.2
+}

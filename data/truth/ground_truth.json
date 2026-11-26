@@ -1,0 +1,439 @@
+{
+  "_comment": "Ground truth for injected test cases. Agents never read this file; only the evaluator does.",
+  "seed": 42,
+  "cases": [
+    {
+      "id": "T01",
+      "title": "Five payments of 98,000 RSD to one firm in a month (board threshold 100,000)",
+      "primarySignal": "SPLIT",
+      "expectedSignals": [
+        "SPLIT"
+      ],
+      "payerId": "SC03",
+      "recipientId": "900000099",
+      "paymentIds": [
+        "SC03-00081",
+        "SC03-00084",
+        "SC03-00086",
+        "SC03-00087",
+        "SC03-00089"
+      ]
+    },
+    {
+      "id": "T02",
+      "title": "Painting per m2 more than twice the price paid by other schools",
+      "primarySignal": "PEER_PRICE",
+      "expectedSignals": [
+        "PEER_PRICE"
+      ],
+      "payerId": "SC03",
+      "recipientId": "900000050",
+      "paymentIds": [
+        "SC03-00110"
+      ]
+    },
+    {
+      "id": "T03",
+      "title": "The same travel agency organizes every excursion of the school",
+      "primarySignal": "CONCENTRATION",
+      "expectedSignals": [
+        "CONCENTRATION"
+      ],
+      "payerId": "SC03",
+      "recipientId": "900000001",
+      "paymentIds": [
+        "SC03-00055",
+        "SC03-00060",
+        "SC03-00129",
+        "SC03-00130"
+      ]
+    },
+    {
+      "id": "T04",
+      "title": "Two-day excursion to Kopaonik at 800 EUR per student",
+      "primarySignal": "PEER_PRICE",
+      "expectedSignals": [
+        "PEER_PRICE",
+        "MARKET_PRICE"
+      ],
+      "payerId": "SC08",
+      "recipientId": "900000001",
+      "paymentIds": [
+        "SC08-00100"
+      ]
+    },
+    {
+      "id": "T05",
+      "title": "Gloves at three times the price other health centers pay",
+      "primarySignal": "PEER_PRICE",
+      "expectedSignals": [
+        "PEER_PRICE"
+      ],
+      "payerId": "HE02",
+      "recipientId": "900000498",
+      "paymentIds": [
+        "HE02-00161"
+      ]
+    },
+    {
+      "id": "T06",
+      "title": "\"Various services\" for 400,000 RSD",
+      "primarySignal": "VAGUE_PURPOSE",
+      "expectedSignals": [
+        "VAGUE_PURPOSE"
+      ],
+      "payerId": "UT01",
+      "recipientId": "900000442",
+      "paymentIds": [
+        "UT01-00159"
+      ]
+    },
+    {
+      "id": "T07",
+      "title": "Exactly 50,000 RSD every month for 'maintenance'",
+      "primarySignal": "ROUND_REPEATED",
+      "expectedSignals": [
+        "ROUND_REPEATED",
+        "VAGUE_PURPOSE"
+      ],
+      "payerId": "UT04",
+      "recipientId": "900000897",
+      "paymentIds": [
+        "UT04-00085",
+        "UT04-00091",
+        "UT04-00097",
+        "UT04-00104",
+        "UT04-00111",
+        "UT04-00118",
+        "UT04-00124",
+        "UT04-00132",
+        "UT04-00139",
+        "UT04-00145",
+        "UT04-00152",
+        "UT04-00166"
+      ]
+    },
+    {
+      "id": "T08",
+      "title": "More than half of the annual equipment budget spent in December",
+      "primarySignal": "YEAR_END_SPIKE",
+      "expectedSignals": [
+        "YEAR_END_SPIKE"
+      ],
+      "payerId": "LO03",
+      "recipientId": null,
+      "paymentIds": [
+        "LO03-00089",
+        "LO03-00091",
+        "LO03-00094",
+        "LO03-00095"
+      ]
+    },
+    {
+      "id": "T09",
+      "title": "A restaurant company paid for laptops",
+      "primarySignal": "UNUSUAL_RECIPIENT",
+      "expectedSignals": [
+        "UNUSUAL_RECIPIENT"
+      ],
+      "payerId": "LO05",
+      "recipientId": "900000904",
+      "paymentIds": [
+        "LO05-00065"
+      ]
+    },
+    {
+      "id": "T10",
+      "title": "Company founded 18 days before its first large payment",
+      "primarySignal": "NEW_RECIPIENT",
+      "expectedSignals": [
+        "NEW_RECIPIENT"
+      ],
+      "payerId": "HE05",
+      "recipientId": "900000911",
+      "paymentIds": [
+        "HE05-00120",
+        "HE05-00137"
+      ]
+    },
+    {
+      "id": "T11",
+      "title": "Teaching materials: planned 300,000 RSD, spent 520,000 RSD",
+      "primarySignal": "OVER_PLAN",
+      "expectedSignals": [
+        "OVER_PLAN"
+      ],
+      "payerId": "SC12",
+      "recipientId": null,
+      "paymentIds": [
+        "SC12-00123",
+        "SC12-00126"
+      ]
+    },
+    {
+      "id": "T12",
+      "title": "Toner at about three times the usual price",
+      "primarySignal": "PEER_PRICE",
+      "expectedSignals": [
+        "PEER_PRICE"
+      ],
+      "payerId": "UT07",
+      "recipientId": "900000169",
+      "paymentIds": [
+        "UT07-00060"
+      ]
+    },
+    {
+      "id": "C01",
+      "clean": true,
+      "title": "Monthly office rent under a lease contract",
+      "payerId": "UT02",
+      "recipientId": "900000918",
+      "paymentIds": [
+        "UT02-00001",
+        "UT02-00007",
+        "UT02-00011",
+        "UT02-00019",
+        "UT02-00029",
+        "UT02-00037",
+        "UT02-00046",
+        "UT02-00055",
+        "UT02-00062",
+        "UT02-00067",
+        "UT02-00077",
+        "UT02-00088",
+        "UT02-00096",
+        "UT02-00108",
+        "UT02-00113",
+        "UT02-00125",
+        "UT02-00138",
+        "UT02-00147",
+        "UT02-00154",
+        "UT02-00161",
+        "UT02-00169",
+        "UT02-00176",
+        "UT02-00182",
+        "UT02-00185"
+      ]
+    },
+    {
+      "id": "C02",
+      "clean": true,
+      "title": "Large but well described annual stock purchase",
+      "payerId": "HE07",
+      "recipientId": "900000505",
+      "paymentIds": [
+        "HE07-00109"
+      ]
+    },
+    {
+      "id": "T13",
+      "title": "40 laptops at 210,000 RSD each, one bid, 3-day tender",
+      "primarySignal": "PEER_PRICE",
+      "expectedSignals": [
+        "PEER_PRICE",
+        "SINGLE_BID",
+        "SHORT_TENDER"
+      ],
+      "payerId": "MU03",
+      "recipientId": "900000925",
+      "paymentIds": [
+        "ocds-fict01-MU03-2025-0001/contract-1"
+      ]
+    },
+    {
+      "id": "T14",
+      "title": "Four IT purchases in one quarter, each 1-2% below the 1,000,000 RSD threshold",
+      "primarySignal": "SPLIT",
+      "expectedSignals": [
+        "SPLIT"
+      ],
+      "payerId": "MU03",
+      "recipientId": "900000925",
+      "paymentIds": [
+        "ocds-fict01-MU03-2025-0002/contract-1",
+        "ocds-fict01-MU03-2025-0003/contract-1",
+        "ocds-fict01-MU03-2025-0004/contract-1",
+        "ocds-fict01-MU03-2025-0005/contract-1"
+      ]
+    },
+    {
+      "id": "T15",
+      "title": "One supplier wins 8 of 10 completed IT procurements of the municipality",
+      "primarySignal": "CONCENTRATION",
+      "expectedSignals": [
+        "CONCENTRATION"
+      ],
+      "payerId": "MU03",
+      "recipientId": "900000925",
+      "paymentIds": [
+        "ocds-fict01-MU03-2024-0006/contract-1",
+        "ocds-fict01-MU03-2024-0007/contract-1",
+        "ocds-fict01-MU03-2024-0008/award-1",
+        "ocds-fict01-MU03-2024-0011/contract-1",
+        "ocds-fict01-MU03-2025-0009/contract-1",
+        "ocds-fict01-MU03-2025-0010/contract-1"
+      ]
+    },
+    {
+      "id": "T16",
+      "title": "Ulica Lipa repaired three times in two years, 6 million RSD, same firm",
+      "primarySignal": "REPEATED_OBJECT",
+      "expectedSignals": [
+        "REPEATED_OBJECT",
+        "PEER_PRICE"
+      ],
+      "payerId": "MU07",
+      "recipientId": "900000932",
+      "paymentIds": [
+        "ocds-fict01-MU07-2024-0012/contract-1",
+        "ocds-fict01-MU07-2024-0013/contract-1",
+        "ocds-fict01-MU07-2025-0014/contract-1"
+      ]
+    },
+    {
+      "id": "T17",
+      "title": "Two bids with exactly the same price",
+      "primarySignal": "IDENTICAL_BIDS",
+      "expectedSignals": [
+        "IDENTICAL_BIDS"
+      ],
+      "payerId": "MU05",
+      "recipientId": "900000638",
+      "paymentIds": [
+        "ocds-fict01-MU05-2025-0015/contract-1"
+      ]
+    },
+    {
+      "id": "T18",
+      "title": "Second bid only 0.03% above the winning bid",
+      "primarySignal": "CLOSE_SECOND_BID",
+      "expectedSignals": [
+        "CLOSE_SECOND_BID"
+      ],
+      "payerId": "MU09",
+      "recipientId": "900000575",
+      "paymentIds": [
+        "ocds-fict01-MU09-2024-0016/contract-1"
+      ]
+    },
+    {
+      "id": "T19",
+      "title": "Contract won at 10 million RSD, worth 16 million after amendments",
+      "primarySignal": "AMENDMENT_INFLATION",
+      "expectedSignals": [
+        "AMENDMENT_INFLATION"
+      ],
+      "payerId": "MU11",
+      "recipientId": "900000981",
+      "paymentIds": [
+        "ocds-fict01-MU11-2024-0017/contract-1"
+      ]
+    },
+    {
+      "id": "T20",
+      "title": "Bids range from 2.1 to 5.0 million RSD for the same service",
+      "primarySignal": "WIDE_BID_SPREAD",
+      "expectedSignals": [
+        "WIDE_BID_SPREAD"
+      ],
+      "payerId": "MU02",
+      "recipientId": "900000778",
+      "paymentIds": [
+        "ocds-fict01-MU02-2025-0018/contract-1"
+      ]
+    },
+    {
+      "id": "C03",
+      "clean": true,
+      "title": "High-end GIS workstations (expensive for a stated reason)",
+      "payerId": "MU04",
+      "recipientId": "900000239",
+      "paymentIds": [
+        "ocds-fict01-MU04-2025-0019/contract-1"
+      ]
+    },
+    {
+      "id": "C04",
+      "clean": true,
+      "title": "Emergency negotiated repair after a flood (single bid is expected)",
+      "payerId": "MU08",
+      "recipientId": "900000736",
+      "paymentIds": [
+        "ocds-fict01-MU08-2024-0020/contract-1"
+      ]
+    },
+    {
+      "id": "T21",
+      "title": "Half of the municipality's procurements use negotiated procedures without a call",
+      "primarySignal": "NONCOMPETITIVE_SHARE",
+      "expectedSignals": [
+        "NONCOMPETITIVE_SHARE"
+      ],
+      "payerId": "MU06",
+      "recipientId": null,
+      "paymentIds": [
+        "ocds-fict01-MU06-2024-0213/contract-1",
+        "ocds-fict01-MU06-2024-0214/contract-1",
+        "ocds-fict01-MU06-2024-0216/contract-1",
+        "ocds-fict01-MU06-2024-0217/contract-1",
+        "ocds-fict01-MU06-2024-0219/contract-1",
+        "ocds-fict01-MU06-2024-0220/contract-1",
+        "ocds-fict01-MU06-2024-0221/contract-1",
+        "ocds-fict01-MU06-2024-0222/contract-1",
+        "ocds-fict01-MU06-2024-0223/contract-1",
+        "ocds-fict01-MU06-2024-0224/contract-1",
+        "ocds-fict01-MU06-2024-0225/contract-1"
+      ]
+    },
+    {
+      "id": "C90",
+      "clean": true,
+      "title": "Random sample of untouched background payments",
+      "payerId": null,
+      "recipientId": null,
+      "paymentIds": [
+        "HE01-00082",
+        "HE01-00101",
+        "HE01-00187",
+        "HE08-00067",
+        "HE08-00145",
+        "HE08-00189",
+        "HE09-00004",
+        "HE09-00017",
+        "HE09-00170",
+        "HE09-00185",
+        "HE10-00058",
+        "HE11-00063",
+        "HE12-00074",
+        "LO01-00051",
+        "LO01-00053",
+        "LO02-00062",
+        "LO04-00062",
+        "LO06-00044",
+        "LO07-00013",
+        "LO08-00063",
+        "LO08-00090",
+        "SC01-00041",
+        "SC02-00002",
+        "SC02-00065",
+        "SC05-00039",
+        "SC05-00074",
+        "SC14-00041",
+        "SC14-00065",
+        "SC16-00118",
+        "UT03-00019",
+        "UT03-00083",
+        "UT03-00116",
+        "UT05-00009",
+        "UT06-00058",
+        "UT06-00062",
+        "UT06-00119",
+        "UT08-00135",
+        "UT09-00054",
+        "UT10-00151",
+        "ocds-fict01-MU01-2025-0054/contract-1"
+      ]
+    }
+  ]
+}

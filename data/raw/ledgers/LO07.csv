@@ -1,0 +1,90 @@
+rb;datum;naziv_primaoca;pib_primaoca;iznos;vrsta_troska;opis;kolicina;jedinica_mere;objekat;status
+1;03.01.2024;Kristal Event d.o.o.;900000806;30.928,00;Organizacija manifestacija;Novogodišnji koncert za decu;;;;izvršeno
+2;08.01.2024;Duga Usluge d.o.o.;900000435;1.856,00;Ostali troškovi;Overa dokumenata kod notara;;;;izvršeno
+3;10.01.2024;Kristal Event d.o.o.;900000806;85.483,00;Organizacija manifestacija;Turnir u malom fudbalu;;;;izvršeno
+4;10.01.2024;Duga Energija d.o.o.;900000393;12.394,00;Električna energija;Električna energija za januar;;;;izvršeno
+5;10.01.2024;Beta Vodovod d.o.o.;900000400;5.197,00;Komunalne usluge;Voda i odvoz smeća za januar;;;;izvršeno
+6;06.02.2024;Duga Energija d.o.o.;900000393;9.673,00;Električna energija;Električna energija za februar;;;;izvršeno
+7;10.02.2024;Beta Vodovod d.o.o.;900000400;8.892,00;Komunalne usluge;Voda i odvoz smeća za februar;;;;izvršeno
+8;11.03.2024;Beta Vodovod d.o.o.;900000400;6.289,00;Komunalne usluge;Voda i odvoz smeća za mart;;;;izvršeno
+9;12.03.2024;Fokus Oprema d.o.o.;900000883;104.221,00;Oprema i nameštaj;Kancelarijske stolice;;;;izvršeno
+10;12.03.2024;Duga Energija d.o.o.;900000393;24.864,00;Električna energija;Električna energija za mart;;;;izvršeno
+11;09.04.2024;Omega Papir d.o.o.;900000365;2.771,00;Kancelarijski papir;Papir A4 80g, 5 rismi;5,00;risma;;izvršeno
+12;10.04.2024;Beta Vodovod d.o.o.;900000400;11.584,00;Komunalne usluge;Voda i odvoz smeća za april;;;;izvršeno
+13;12.04.2024;Fokus Oprema d.o.o.;900000883;108.614,00;Oprema i nameštaj;Ormar za arhivu;;;;izvršeno
+14;15.04.2024;Duga Energija d.o.o.;900000393;25.093,00;Električna energija;Električna energija za april;;;;izvršeno
+15;05.05.2024;Duga Energija d.o.o.;900000393;21.684,00;Električna energija;Električna energija za maj;;;;izvršeno
+16;08.05.2024;Beta Vodovod d.o.o.;900000400;10.784,00;Komunalne usluge;Voda i odvoz smeća za maj;;;;izvršeno
+17;05.06.2024;Duga Energija d.o.o.;900000393;25.353,00;Električna energija;Električna energija za jun;;;;izvršeno
+18;07.06.2024;Beta Vodovod d.o.o.;900000400;11.473,00;Komunalne usluge;Voda i odvoz smeća za jun;;;;izvršeno
+19;08.06.2024;Alfa Oprema d.o.o.;900000890;108.591,00;Oprema i nameštaj;Klupe za park;;;;izvršeno
+20;09.06.2024;Lipa Papir d.o.o.;900000386;8.965,00;Kancelarijski papir;Papir A4 80g, 18 rismi;18,00;risma;;izvršeno
+21;11.06.2024;Alfa Oprema d.o.o.;900000890;70.944,00;Oprema i nameštaj;Kancelarijski stolovi;;;;izvršeno
+22;15.06.2024;Lipa Papir d.o.o.;900000386;7.050,00;Kancelarijski papir;Papir A4 80g, 14 rismi;14,00;risma;;izvršeno
+23;11.07.2024;Beta Vodovod d.o.o.;900000400;11.855,00;Komunalne usluge;Voda i odvoz smeća za jul;;;;izvršeno
+24;15.07.2024;Duga Energija d.o.o.;900000393;23.788,00;Električna energija;Električna energija za jul;;;;izvršeno
+25;25.07.2024;Pro Oprema d.o.o.;900000848;81.328,00;Oprema i nameštaj;Klima uređaj za salu;;;;izvršeno
+26;09.08.2024;Delta Servis d.o.o.;900000120;72.471,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+27;14.08.2024;Duga Energija d.o.o.;900000393;26.724,00;Električna energija;Električna energija za avgust;;;;izvršeno
+28;15.08.2024;Beta Vodovod d.o.o.;900000400;9.152,00;Komunalne usluge;Voda i odvoz smeća za avgust;;;;izvršeno
+29;31.08.2024;Fokus Kolor d.o.o.;900000078;120.771,00;Krečenje i molerski radovi;Krečenje učionica i hodnika, 297 m2;297,00;m2;;izvršeno
+30;05.09.2024;Duga Energija d.o.o.;900000393;25.519,00;Električna energija;Električna energija za septembar;;;;izvršeno
+31;15.09.2024;Beta Vodovod d.o.o.;900000400;9.864,00;Komunalne usluge;Voda i odvoz smeća za septembar;;;;izvršeno
+32;20.09.2024;Omega Usluge d.o.o.;900000421;7.507,00;Ostali troškovi;Članarina u strukovnom udruženju;;;;izvršeno
+33;29.09.2024;Polar Oprema d.o.o.;900000869;44.500,00;Oprema i nameštaj;Projektor i platno;;;;izvršeno
+34;05.10.2024;Beta Vodovod d.o.o.;900000400;5.342,00;Komunalne usluge;Voda i odvoz smeća za oktobar;;;;izvršeno
+35;07.10.2024;Orion Servis d.o.o.;900000134;64.400,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+36;10.10.2024;Duga Energija d.o.o.;900000393;16.765,00;Električna energija;Električna energija za oktobar;;;;izvršeno
+37;23.10.2024;Orion Servis d.o.o.;900000134;18.396,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+38;05.11.2024;Beta Vodovod d.o.o.;900000400;10.699,00;Komunalne usluge;Voda i odvoz smeća za novembar;;;;izvršeno
+39;13.11.2024;Orion Servis d.o.o.;900000134;21.734,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+40;13.11.2024;Duga Energija d.o.o.;900000393;11.300,00;Električna energija;Električna energija za novembar;;;;izvršeno
+41;09.12.2024;Duga Energija d.o.o.;900000393;23.892,00;Električna energija;Električna energija za decembar;;;;izvršeno
+42;14.12.2024;Beta Vodovod d.o.o.;900000400;9.632,00;Komunalne usluge;Voda i odvoz smeća za decembar;;;;izvršeno
+43;20.12.2024;Fokus Oprema d.o.o.;900000883;69.590,00;Oprema i nameštaj;Police za arhivu;;;;izvršeno
+44;29.12.2024;Delta Servis d.o.o.;900000120;70.719,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+45;09.01.2025;Alfa Oprema d.o.o.;900000890;88.041,00;Oprema i nameštaj;Kancelarijski stolovi;;;;izvršeno
+46;10.01.2025;Beta Vodovod d.o.o.;900000400;7.627,00;Komunalne usluge;Voda i odvoz smeća za januar;;;;izvršeno
+47;15.01.2025;Duga Energija d.o.o.;900000393;11.663,00;Električna energija;Električna energija za januar;;;;izvršeno
+48;16.01.2025;Polar Oprema d.o.o.;900000869;106.761,00;Oprema i nameštaj;Ormar za arhivu;;;;izvršeno
+49;08.02.2025;Duga Energija d.o.o.;900000393;25.228,00;Električna energija;Električna energija za februar;;;;izvršeno
+50;08.02.2025;Beta Vodovod d.o.o.;900000400;5.408,00;Komunalne usluge;Voda i odvoz smeća za februar;;;;izvršeno
+51;11.03.2025;Beta Vodovod d.o.o.;900000400;9.952,00;Komunalne usluge;Voda i odvoz smeća za mart;;;;izvršeno
+52;12.03.2025;Duga Energija d.o.o.;900000393;22.193,00;Električna energija;Električna energija za mart;;;;izvršeno
+53;18.03.2025;Nova Usluge d.o.o.;900000449;10.392,00;Ostali troškovi;Overa dokumenata kod notara;;;;izvršeno
+54;20.03.2025;Lipa Papir d.o.o.;900000386;3.379,00;Kancelarijski papir;Papir A4 80g, 8 rismi;8,00;risma;;izvršeno
+55;10.04.2025;Duga Energija d.o.o.;900000393;29.826,00;Električna energija;Električna energija za april;;;;izvršeno
+56;13.04.2025;Beta Vodovod d.o.o.;900000400;10.332,00;Komunalne usluge;Voda i odvoz smeća za april;;;;izvršeno
+57;29.04.2025;Duga Usluge d.o.o.;900000435;11.708,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+58;07.05.2025;Pro Oprema d.o.o.;900000848;73.193,00;Oprema i nameštaj;Projektor i platno;;;;izvršeno
+59;10.05.2025;Beta Vodovod d.o.o.;900000400;4.890,00;Komunalne usluge;Voda i odvoz smeća za maj;;;;izvršeno
+60;13.05.2025;Duga Energija d.o.o.;900000393;28.147,00;Električna energija;Električna energija za maj;;;;izvršeno
+61;14.06.2025;Beta Vodovod d.o.o.;900000400;11.421,00;Komunalne usluge;Voda i odvoz smeća za jun;;;;izvršeno
+62;15.06.2025;Duga Energija d.o.o.;900000393;23.393,00;Električna energija;Električna energija za jun;;;;izvršeno
+63;16.06.2025;Zenit Servis d.o.o.;900000141;32.453,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+64;30.06.2025;Orion Servis d.o.o.;900000134;61.427,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+65;06.07.2025;Pro Oprema d.o.o.;900000848;26.709,00;Oprema i nameštaj;Kancelarijske stolice;;;;izvršeno
+66;06.07.2025;Polar Oprema d.o.o.;900000869;49.923,00;Oprema i nameštaj;Klupe za park;;;;izvršeno
+67;11.07.2025;Duga Energija d.o.o.;900000393;17.100,00;Električna energija;Električna energija za jul;;;;izvršeno
+68;13.07.2025;Beta Vodovod d.o.o.;900000400;6.282,00;Komunalne usluge;Voda i odvoz smeća za jul;;;;izvršeno
+69;27.07.2025;Polar Oprema d.o.o.;900000869;65.378,00;Oprema i nameštaj;Klima uređaj za salu;;;;izvršeno
+70;01.08.2025;Delta Servis d.o.o.;900000120;59.506,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+71;06.08.2025;Fokus Oprema d.o.o.;900000883;110.827,00;Oprema i nameštaj;Police za arhivu;;;;izvršeno
+72;07.08.2025;Beta Vodovod d.o.o.;900000400;9.244,00;Komunalne usluge;Voda i odvoz smeća za avgust;;;;izvršeno
+73;12.08.2025;Duga Energija d.o.o.;900000393;18.539,00;Električna energija;Električna energija za avgust;;;;izvršeno
+74;06.09.2025;Duga Energija d.o.o.;900000393;12.483,00;Električna energija;Električna energija za septembar;;;;izvršeno
+75;11.09.2025;Kristal Event d.o.o.;900000806;117.354,00;Organizacija manifestacija;Izložba lokalnih umetnika;;;;izvršeno
+76;12.09.2025;Beta Vodovod d.o.o.;900000400;7.953,00;Komunalne usluge;Voda i odvoz smeća za septembar;;;;izvršeno
+77;23.09.2025;Orion Servis d.o.o.;900000134;28.525,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+78;08.10.2025;Duga Energija d.o.o.;900000393;28.211,00;Električna energija;Električna energija za oktobar;;;;izvršeno
+79;09.10.2025;Kristal Event d.o.o.;900000806;29.945,00;Organizacija manifestacija;Turnir u malom fudbalu;;;;izvršeno
+80;10.10.2025;Beta Vodovod d.o.o.;900000400;6.094,00;Komunalne usluge;Voda i odvoz smeća za oktobar;;;;izvršeno
+81;14.10.2025;Orion Servis d.o.o.;900000134;62.072,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+82;23.10.2025;Orion Servis d.o.o.;900000134;42.329,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+83;06.11.2025;Duga Energija d.o.o.;900000393;19.121,00;Električna energija;Električna energija za novembar;;;;izvršeno
+84;14.11.2025;Beta Vodovod d.o.o.;900000400;10.261,00;Komunalne usluge;Voda i odvoz smeća za novembar;;;;izvršeno
+85;18.11.2025;Maxi Servis d.o.o.;900000113;66.654,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+86;28.11.2025;Nova Usluge d.o.o.;900000449;6.068,00;Ostali troškovi;Overa dokumenata kod notara;;;;izvršeno
+87;05.12.2025;Beta Vodovod d.o.o.;900000400;10.280,00;Komunalne usluge;Voda i odvoz smeća za decembar;;;;izvršeno
+88;08.12.2025;Duga Energija d.o.o.;900000393;8.191,00;Električna energija;Električna energija za decembar;;;;izvršeno
+89;18.12.2025;Atlas Usluge d.o.o.;900000442;4.633,00;Ostali troškovi;Overa dokumenata kod notara;;;;izvršeno

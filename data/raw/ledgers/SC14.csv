@@ -1,0 +1,137 @@
+rb;datum;naziv_primaoca;pib_primaoca;iznos;vrsta_troska;opis;kolicina;jedinica_mere;objekat;status
+1;05.01.2024;Duga Energija d.o.o.;900000393;88.604,00;Električna energija;Električna energija za januar;;;;izvršeno
+2;06.01.2024;Javor Tech d.o.o.;900000239;274.634,00;Računarska oprema - laptopovi;Laptop HP ProBook 450, 3 kom;3,00;kom;;izvršeno
+3;07.01.2024;Beta Vodovod d.o.o.;900000400;9.200,00;Komunalne usluge;Voda i odvoz smeća za januar;;;;izvršeno
+4;22.01.2024;Javor Usluge d.o.o.;900000407;2.708,00;Ostali troškovi;Takse za registraciju vozila;;;;izvršeno
+5;24.01.2024;Orion Servis d.o.o.;900000134;71.037,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+6;28.01.2024;Delta Servis d.o.o.;900000120;60.224,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+7;07.02.2024;Beta Vodovod d.o.o.;900000400;8.789,00;Komunalne usluge;Voda i odvoz smeća za februar;;;;izvršeno
+8;12.02.2024;Duga Energija d.o.o.;900000393;81.659,00;Električna energija;Električna energija za februar;;;;izvršeno
+9;23.02.2024;Kristal Hrana d.o.o.;900000323;125.628,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, februar;;;;izvršeno
+10;29.02.2024;Mega Papir d.o.o.;900000372;20.920,00;Kancelarijski papir;Papir A4 80g, 47 rismi;47,00;risma;;izvršeno
+11;09.03.2024;Duga Energija d.o.o.;900000393;73.609,00;Električna energija;Električna energija za mart;;;;izvršeno
+12;09.03.2024;Beta Vodovod d.o.o.;900000400;11.598,00;Komunalne usluge;Voda i odvoz smeća za mart;;;;izvršeno
+13;16.03.2024;Omega Papir d.o.o.;900000365;17.100,00;Kancelarijski papir;Papir A4 80g, 39 rismi;39,00;risma;;izvršeno
+14;23.03.2024;Euro Knjiga d.o.o.;900000253;7.738,00;Nastavna sredstva;Muzički instrumenti za kabinet;;;;izvršeno
+15;28.03.2024;Lipa Hrana d.o.o.;900000330;71.944,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, mart;;;;izvršeno
+16;08.04.2024;Mega Hrana d.o.o.;900000316;82.516,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, april;;;;izvršeno
+17;09.04.2024;Pro Servis d.o.o.;900000099;70.777,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+18;10.04.2024;Iskra Travel d.o.o.;900000022;1.582.149,00;Ekskurzije i izleti;Ekskurzija Zlatibor, 2 dana, 70 učenika;140,00;učenik-dan;;izvršeno
+19;11.04.2024;Duga Energija d.o.o.;900000393;43.390,00;Električna energija;Električna energija za april;;;;izvršeno
+20;12.04.2024;Beta Vodovod d.o.o.;900000400;17.601,00;Komunalne usluge;Voda i odvoz smeća za april;;;;izvršeno
+21;17.04.2024;Mega Papir d.o.o.;900000372;11.345,00;Kancelarijski papir;Papir A4 80g, 26 rismi;26,00;risma;;izvršeno
+22;22.04.2024;Tim Tech d.o.o.;900000225;305.958,00;Računarska oprema - laptopovi;Laptop HP ProBook 450, 3 kom;3,00;kom;;izvršeno
+23;09.05.2024;Duga Energija d.o.o.;900000393;64.841,00;Električna energija;Električna energija za maj;;;;izvršeno
+24;12.05.2024;Beta Vodovod d.o.o.;900000400;8.897,00;Komunalne usluge;Voda i odvoz smeća za maj;;;;izvršeno
+25;22.05.2024;Mega Hrana d.o.o.;900000316;50.289,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, maj;;;;izvršeno
+26;03.06.2024;Delta Kolor d.o.o.;900000057;216.963,00;Krečenje i molerski radovi;Krečenje učionica i hodnika, 449 m2;449,00;m2;;izvršeno
+27;06.06.2024;Tera Knjiga d.o.o.;900000267;6.263,00;Nastavna sredstva;Muzički instrumenti za kabinet;;;;izvršeno
+28;09.06.2024;Tera Knjiga d.o.o.;900000267;57.692,00;Nastavna sredstva;Geografske karte;;;;izvršeno
+29;09.06.2024;Duga Energija d.o.o.;900000393;58.603,00;Električna energija;Električna energija za jun;;;;izvršeno
+30;10.06.2024;Beta Vodovod d.o.o.;900000400;29.754,00;Komunalne usluge;Voda i odvoz smeća za jun;;;;izvršeno
+31;12.06.2024;Orion Servis d.o.o.;900000134;9.412,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+32;14.06.2024;Pro Servis d.o.o.;900000099;30.292,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+33;14.06.2024;Lipa Hrana d.o.o.;900000330;43.453,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, jun;;;;izvršeno
+34;28.06.2024;Beta Servis d.o.o.;900000106;40.854,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+35;28.06.2024;Kristal Hrana d.o.o.;900000323;123.163,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, jun;;;;izvršeno
+36;08.07.2024;Pro Servis d.o.o.;900000099;34.028,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+37;11.07.2024;Duga Energija d.o.o.;900000393;83.024,00;Električna energija;Električna energija za jul;;;;izvršeno
+38;13.07.2024;Beta Vodovod d.o.o.;900000400;18.674,00;Komunalne usluge;Voda i odvoz smeća za jul;;;;izvršeno
+39;22.07.2024;Fokus Usluge d.o.o.;900000414;8.991,00;Ostali troškovi;Članarina u strukovnom udruženju;;;;izvršeno
+40;03.08.2024;Kristal Hrana d.o.o.;900000323;47.050,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, avgust;;;;izvršeno
+41;10.08.2024;Duga Energija d.o.o.;900000393;72.897,00;Električna energija;Električna energija za avgust;;;;izvršeno
+42;12.08.2024;Beta Vodovod d.o.o.;900000400;10.475,00;Komunalne usluge;Voda i odvoz smeća za avgust;;;;izvršeno
+43;21.08.2024;Tera Knjiga d.o.o.;900000267;9.894,00;Nastavna sredstva;Sportski rekviziti;;;;izvršeno
+44;22.08.2024;Most Hrana d.o.o.;900000337;111.788,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, avgust;;;;izvršeno
+45;23.08.2024;Delta Servis d.o.o.;900000120;62.421,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+46;27.08.2024;Kristal Hrana d.o.o.;900000323;121.263,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, avgust;;;;izvršeno
+47;29.08.2024;Orion Servis d.o.o.;900000134;51.177,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+48;31.08.2024;Duga Usluge d.o.o.;900000435;5.530,00;Ostali troškovi;Bankarska provizija;;;;izvršeno
+49;04.09.2024;Delta Servis d.o.o.;900000120;36.393,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+50;05.09.2024;Alfa Travel d.o.o.;900000043;343.940,00;Ekskurzije i izleti;Ekskurzija Vojvodina - salaši, 1 dana, 35 učenika;35,00;učenik-dan;;izvršeno
+51;07.09.2024;Beta Vodovod d.o.o.;900000400;10.720,00;Komunalne usluge;Voda i odvoz smeća za septembar;;;;izvršeno
+52;12.09.2024;Duga Energija d.o.o.;900000393;74.639,00;Električna energija;Električna energija za septembar;;;;izvršeno
+53;13.09.2024;Kristal Hrana d.o.o.;900000323;142.761,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, septembar;;;;izvršeno
+54;23.09.2024;Kristal Hrana d.o.o.;900000323;90.795,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, septembar;;;;izvršeno
+55;25.09.2024;Javor Print d.o.o.;900000162;49.569,00;Toneri i kertridži;Toner Brother TN-2421, 12 kom;12,00;kom;;izvršeno
+56;01.10.2024;Euro Papir d.o.o.;900000358;17.989,00;Kancelarijski papir;Papir A4 80g, 35 rismi;35,00;risma;;izvršeno
+57;05.10.2024;Javor Print d.o.o.;900000162;24.655,00;Toneri i kertridži;Toner Canon 725, 5 kom;5,00;kom;;izvršeno
+58;06.10.2024;Beta Vodovod d.o.o.;900000400;12.482,00;Komunalne usluge;Voda i odvoz smeća za oktobar;;;;izvršeno
+59;07.10.2024;Duga Energija d.o.o.;900000393;61.119,00;Električna energija;Električna energija za oktobar;;;;izvršeno
+60;08.10.2024;Delta Servis d.o.o.;900000120;72.985,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+61;10.10.2024;Delta Servis d.o.o.;900000120;67.647,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+62;23.10.2024;Sunce Print d.o.o.;900000176;51.280,00;Toneri i kertridži;Toner Brother TN-2421, 10 kom;10,00;kom;;izvršeno
+63;09.11.2024;Beta Vodovod d.o.o.;900000400;11.974,00;Komunalne usluge;Voda i odvoz smeća za novembar;;;;izvršeno
+64;15.11.2024;Duga Energija d.o.o.;900000393;66.382,00;Električna energija;Električna energija za novembar;;;;izvršeno
+65;07.12.2024;Beta Vodovod d.o.o.;900000400;24.499,00;Komunalne usluge;Voda i odvoz smeća za decembar;;;;izvršeno
+66;08.12.2024;Mega Hrana d.o.o.;900000316;148.879,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, decembar;;;;izvršeno
+67;08.12.2024;Nova Usluge d.o.o.;900000449;10.477,00;Ostali troškovi;Takse za registraciju vozila;;;;izvršeno
+68;12.12.2024;Duga Energija d.o.o.;900000393;28.459,00;Električna energija;Električna energija za decembar;;;;izvršeno
+69;22.12.2024;Delta Servis d.o.o.;900000120;45.033,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+70;30.12.2024;Delta Servis d.o.o.;900000120;14.047,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+71;04.01.2025;Lipa Hrana d.o.o.;900000330;123.524,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, januar;;;;izvršeno
+72;14.01.2025;Duga Energija d.o.o.;900000393;45.530,00;Električna energija;Električna energija za januar;;;;izvršeno
+73;15.01.2025;Beta Vodovod d.o.o.;900000400;18.306,00;Komunalne usluge;Voda i odvoz smeća za januar;;;;izvršeno
+74;06.02.2025;Duga Energija d.o.o.;900000393;42.410,00;Električna energija;Električna energija za februar;;;;izvršeno
+75;09.02.2025;Delta Servis d.o.o.;900000120;72.658,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+76;09.02.2025;Beta Vodovod d.o.o.;900000400;23.906,00;Komunalne usluge;Voda i odvoz smeća za februar;;;;izvršeno
+77;16.02.2025;Beta Servis d.o.o.;900000106;51.364,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+78;01.03.2025;Kristal Hrana d.o.o.;900000323;117.835,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, mart;;;;izvršeno
+79;03.03.2025;Iskra Knjiga d.o.o.;900000274;38.223,00;Nastavna sredstva;Udžbenici za biblioteku;;;;izvršeno
+80;11.03.2025;Beta Vodovod d.o.o.;900000400;29.116,00;Komunalne usluge;Voda i odvoz smeća za mart;;;;izvršeno
+81;15.03.2025;Duga Energija d.o.o.;900000393;52.114,00;Električna energija;Električna energija za mart;;;;izvršeno
+82;28.03.2025;Javor Usluge d.o.o.;900000407;1.448,00;Ostali troškovi;Bankarska provizija;;;;izvršeno
+83;02.04.2025;Lux Kolor d.o.o.;900000050;220.704,00;Krečenje i molerski radovi;Krečenje učionica i hodnika, 430 m2;430,00;m2;;izvršeno
+84;03.04.2025;Nova Print d.o.o.;900000148;8.010,00;Toneri i kertridži;Toner Brother TN-2421, 2 kom;2,00;kom;;izvršeno
+85;12.04.2025;Duga Energija d.o.o.;900000393;32.601,00;Električna energija;Električna energija za april;;;;izvršeno
+86;14.04.2025;Delta Servis d.o.o.;900000120;61.703,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+87;15.04.2025;Beta Vodovod d.o.o.;900000400;22.355,00;Komunalne usluge;Voda i odvoz smeća za april;;;;izvršeno
+88;20.04.2025;Beta Servis d.o.o.;900000106;58.685,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+89;24.04.2025;Maxi Knjiga d.o.o.;900000288;41.864,00;Nastavna sredstva;Muzički instrumenti za kabinet;;;;izvršeno
+90;26.04.2025;Beta Servis d.o.o.;900000106;62.026,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+91;01.05.2025;Pro Servis d.o.o.;900000099;18.917,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+92;04.05.2025;Fokus Usluge d.o.o.;900000414;2.690,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+93;06.05.2025;Beta Servis d.o.o.;900000106;36.543,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+94;07.05.2025;Beta Servis d.o.o.;900000106;67.323,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+95;10.05.2025;Beta Vodovod d.o.o.;900000400;25.511,00;Komunalne usluge;Voda i odvoz smeća za maj;;;;izvršeno
+96;14.05.2025;Duga Energija d.o.o.;900000393;86.033,00;Električna energija;Električna energija za maj;;;;izvršeno
+97;21.05.2025;Orion Servis d.o.o.;900000134;51.822,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+98;01.06.2025;Tera Knjiga d.o.o.;900000267;11.417,00;Nastavna sredstva;Geografske karte;;;;izvršeno
+99;01.06.2025;Kristal Hrana d.o.o.;900000323;148.290,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, jun;;;;izvršeno
+100;04.06.2025;Sunce Print d.o.o.;900000176;57.894,00;Toneri i kertridži;Toner Canon 725, 11 kom;11,00;kom;;izvršeno
+101;07.06.2025;Beta Vodovod d.o.o.;900000400;21.681,00;Komunalne usluge;Voda i odvoz smeća za jun;;;;izvršeno
+102;09.06.2025;Maxi Travel d.o.o.;900000001;1.412.880,00;Ekskurzije i izleti;Ekskurzija Kopaonik, 2 dana, 62 učenika;124,00;učenik-dan;;izvršeno
+103;10.06.2025;Duga Energija d.o.o.;900000393;54.141,00;Električna energija;Električna energija za jun;;;;izvršeno
+104;19.06.2025;Zenit Papir d.o.o.;900000379;28.976,00;Kancelarijski papir;Papir A4 80g, 53 rismi;53,00;risma;;izvršeno
+105;23.06.2025;Mega Hrana d.o.o.;900000316;118.926,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, jun;;;;izvršeno
+106;01.07.2025;Duga Usluge d.o.o.;900000435;4.651,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+107;03.07.2025;Kristal Hrana d.o.o.;900000323;95.611,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, jul;;;;izvršeno
+108;09.07.2025;Beta Vodovod d.o.o.;900000400;23.195,00;Komunalne usluge;Voda i odvoz smeća za jul;;;;izvršeno
+109;11.07.2025;Duga Energija d.o.o.;900000393;26.352,00;Električna energija;Električna energija za jul;;;;izvršeno
+110;15.07.2025;Orion Servis d.o.o.;900000134;51.390,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+111;18.07.2025;Javor Print d.o.o.;900000162;9.448,00;Toneri i kertridži;Toner Samsung MLT-D111S, 2 kom;2,00;kom;;izvršeno
+112;06.08.2025;Beta Vodovod d.o.o.;900000400;22.675,00;Komunalne usluge;Voda i odvoz smeća za avgust;;;;izvršeno
+113;09.08.2025;Duga Energija d.o.o.;900000393;72.204,00;Električna energija;Električna energija za avgust;;;;izvršeno
+114;14.08.2025;Lipa Hrana d.o.o.;900000330;142.983,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, avgust;;;;izvršeno
+115;18.08.2025;Omega Papir d.o.o.;900000365;5.859,00;Kancelarijski papir;Papir A4 80g, 12 rismi;12,00;risma;;izvršeno
+116;31.08.2025;Maxi Travel d.o.o.;900000001;1.036.019,00;Ekskurzije i izleti;Ekskurzija Tara, 2 dana, 47 učenika;94,00;učenik-dan;;izvršeno
+117;07.09.2025;Beta Vodovod d.o.o.;900000400;11.812,00;Komunalne usluge;Voda i odvoz smeća za septembar;;;;izvršeno
+118;12.09.2025;Duga Energija d.o.o.;900000393;47.350,00;Električna energija;Električna energija za septembar;;;;izvršeno
+119;15.09.2025;Most Hrana d.o.o.;900000337;96.579,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, septembar;;;;izvršeno
+120;24.09.2025;Mega Hrana d.o.o.;900000316;114.220,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, septembar;;;;izvršeno
+121;26.09.2025;Kristal Hrana d.o.o.;900000323;55.011,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, septembar;;;;izvršeno
+122;07.10.2025;Beta Vodovod d.o.o.;900000400;21.326,00;Komunalne usluge;Voda i odvoz smeća za oktobar;;;;izvršeno
+123;08.10.2025;Duga Energija d.o.o.;900000393;57.996,00;Električna energija;Električna energija za oktobar;;;;izvršeno
+124;11.10.2025;Euro Knjiga d.o.o.;900000253;52.924,00;Nastavna sredstva;Geografske karte;;;;izvršeno
+125;13.10.2025;Kristal Hrana d.o.o.;900000323;40.945,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, oktobar;;;;izvršeno
+126;02.11.2025;Tera Knjiga d.o.o.;900000267;53.222,00;Nastavna sredstva;Laboratorijski pribor za hemiju;;;;izvršeno
+127;06.11.2025;Beta Vodovod d.o.o.;900000400;25.457,00;Komunalne usluge;Voda i odvoz smeća za novembar;;;;izvršeno
+128;08.11.2025;Zenit Papir d.o.o.;900000379;18.174,00;Kancelarijski papir;Papir A4 80g, 43 rismi;43,00;risma;;izvršeno
+129;14.11.2025;Omega Papir d.o.o.;900000365;21.451,00;Kancelarijski papir;Papir A4 80g, 41 rismi;41,00;risma;;izvršeno
+130;14.11.2025;Duga Energija d.o.o.;900000393;84.090,00;Električna energija;Električna energija za novembar;;;;izvršeno
+131;19.11.2025;Kristal Hrana d.o.o.;900000323;75.380,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, novembar;;;;izvršeno
+132;10.12.2025;Duga Energija d.o.o.;900000393;84.913,00;Električna energija;Električna energija za decembar;;;;izvršeno
+133;12.12.2025;Lipa Hrana d.o.o.;900000330;155.577,00;Namirnice za kuhinju;Namirnice za školsku kuhinju, decembar;;;;izvršeno
+134;12.12.2025;Beta Vodovod d.o.o.;900000400;14.680,00;Komunalne usluge;Voda i odvoz smeća za decembar;;;;izvršeno
+135;20.12.2025;Delta Servis d.o.o.;900000120;52.590,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+136;22.12.2025;Most Print d.o.o.;900000190;23.708,00;Toneri i kertridži;Toner Canon 725, 5 kom;5,00;kom;;izvršeno

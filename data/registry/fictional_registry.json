@@ -1,0 +1,1485 @@
+{
+  "_comment": "Fictional business register. Reached only through the registry lookup tool.",
+  "companies": [
+    {
+      "id": "900000001",
+      "name": "Maxi Travel d.o.o.",
+      "foundedOn": "2008-01-03",
+      "activityCode": "79.12",
+      "activity": "Tour operator activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000001"
+    },
+    {
+      "id": "900000008",
+      "name": "Omega Travel d.o.o.",
+      "foundedOn": "2019-07-09",
+      "activityCode": "79.12",
+      "activity": "Tour operator activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000008"
+    },
+    {
+      "id": "900000015",
+      "name": "Sigma Travel d.o.o.",
+      "foundedOn": "2018-03-06",
+      "activityCode": "79.12",
+      "activity": "Tour operator activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000015"
+    },
+    {
+      "id": "900000022",
+      "name": "Iskra Travel d.o.o.",
+      "foundedOn": "2015-03-26",
+      "activityCode": "79.12",
+      "activity": "Tour operator activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000022"
+    },
+    {
+      "id": "900000029",
+      "name": "Delta Travel d.o.o.",
+      "foundedOn": "2016-03-30",
+      "activityCode": "79.12",
+      "activity": "Tour operator activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000029"
+    },
+    {
+      "id": "900000036",
+      "name": "Atlas Travel d.o.o.",
+      "foundedOn": "2003-09-18",
+      "activityCode": "79.12",
+      "activity": "Tour operator activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000036"
+    },
+    {
+      "id": "900000043",
+      "name": "Alfa Travel d.o.o.",
+      "foundedOn": "2005-02-06",
+      "activityCode": "79.12",
+      "activity": "Tour operator activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000043"
+    },
+    {
+      "id": "900000050",
+      "name": "Lux Kolor d.o.o.",
+      "foundedOn": "2005-04-17",
+      "activityCode": "43.34",
+      "activity": "Painting and glazing",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000050"
+    },
+    {
+      "id": "900000057",
+      "name": "Delta Kolor d.o.o.",
+      "foundedOn": "2011-07-10",
+      "activityCode": "43.34",
+      "activity": "Painting and glazing",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000057"
+    },
+    {
+      "id": "900000064",
+      "name": "Sigma Kolor d.o.o.",
+      "foundedOn": "2011-01-19",
+      "activityCode": "43.34",
+      "activity": "Painting and glazing",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000064"
+    },
+    {
+      "id": "900000071",
+      "name": "Most Kolor d.o.o.",
+      "foundedOn": "2010-09-18",
+      "activityCode": "43.34",
+      "activity": "Painting and glazing",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000071"
+    },
+    {
+      "id": "900000078",
+      "name": "Fokus Kolor d.o.o.",
+      "foundedOn": "2008-12-06",
+      "activityCode": "43.34",
+      "activity": "Painting and glazing",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000078"
+    },
+    {
+      "id": "900000085",
+      "name": "Duga Kolor d.o.o.",
+      "foundedOn": "2003-12-22",
+      "activityCode": "43.34",
+      "activity": "Painting and glazing",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000085"
+    },
+    {
+      "id": "900000092",
+      "name": "Iskra Kolor d.o.o.",
+      "foundedOn": "2013-04-21",
+      "activityCode": "43.34",
+      "activity": "Painting and glazing",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000092"
+    },
+    {
+      "id": "900000099",
+      "name": "Pro Servis d.o.o.",
+      "foundedOn": "2004-07-23",
+      "activityCode": "43.29",
+      "activity": "Other construction installation and maintenance",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000099"
+    },
+    {
+      "id": "900000106",
+      "name": "Beta Servis d.o.o.",
+      "foundedOn": "2017-10-31",
+      "activityCode": "43.29",
+      "activity": "Other construction installation and maintenance",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000106"
+    },
+    {
+      "id": "900000113",
+      "name": "Maxi Servis d.o.o.",
+      "foundedOn": "2009-06-28",
+      "activityCode": "43.29",
+      "activity": "Other construction installation and maintenance",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000113"
+    },
+    {
+      "id": "900000120",
+      "name": "Delta Servis d.o.o.",
+      "foundedOn": "2008-03-22",
+      "activityCode": "43.29",
+      "activity": "Other construction installation and maintenance",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000120"
+    },
+    {
+      "id": "900000127",
+      "name": "Most Servis d.o.o.",
+      "foundedOn": "2005-04-07",
+      "activityCode": "43.29",
+      "activity": "Other construction installation and maintenance",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000127"
+    },
+    {
+      "id": "900000134",
+      "name": "Orion Servis d.o.o.",
+      "foundedOn": "2009-03-27",
+      "activityCode": "43.29",
+      "activity": "Other construction installation and maintenance",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000134"
+    },
+    {
+      "id": "900000141",
+      "name": "Zenit Servis d.o.o.",
+      "foundedOn": "2017-04-04",
+      "activityCode": "43.29",
+      "activity": "Other construction installation and maintenance",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000141"
+    },
+    {
+      "id": "900000148",
+      "name": "Nova Print d.o.o.",
+      "foundedOn": "2013-03-05",
+      "activityCode": "46.66",
+      "activity": "Wholesale of other office machinery and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000148"
+    },
+    {
+      "id": "900000155",
+      "name": "Alfa Print d.o.o.",
+      "foundedOn": "2019-03-13",
+      "activityCode": "46.66",
+      "activity": "Wholesale of other office machinery and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000155"
+    },
+    {
+      "id": "900000162",
+      "name": "Javor Print d.o.o.",
+      "foundedOn": "2019-02-21",
+      "activityCode": "46.66",
+      "activity": "Wholesale of other office machinery and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000162"
+    },
+    {
+      "id": "900000169",
+      "name": "Euro Print d.o.o.",
+      "foundedOn": "2014-03-24",
+      "activityCode": "46.66",
+      "activity": "Wholesale of other office machinery and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000169"
+    },
+    {
+      "id": "900000176",
+      "name": "Sunce Print d.o.o.",
+      "foundedOn": "2007-01-03",
+      "activityCode": "46.66",
+      "activity": "Wholesale of other office machinery and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000176"
+    },
+    {
+      "id": "900000183",
+      "name": "Polar Print d.o.o.",
+      "foundedOn": "2005-05-21",
+      "activityCode": "46.66",
+      "activity": "Wholesale of other office machinery and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000183"
+    },
+    {
+      "id": "900000190",
+      "name": "Most Print d.o.o.",
+      "foundedOn": "2017-01-09",
+      "activityCode": "46.66",
+      "activity": "Wholesale of other office machinery and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000190"
+    },
+    {
+      "id": "900000197",
+      "name": "Lipa Tech d.o.o.",
+      "foundedOn": "2015-02-04",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000197"
+    },
+    {
+      "id": "900000204",
+      "name": "Sunce Tech d.o.o.",
+      "foundedOn": "2019-05-16",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000204"
+    },
+    {
+      "id": "900000211",
+      "name": "Pro Tech d.o.o.",
+      "foundedOn": "2007-07-06",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000211"
+    },
+    {
+      "id": "900000218",
+      "name": "Vita Tech d.o.o.",
+      "foundedOn": "2011-12-13",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000218"
+    },
+    {
+      "id": "900000225",
+      "name": "Tim Tech d.o.o.",
+      "foundedOn": "2017-07-29",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000225"
+    },
+    {
+      "id": "900000232",
+      "name": "Grand Tech d.o.o.",
+      "foundedOn": "2012-10-28",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000232"
+    },
+    {
+      "id": "900000239",
+      "name": "Javor Tech d.o.o.",
+      "foundedOn": "2014-08-10",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000239"
+    },
+    {
+      "id": "900000246",
+      "name": "Polar Knjiga d.o.o.",
+      "foundedOn": "2008-05-03",
+      "activityCode": "47.61",
+      "activity": "Retail sale of books and teaching aids",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000246"
+    },
+    {
+      "id": "900000253",
+      "name": "Euro Knjiga d.o.o.",
+      "foundedOn": "2018-01-02",
+      "activityCode": "47.61",
+      "activity": "Retail sale of books and teaching aids",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000253"
+    },
+    {
+      "id": "900000260",
+      "name": "Kvant Knjiga d.o.o.",
+      "foundedOn": "2007-10-22",
+      "activityCode": "47.61",
+      "activity": "Retail sale of books and teaching aids",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000260"
+    },
+    {
+      "id": "900000267",
+      "name": "Tera Knjiga d.o.o.",
+      "foundedOn": "2005-12-19",
+      "activityCode": "47.61",
+      "activity": "Retail sale of books and teaching aids",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000267"
+    },
+    {
+      "id": "900000274",
+      "name": "Iskra Knjiga d.o.o.",
+      "foundedOn": "2015-10-22",
+      "activityCode": "47.61",
+      "activity": "Retail sale of books and teaching aids",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000274"
+    },
+    {
+      "id": "900000281",
+      "name": "Neo Knjiga d.o.o.",
+      "foundedOn": "2013-08-08",
+      "activityCode": "47.61",
+      "activity": "Retail sale of books and teaching aids",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000281"
+    },
+    {
+      "id": "900000288",
+      "name": "Maxi Knjiga d.o.o.",
+      "foundedOn": "2013-08-10",
+      "activityCode": "47.61",
+      "activity": "Retail sale of books and teaching aids",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000288"
+    },
+    {
+      "id": "900000295",
+      "name": "Delta Hrana d.o.o.",
+      "foundedOn": "2012-12-09",
+      "activityCode": "46.39",
+      "activity": "Non-specialised wholesale of food",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000295"
+    },
+    {
+      "id": "900000302",
+      "name": "Duga Hrana d.o.o.",
+      "foundedOn": "2015-05-06",
+      "activityCode": "46.39",
+      "activity": "Non-specialised wholesale of food",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000302"
+    },
+    {
+      "id": "900000309",
+      "name": "Sigma Hrana d.o.o.",
+      "foundedOn": "2004-02-19",
+      "activityCode": "46.39",
+      "activity": "Non-specialised wholesale of food",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000309"
+    },
+    {
+      "id": "900000316",
+      "name": "Mega Hrana d.o.o.",
+      "foundedOn": "2015-02-15",
+      "activityCode": "46.39",
+      "activity": "Non-specialised wholesale of food",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000316"
+    },
+    {
+      "id": "900000323",
+      "name": "Kristal Hrana d.o.o.",
+      "foundedOn": "2003-05-01",
+      "activityCode": "46.39",
+      "activity": "Non-specialised wholesale of food",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000323"
+    },
+    {
+      "id": "900000330",
+      "name": "Lipa Hrana d.o.o.",
+      "foundedOn": "2019-11-26",
+      "activityCode": "46.39",
+      "activity": "Non-specialised wholesale of food",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000330"
+    },
+    {
+      "id": "900000337",
+      "name": "Most Hrana d.o.o.",
+      "foundedOn": "2008-04-20",
+      "activityCode": "46.39",
+      "activity": "Non-specialised wholesale of food",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000337"
+    },
+    {
+      "id": "900000344",
+      "name": "Tim Papir d.o.o.",
+      "foundedOn": "2019-01-24",
+      "activityCode": "46.49",
+      "activity": "Wholesale of other household goods (stationery)",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000344"
+    },
+    {
+      "id": "900000351",
+      "name": "Lux Papir d.o.o.",
+      "foundedOn": "2008-05-09",
+      "activityCode": "46.49",
+      "activity": "Wholesale of other household goods (stationery)",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000351"
+    },
+    {
+      "id": "900000358",
+      "name": "Euro Papir d.o.o.",
+      "foundedOn": "2011-11-17",
+      "activityCode": "46.49",
+      "activity": "Wholesale of other household goods (stationery)",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000358"
+    },
+    {
+      "id": "900000365",
+      "name": "Omega Papir d.o.o.",
+      "foundedOn": "2018-01-24",
+      "activityCode": "46.49",
+      "activity": "Wholesale of other household goods (stationery)",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000365"
+    },
+    {
+      "id": "900000372",
+      "name": "Mega Papir d.o.o.",
+      "foundedOn": "2009-09-23",
+      "activityCode": "46.49",
+      "activity": "Wholesale of other household goods (stationery)",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000372"
+    },
+    {
+      "id": "900000379",
+      "name": "Zenit Papir d.o.o.",
+      "foundedOn": "2010-02-03",
+      "activityCode": "46.49",
+      "activity": "Wholesale of other household goods (stationery)",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000379"
+    },
+    {
+      "id": "900000386",
+      "name": "Lipa Papir d.o.o.",
+      "foundedOn": "2019-11-12",
+      "activityCode": "46.49",
+      "activity": "Wholesale of other household goods (stationery)",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000386"
+    },
+    {
+      "id": "900000393",
+      "name": "Duga Energija d.o.o.",
+      "foundedOn": "2017-09-01",
+      "activityCode": "35.13",
+      "activity": "Distribution of electricity",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000393"
+    },
+    {
+      "id": "900000400",
+      "name": "Beta Vodovod d.o.o.",
+      "foundedOn": "2003-01-30",
+      "activityCode": "36.00",
+      "activity": "Water collection, treatment and supply",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000400"
+    },
+    {
+      "id": "900000407",
+      "name": "Javor Usluge d.o.o.",
+      "foundedOn": "2012-02-12",
+      "activityCode": "82.99",
+      "activity": "Other business support service activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000407"
+    },
+    {
+      "id": "900000414",
+      "name": "Fokus Usluge d.o.o.",
+      "foundedOn": "2019-10-23",
+      "activityCode": "82.99",
+      "activity": "Other business support service activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000414"
+    },
+    {
+      "id": "900000421",
+      "name": "Omega Usluge d.o.o.",
+      "foundedOn": "2008-04-23",
+      "activityCode": "82.99",
+      "activity": "Other business support service activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000421"
+    },
+    {
+      "id": "900000428",
+      "name": "Most Usluge d.o.o.",
+      "foundedOn": "2006-08-24",
+      "activityCode": "82.99",
+      "activity": "Other business support service activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000428"
+    },
+    {
+      "id": "900000435",
+      "name": "Duga Usluge d.o.o.",
+      "foundedOn": "2006-12-21",
+      "activityCode": "82.99",
+      "activity": "Other business support service activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000435"
+    },
+    {
+      "id": "900000442",
+      "name": "Atlas Usluge d.o.o.",
+      "foundedOn": "2003-07-23",
+      "activityCode": "82.99",
+      "activity": "Other business support service activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000442"
+    },
+    {
+      "id": "900000449",
+      "name": "Nova Usluge d.o.o.",
+      "foundedOn": "2019-07-09",
+      "activityCode": "82.99",
+      "activity": "Other business support service activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000449"
+    },
+    {
+      "id": "900000456",
+      "name": "Mega Med d.o.o.",
+      "foundedOn": "2018-11-06",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000456"
+    },
+    {
+      "id": "900000463",
+      "name": "Tim Med d.o.o.",
+      "foundedOn": "2003-08-20",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000463"
+    },
+    {
+      "id": "900000470",
+      "name": "Pro Med d.o.o.",
+      "foundedOn": "2017-12-06",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000470"
+    },
+    {
+      "id": "900000477",
+      "name": "Omega Med d.o.o.",
+      "foundedOn": "2008-11-10",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000477"
+    },
+    {
+      "id": "900000484",
+      "name": "Fokus Med d.o.o.",
+      "foundedOn": "2013-03-20",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000484"
+    },
+    {
+      "id": "900000491",
+      "name": "Euro Med d.o.o.",
+      "foundedOn": "2008-07-19",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000491"
+    },
+    {
+      "id": "900000498",
+      "name": "Neo Med d.o.o.",
+      "foundedOn": "2017-11-11",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000498"
+    },
+    {
+      "id": "900000505",
+      "name": "Pro Medika d.o.o.",
+      "foundedOn": "2009-11-28",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000505"
+    },
+    {
+      "id": "900000512",
+      "name": "Alfa Medika d.o.o.",
+      "foundedOn": "2006-10-11",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000512"
+    },
+    {
+      "id": "900000519",
+      "name": "Kristal Medika d.o.o.",
+      "foundedOn": "2014-01-11",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000519"
+    },
+    {
+      "id": "900000526",
+      "name": "Sigma Medika d.o.o.",
+      "foundedOn": "2004-07-26",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000526"
+    },
+    {
+      "id": "900000533",
+      "name": "Sunce Medika d.o.o.",
+      "foundedOn": "2018-08-14",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000533"
+    },
+    {
+      "id": "900000540",
+      "name": "Atlas Medika d.o.o.",
+      "foundedOn": "2014-10-10",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000540"
+    },
+    {
+      "id": "900000547",
+      "name": "Mega Medika d.o.o.",
+      "foundedOn": "2009-06-20",
+      "activityCode": "46.46",
+      "activity": "Wholesale of pharmaceutical and medical goods",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000547"
+    },
+    {
+      "id": "900000554",
+      "name": "Tera Petrol d.o.o.",
+      "foundedOn": "2013-05-01",
+      "activityCode": "47.30",
+      "activity": "Retail sale of automotive fuel",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000554"
+    },
+    {
+      "id": "900000561",
+      "name": "Lux Petrol d.o.o.",
+      "foundedOn": "2006-03-31",
+      "activityCode": "47.30",
+      "activity": "Retail sale of automotive fuel",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000561"
+    },
+    {
+      "id": "900000568",
+      "name": "Kristal Petrol d.o.o.",
+      "foundedOn": "2009-08-28",
+      "activityCode": "47.30",
+      "activity": "Retail sale of automotive fuel",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000568"
+    },
+    {
+      "id": "900000575",
+      "name": "Maxi Petrol d.o.o.",
+      "foundedOn": "2014-03-18",
+      "activityCode": "47.30",
+      "activity": "Retail sale of automotive fuel",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000575"
+    },
+    {
+      "id": "900000582",
+      "name": "Tim Petrol d.o.o.",
+      "foundedOn": "2013-03-22",
+      "activityCode": "47.30",
+      "activity": "Retail sale of automotive fuel",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000582"
+    },
+    {
+      "id": "900000589",
+      "name": "Omega Petrol d.o.o.",
+      "foundedOn": "2016-06-28",
+      "activityCode": "47.30",
+      "activity": "Retail sale of automotive fuel",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000589"
+    },
+    {
+      "id": "900000596",
+      "name": "Vita Petrol d.o.o.",
+      "foundedOn": "2006-04-09",
+      "activityCode": "47.30",
+      "activity": "Retail sale of automotive fuel",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000596"
+    },
+    {
+      "id": "900000603",
+      "name": "Grand Higijena d.o.o.",
+      "foundedOn": "2019-04-14",
+      "activityCode": "81.21",
+      "activity": "General cleaning of buildings",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000603"
+    },
+    {
+      "id": "900000610",
+      "name": "Most Higijena d.o.o.",
+      "foundedOn": "2015-11-29",
+      "activityCode": "81.21",
+      "activity": "General cleaning of buildings",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000610"
+    },
+    {
+      "id": "900000617",
+      "name": "Sigma Higijena d.o.o.",
+      "foundedOn": "2018-03-19",
+      "activityCode": "81.21",
+      "activity": "General cleaning of buildings",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000617"
+    },
+    {
+      "id": "900000624",
+      "name": "Duga Higijena d.o.o.",
+      "foundedOn": "2006-04-24",
+      "activityCode": "81.21",
+      "activity": "General cleaning of buildings",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000624"
+    },
+    {
+      "id": "900000631",
+      "name": "Orion Higijena d.o.o.",
+      "foundedOn": "2012-07-30",
+      "activityCode": "81.21",
+      "activity": "General cleaning of buildings",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000631"
+    },
+    {
+      "id": "900000638",
+      "name": "Tim Higijena d.o.o.",
+      "foundedOn": "2006-10-10",
+      "activityCode": "81.21",
+      "activity": "General cleaning of buildings",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000638"
+    },
+    {
+      "id": "900000645",
+      "name": "Lipa Higijena d.o.o.",
+      "foundedOn": "2004-04-06",
+      "activityCode": "81.21",
+      "activity": "General cleaning of buildings",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000645"
+    },
+    {
+      "id": "900000652",
+      "name": "Atlas Komp d.o.o.",
+      "foundedOn": "2014-11-20",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000652"
+    },
+    {
+      "id": "900000659",
+      "name": "Beta Komp d.o.o.",
+      "foundedOn": "2012-02-05",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000659"
+    },
+    {
+      "id": "900000666",
+      "name": "Most Komp d.o.o.",
+      "foundedOn": "2009-02-14",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000666"
+    },
+    {
+      "id": "900000673",
+      "name": "Tera Komp d.o.o.",
+      "foundedOn": "2012-10-06",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000673"
+    },
+    {
+      "id": "900000680",
+      "name": "Iskra Komp d.o.o.",
+      "foundedOn": "2012-08-17",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000680"
+    },
+    {
+      "id": "900000687",
+      "name": "Zenit Komp d.o.o.",
+      "foundedOn": "2007-05-07",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000687"
+    },
+    {
+      "id": "900000694",
+      "name": "Neo Komp d.o.o.",
+      "foundedOn": "2015-04-16",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000694"
+    },
+    {
+      "id": "900000701",
+      "name": "Duga Gradnja d.o.o.",
+      "foundedOn": "2008-02-10",
+      "activityCode": "42.11",
+      "activity": "Construction of roads and motorways",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000701"
+    },
+    {
+      "id": "900000708",
+      "name": "Orion Gradnja d.o.o.",
+      "foundedOn": "2017-02-22",
+      "activityCode": "42.11",
+      "activity": "Construction of roads and motorways",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000708"
+    },
+    {
+      "id": "900000715",
+      "name": "Most Gradnja d.o.o.",
+      "foundedOn": "2009-09-06",
+      "activityCode": "42.11",
+      "activity": "Construction of roads and motorways",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000715"
+    },
+    {
+      "id": "900000722",
+      "name": "Lipa Gradnja d.o.o.",
+      "foundedOn": "2006-02-03",
+      "activityCode": "42.11",
+      "activity": "Construction of roads and motorways",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000722"
+    },
+    {
+      "id": "900000729",
+      "name": "Tera Gradnja d.o.o.",
+      "foundedOn": "2004-01-24",
+      "activityCode": "42.11",
+      "activity": "Construction of roads and motorways",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000729"
+    },
+    {
+      "id": "900000736",
+      "name": "Lux Gradnja d.o.o.",
+      "foundedOn": "2010-06-29",
+      "activityCode": "42.11",
+      "activity": "Construction of roads and motorways",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000736"
+    },
+    {
+      "id": "900000743",
+      "name": "Beta Gradnja d.o.o.",
+      "foundedOn": "2012-12-28",
+      "activityCode": "42.11",
+      "activity": "Construction of roads and motorways",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000743"
+    },
+    {
+      "id": "900000750",
+      "name": "Alfa Konsalting d.o.o.",
+      "foundedOn": "2017-12-09",
+      "activityCode": "70.22",
+      "activity": "Business and other management consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000750"
+    },
+    {
+      "id": "900000757",
+      "name": "Fokus Konsalting d.o.o.",
+      "foundedOn": "2005-04-13",
+      "activityCode": "70.22",
+      "activity": "Business and other management consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000757"
+    },
+    {
+      "id": "900000764",
+      "name": "Javor Konsalting d.o.o.",
+      "foundedOn": "2008-03-28",
+      "activityCode": "70.22",
+      "activity": "Business and other management consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000764"
+    },
+    {
+      "id": "900000771",
+      "name": "Sigma Konsalting d.o.o.",
+      "foundedOn": "2004-11-13",
+      "activityCode": "70.22",
+      "activity": "Business and other management consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000771"
+    },
+    {
+      "id": "900000778",
+      "name": "Zenit Konsalting d.o.o.",
+      "foundedOn": "2014-05-20",
+      "activityCode": "70.22",
+      "activity": "Business and other management consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000778"
+    },
+    {
+      "id": "900000785",
+      "name": "Orion Konsalting d.o.o.",
+      "foundedOn": "2005-02-15",
+      "activityCode": "70.22",
+      "activity": "Business and other management consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000785"
+    },
+    {
+      "id": "900000792",
+      "name": "Tim Konsalting d.o.o.",
+      "foundedOn": "2003-06-06",
+      "activityCode": "70.22",
+      "activity": "Business and other management consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000792"
+    },
+    {
+      "id": "900000799",
+      "name": "Fokus Event d.o.o.",
+      "foundedOn": "2006-02-11",
+      "activityCode": "82.30",
+      "activity": "Organisation of conventions and trade shows",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000799"
+    },
+    {
+      "id": "900000806",
+      "name": "Kristal Event d.o.o.",
+      "foundedOn": "2005-12-09",
+      "activityCode": "82.30",
+      "activity": "Organisation of conventions and trade shows",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000806"
+    },
+    {
+      "id": "900000813",
+      "name": "Alfa Event d.o.o.",
+      "foundedOn": "2009-10-10",
+      "activityCode": "82.30",
+      "activity": "Organisation of conventions and trade shows",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000813"
+    },
+    {
+      "id": "900000820",
+      "name": "Delta Event d.o.o.",
+      "foundedOn": "2012-02-19",
+      "activityCode": "82.30",
+      "activity": "Organisation of conventions and trade shows",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000820"
+    },
+    {
+      "id": "900000827",
+      "name": "Zenit Event d.o.o.",
+      "foundedOn": "2015-02-23",
+      "activityCode": "82.30",
+      "activity": "Organisation of conventions and trade shows",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000827"
+    },
+    {
+      "id": "900000834",
+      "name": "Lipa Event d.o.o.",
+      "foundedOn": "2006-12-19",
+      "activityCode": "82.30",
+      "activity": "Organisation of conventions and trade shows",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000834"
+    },
+    {
+      "id": "900000841",
+      "name": "Javor Event d.o.o.",
+      "foundedOn": "2005-09-03",
+      "activityCode": "82.30",
+      "activity": "Organisation of conventions and trade shows",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000841"
+    },
+    {
+      "id": "900000848",
+      "name": "Pro Oprema d.o.o.",
+      "foundedOn": "2019-02-07",
+      "activityCode": "46.65",
+      "activity": "Wholesale of office furniture and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000848"
+    },
+    {
+      "id": "900000855",
+      "name": "Tim Oprema d.o.o.",
+      "foundedOn": "2009-04-19",
+      "activityCode": "46.65",
+      "activity": "Wholesale of office furniture and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000855"
+    },
+    {
+      "id": "900000862",
+      "name": "Kvant Oprema d.o.o.",
+      "foundedOn": "2004-06-08",
+      "activityCode": "46.65",
+      "activity": "Wholesale of office furniture and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000862"
+    },
+    {
+      "id": "900000869",
+      "name": "Polar Oprema d.o.o.",
+      "foundedOn": "2019-08-06",
+      "activityCode": "46.65",
+      "activity": "Wholesale of office furniture and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000869"
+    },
+    {
+      "id": "900000876",
+      "name": "Grand Oprema d.o.o.",
+      "foundedOn": "2010-12-09",
+      "activityCode": "46.65",
+      "activity": "Wholesale of office furniture and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000876"
+    },
+    {
+      "id": "900000883",
+      "name": "Fokus Oprema d.o.o.",
+      "foundedOn": "2009-12-07",
+      "activityCode": "46.65",
+      "activity": "Wholesale of office furniture and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000883"
+    },
+    {
+      "id": "900000890",
+      "name": "Alfa Oprema d.o.o.",
+      "foundedOn": "2019-04-23",
+      "activityCode": "46.65",
+      "activity": "Wholesale of office furniture and equipment",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000890"
+    },
+    {
+      "id": "900000897",
+      "name": "Servis Plus d.o.o.",
+      "foundedOn": "2017-03-26",
+      "activityCode": "43.29",
+      "activity": "Other construction installation and maintenance",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000897"
+    },
+    {
+      "id": "900000904",
+      "name": "Gurman Plus d.o.o.",
+      "foundedOn": "2015-07-13",
+      "activityCode": "56.10",
+      "activity": "Restaurants and mobile food service activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000904"
+    },
+    {
+      "id": "900000911",
+      "name": "Nova Linija Konsalting d.o.o.",
+      "foundedOn": "2025-03-02",
+      "activityCode": "70.22",
+      "activity": "Business and other management consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000911"
+    },
+    {
+      "id": "900000918",
+      "name": "Poslovni Centar Lipa d.o.o.",
+      "foundedOn": "2013-03-04",
+      "activityCode": "68.20",
+      "activity": "Renting and operating of own or leased real estate",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000918"
+    },
+    {
+      "id": "900000925",
+      "name": "Alfa Tech d.o.o.",
+      "foundedOn": "2019-05-14",
+      "activityCode": "46.51",
+      "activity": "Wholesale of computers, computer peripheral equipment and software",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000925"
+    },
+    {
+      "id": "900000932",
+      "name": "Put Gradnja Kolovoz d.o.o.",
+      "foundedOn": "2013-03-26",
+      "activityCode": "42.11",
+      "activity": "Construction of roads and motorways",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000932"
+    },
+    {
+      "id": "900000939",
+      "name": "Prima Elektro d.o.o.",
+      "foundedOn": "2018-05-08",
+      "activityCode": "43.21",
+      "activity": "Electrical installation",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000939"
+    },
+    {
+      "id": "900000946",
+      "name": "Sunce Elektro d.o.o.",
+      "foundedOn": "2008-06-04",
+      "activityCode": "43.21",
+      "activity": "Electrical installation",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000946"
+    },
+    {
+      "id": "900000953",
+      "name": "Beta Elektro d.o.o.",
+      "foundedOn": "2006-03-18",
+      "activityCode": "43.21",
+      "activity": "Electrical installation",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000953"
+    },
+    {
+      "id": "900000960",
+      "name": "Fokus Elektro d.o.o.",
+      "foundedOn": "2016-03-21",
+      "activityCode": "43.21",
+      "activity": "Electrical installation",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000960"
+    },
+    {
+      "id": "900000967",
+      "name": "Lipa Elektro d.o.o.",
+      "foundedOn": "2008-02-26",
+      "activityCode": "43.21",
+      "activity": "Electrical installation",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000967"
+    },
+    {
+      "id": "900000974",
+      "name": "Euro Elektro d.o.o.",
+      "foundedOn": "2009-04-12",
+      "activityCode": "43.21",
+      "activity": "Electrical installation",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000974"
+    },
+    {
+      "id": "900000981",
+      "name": "Orion Elektro d.o.o.",
+      "foundedOn": "2003-07-04",
+      "activityCode": "43.21",
+      "activity": "Electrical installation",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000981"
+    },
+    {
+      "id": "900000988",
+      "name": "Omega Soft d.o.o.",
+      "foundedOn": "2010-10-04",
+      "activityCode": "62.02",
+      "activity": "Computer consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000988"
+    },
+    {
+      "id": "900000995",
+      "name": "Fokus Soft d.o.o.",
+      "foundedOn": "2004-10-15",
+      "activityCode": "62.02",
+      "activity": "Computer consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900000995"
+    },
+    {
+      "id": "900001002",
+      "name": "Polar Soft d.o.o.",
+      "foundedOn": "2015-03-27",
+      "activityCode": "62.02",
+      "activity": "Computer consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900001002"
+    },
+    {
+      "id": "900001009",
+      "name": "Maxi Soft d.o.o.",
+      "foundedOn": "2018-07-18",
+      "activityCode": "62.02",
+      "activity": "Computer consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900001009"
+    },
+    {
+      "id": "900001016",
+      "name": "Delta Soft d.o.o.",
+      "foundedOn": "2006-12-27",
+      "activityCode": "62.02",
+      "activity": "Computer consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900001016"
+    },
+    {
+      "id": "900001023",
+      "name": "Vita Soft d.o.o.",
+      "foundedOn": "2017-08-25",
+      "activityCode": "62.02",
+      "activity": "Computer consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900001023"
+    },
+    {
+      "id": "900001030",
+      "name": "Neo Soft d.o.o.",
+      "foundedOn": "2013-07-15",
+      "activityCode": "62.02",
+      "activity": "Computer consultancy activities",
+      "city": "Fiktivgrad",
+      "status": "active",
+      "sourceUrl": "registry://fictional-business-register/900001030"
+    }
+  ]
+}

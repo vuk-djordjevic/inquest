@@ -1,0 +1,195 @@
+rb;datum;naziv_primaoca;pib_primaoca;iznos;vrsta_troska;opis;kolicina;jedinica_mere;objekat;status
+1;07.01.2024;Duga Energija d.o.o.;900000393;158.009,00;Električna energija;Električna energija za januar;;;;izvršeno
+2;10.01.2024;Duga Higijena d.o.o.;900000624;119.261,00;Usluge čišćenja;Čišćenje prostorija za januar;;;;izvršeno
+3;10.01.2024;Beta Vodovod d.o.o.;900000400;44.393,00;Komunalne usluge;Voda i odvoz smeća za januar;;;;izvršeno
+4;14.01.2024;Nova Usluge d.o.o.;900000449;22.201,00;Ostali troškovi;Overa dokumenata kod notara;;;;izvršeno
+5;26.01.2024;Tim Med d.o.o.;900000463;135.773,00;Medicinske rukavice;Nitrilne rukavice M, 171 kutija x100;171,00;kutija;;izvršeno
+6;29.01.2024;Kristal Medika d.o.o.;900000519;234.996,00;Medicinski potrošni materijal;Test trake za glukozu;;;;izvršeno
+7;31.01.2024;Polar Print d.o.o.;900000183;36.849,00;Toneri i kertridži;Toner Samsung MLT-D111S, 9 kom;9,00;kom;;izvršeno
+8;04.02.2024;Most Servis d.o.o.;900000127;46.036,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+9;05.02.2024;Duga Energija d.o.o.;900000393;180.553,00;Električna energija;Električna energija za februar;;;;izvršeno
+10;06.02.2024;Fokus Med d.o.o.;900000484;153.305,00;Medicinske rukavice;Nitrilne rukavice M, 172 kutija x100;172,00;kutija;;izvršeno
+11;07.02.2024;Beta Vodovod d.o.o.;900000400;42.772,00;Komunalne usluge;Voda i odvoz smeća za februar;;;;izvršeno
+12;11.02.2024;Pro Med d.o.o.;900000470;29.455,00;Medicinske rukavice;Nitrilne rukavice M, 33 kutija x100;33,00;kutija;;izvršeno
+13;24.02.2024;Pro Servis d.o.o.;900000099;178.767,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+14;25.02.2024;Most Usluge d.o.o.;900000428;24.741,00;Ostali troškovi;Bankarska provizija;;;;izvršeno
+15;06.03.2024;Mega Medika d.o.o.;900000547;42.505,00;Medicinski potrošni materijal;Šprici i igle;;;;izvršeno
+16;10.03.2024;Duga Energija d.o.o.;900000393;219.699,00;Električna energija;Električna energija za mart;;;;izvršeno
+17;12.03.2024;Beta Vodovod d.o.o.;900000400;47.375,00;Komunalne usluge;Voda i odvoz smeća za mart;;;;izvršeno
+18;23.03.2024;Kristal Petrol d.o.o.;900000568;49.615,00;Gorivo;Gorivo eurodizel, 265 l;265,00;litar;;izvršeno
+19;24.03.2024;Nova Usluge d.o.o.;900000449;1.165,00;Ostali troškovi;Bankarska provizija;;;;izvršeno
+20;26.03.2024;Tim Petrol d.o.o.;900000582;59.924,00;Gorivo;Gorivo eurodizel, 332 l;332,00;litar;;izvršeno
+21;30.03.2024;Duga Higijena d.o.o.;900000624;110.274,00;Usluge čišćenja;Čišćenje prostorija za mart;;;;izvršeno
+22;02.04.2024;Pro Servis d.o.o.;900000099;91.319,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+23;02.04.2024;Maxi Petrol d.o.o.;900000575;152.568,00;Gorivo;Gorivo eurodizel, 785 l;785,00;litar;;izvršeno
+24;03.04.2024;Javor Print d.o.o.;900000162;58.451,00;Toneri i kertridži;Toner Brother TN-2421, 13 kom;13,00;kom;;izvršeno
+25;10.04.2024;Beta Vodovod d.o.o.;900000400;20.909,00;Komunalne usluge;Voda i odvoz smeća za april;;;;izvršeno
+26;11.04.2024;Lipa Papir d.o.o.;900000386;63.093,00;Kancelarijski papir;Papir A4 80g, 118 rismi;118,00;risma;;izvršeno
+27;12.04.2024;Duga Higijena d.o.o.;900000624;133.139,00;Usluge čišćenja;Čišćenje prostorija za april;;;;izvršeno
+28;13.04.2024;Most Servis d.o.o.;900000127;191.065,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+29;15.04.2024;Duga Energija d.o.o.;900000393;119.286,00;Električna energija;Električna energija za april;;;;izvršeno
+30;25.04.2024;Sigma Higijena d.o.o.;900000617;126.795,00;Usluge čišćenja;Čišćenje prostorija za april;;;;izvršeno
+31;27.04.2024;Orion Servis d.o.o.;900000134;187.808,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+32;03.05.2024;Mega Medika d.o.o.;900000547;207.565,00;Medicinski potrošni materijal;Urinarni kateteri;;;;izvršeno
+33;06.05.2024;Maxi Petrol d.o.o.;900000575;83.873,00;Gorivo;Gorivo eurodizel, 479 l;479,00;litar;;izvršeno
+34;06.05.2024;Duga Energija d.o.o.;900000393;155.170,00;Električna energija;Električna energija za maj;;;;izvršeno
+35;07.05.2024;Duga Higijena d.o.o.;900000624;127.940,00;Usluge čišćenja;Čišćenje prostorija za maj;;;;izvršeno
+36;11.05.2024;Tim Med d.o.o.;900000463;88.455,00;Medicinske rukavice;Nitrilne rukavice M, 122 kutija x100;122,00;kutija;;izvršeno
+37;11.05.2024;Sigma Medika d.o.o.;900000526;57.387,00;Medicinski potrošni materijal;Test trake za glukozu;;;;izvršeno
+38;12.05.2024;Maxi Petrol d.o.o.;900000575;65.405,00;Gorivo;Gorivo eurodizel, 355 l;355,00;litar;;izvršeno
+39;14.05.2024;Beta Vodovod d.o.o.;900000400;55.340,00;Komunalne usluge;Voda i odvoz smeća za maj;;;;izvršeno
+40;17.05.2024;Sigma Medika d.o.o.;900000526;190.959,00;Medicinski potrošni materijal;Dezinfekciona sredstva;;;;izvršeno
+41;21.05.2024;Mega Med d.o.o.;900000456;110.750,00;Medicinske rukavice;Nitrilne rukavice M, 159 kutija x100;159,00;kutija;;izvršeno
+42;09.06.2024;Fokus Med d.o.o.;900000484;97.389,00;Medicinske rukavice;Nitrilne rukavice M, 122 kutija x100;122,00;kutija;;izvršeno
+43;09.06.2024;Most Servis d.o.o.;900000127;102.446,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+44;12.06.2024;Zenit Papir d.o.o.;900000379;49.545,00;Kancelarijski papir;Papir A4 80g, 96 rismi;96,00;risma;;izvršeno
+45;13.06.2024;Tim Med d.o.o.;900000463;58.478,00;Medicinske rukavice;Nitrilne rukavice M, 82 kutija x100;82,00;kutija;;izvršeno
+46;15.06.2024;Duga Energija d.o.o.;900000393;161.077,00;Električna energija;Električna energija za jun;;;;izvršeno
+47;15.06.2024;Beta Vodovod d.o.o.;900000400;35.574,00;Komunalne usluge;Voda i odvoz smeća za jun;;;;izvršeno
+48;22.06.2024;Mega Medika d.o.o.;900000547;79.498,00;Medicinski potrošni materijal;Dezinfekciona sredstva;;;;izvršeno
+49;22.06.2024;Nova Usluge d.o.o.;900000449;13.005,00;Ostali troškovi;Bankarska provizija;;;;izvršeno
+50;26.06.2024;Lux Petrol d.o.o.;900000561;92.895,00;Gorivo;Gorivo eurodizel, 525 l;525,00;litar;;izvršeno
+51;06.07.2024;Zenit Papir d.o.o.;900000379;30.839,00;Kancelarijski papir;Papir A4 80g, 73 rismi;73,00;risma;;izvršeno
+52;11.07.2024;Duga Energija d.o.o.;900000393;159.750,00;Električna energija;Električna energija za jul;;;;izvršeno
+53;13.07.2024;Alfa Print d.o.o.;900000155;18.700,00;Toneri i kertridži;Toner Brother TN-2421, 4 kom;4,00;kom;;izvršeno
+54;13.07.2024;Sigma Higijena d.o.o.;900000617;112.317,00;Usluge čišćenja;Čišćenje prostorija za jul;;;;izvršeno
+55;13.07.2024;Beta Vodovod d.o.o.;900000400;54.538,00;Komunalne usluge;Voda i odvoz smeća za jul;;;;izvršeno
+56;15.07.2024;Most Servis d.o.o.;900000127;78.786,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+57;20.07.2024;Omega Papir d.o.o.;900000365;10.925,00;Kancelarijski papir;Papir A4 80g, 25 rismi;25,00;risma;;izvršeno
+58;24.07.2024;Most Servis d.o.o.;900000127;186.939,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+59;07.08.2024;Beta Vodovod d.o.o.;900000400;38.311,00;Komunalne usluge;Voda i odvoz smeća za avgust;;;;izvršeno
+60;13.08.2024;Alfa Print d.o.o.;900000155;16.358,00;Toneri i kertridži;Toner HP 26A, 4 kom;4,00;kom;;izvršeno
+61;15.08.2024;Duga Energija d.o.o.;900000393;94.937,00;Električna energija;Električna energija za avgust;;;;izvršeno
+62;18.08.2024;Kristal Petrol d.o.o.;900000568;135.119,00;Gorivo;Gorivo eurodizel, 771 l;771,00;litar;;izvršeno
+63;18.08.2024;Lux Petrol d.o.o.;900000561;51.058,00;Gorivo;Gorivo eurodizel, 285 l;285,00;litar;;izvršeno
+64;19.08.2024;Duga Higijena d.o.o.;900000624;159.666,00;Usluge čišćenja;Čišćenje prostorija za avgust;;;;izvršeno
+65;02.09.2024;Maxi Petrol d.o.o.;900000575;116.781,00;Gorivo;Gorivo eurodizel, 647 l;647,00;litar;;izvršeno
+66;06.09.2024;Kristal Petrol d.o.o.;900000568;156.036,00;Gorivo;Gorivo eurodizel, 887 l;887,00;litar;;izvršeno
+67;07.09.2024;Tim Petrol d.o.o.;900000582;70.484,00;Gorivo;Gorivo eurodizel, 374 l;374,00;litar;;izvršeno
+68;08.09.2024;Duga Energija d.o.o.;900000393;113.557,00;Električna energija;Električna energija za septembar;;;;izvršeno
+69;08.09.2024;Beta Vodovod d.o.o.;900000400;27.008,00;Komunalne usluge;Voda i odvoz smeća za septembar;;;;izvršeno
+70;14.09.2024;Nova Usluge d.o.o.;900000449;24.893,00;Ostali troškovi;Članarina u strukovnom udruženju;;;;izvršeno
+71;20.09.2024;Maxi Petrol d.o.o.;900000575;147.099,00;Gorivo;Gorivo eurodizel, 802 l;802,00;litar;;izvršeno
+72;21.09.2024;Tim Higijena d.o.o.;900000638;105.422,00;Usluge čišćenja;Čišćenje prostorija za septembar;;;;izvršeno
+73;24.09.2024;Orion Servis d.o.o.;900000134;170.634,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+74;27.09.2024;Kristal Medika d.o.o.;900000519;87.968,00;Medicinski potrošni materijal;Sterilne gaze i zavoji;;;;izvršeno
+75;05.10.2024;Mega Medika d.o.o.;900000547;20.236,00;Medicinski potrošni materijal;Šprici i igle;;;;izvršeno
+76;08.10.2024;Beta Vodovod d.o.o.;900000400;32.909,00;Komunalne usluge;Voda i odvoz smeća za oktobar;;;;izvršeno
+77;10.10.2024;Pro Tech d.o.o.;900000211;737.651,00;Računarska oprema - laptopovi;Laptop Dell Latitude 3540, 8 kom;8,00;kom;;izvršeno
+78;10.10.2024;Tim Higijena d.o.o.;900000638;115.956,00;Usluge čišćenja;Čišćenje prostorija za oktobar;;;;izvršeno
+79;14.10.2024;Duga Energija d.o.o.;900000393;175.571,00;Električna energija;Električna energija za oktobar;;;;izvršeno
+80;24.10.2024;Grand Higijena d.o.o.;900000603;124.006,00;Usluge čišćenja;Čišćenje prostorija za oktobar;;;;izvršeno
+81;27.10.2024;Duga Usluge d.o.o.;900000435;23.084,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+82;03.11.2024;Vita Tech d.o.o.;900000218;425.784,00;Računarska oprema - laptopovi;Laptop Dell Latitude 3540, 4 kom;4,00;kom;;izvršeno
+83;06.11.2024;Duga Energija d.o.o.;900000393;191.927,00;Električna energija;Električna energija za novembar;;;;izvršeno
+84;09.11.2024;Beta Vodovod d.o.o.;900000400;22.593,00;Komunalne usluge;Voda i odvoz smeća za novembar;;;;izvršeno
+85;12.11.2024;Mega Medika d.o.o.;900000547;64.612,00;Medicinski potrošni materijal;Sterilne gaze i zavoji;;;;izvršeno
+86;12.11.2024;Vita Tech d.o.o.;900000218;322.266,00;Računarska oprema - laptopovi;Laptop Asus ExpertBook B1, 3 kom;3,00;kom;;izvršeno
+87;14.11.2024;Mega Medika d.o.o.;900000547;88.525,00;Medicinski potrošni materijal;Urinarni kateteri;;;;izvršeno
+88;15.11.2024;Alfa Print d.o.o.;900000155;75.524,00;Toneri i kertridži;Toner HP 85A, 15 kom;15,00;kom;;izvršeno
+89;21.11.2024;Mega Medika d.o.o.;900000547;159.986,00;Medicinski potrošni materijal;Sterilne gaze i zavoji;;;;izvršeno
+90;27.11.2024;Sigma Medika d.o.o.;900000526;264.351,00;Medicinski potrošni materijal;Urinarni kateteri;;;;izvršeno
+91;04.12.2024;Sigma Higijena d.o.o.;900000617;97.464,00;Usluge čišćenja;Čišćenje prostorija za decembar;;;;izvršeno
+92;05.12.2024;Beta Vodovod d.o.o.;900000400;28.280,00;Komunalne usluge;Voda i odvoz smeća za decembar;;;;izvršeno
+93;07.12.2024;Fokus Med d.o.o.;900000484;138.264,00;Medicinske rukavice;Nitrilne rukavice M, 165 kutija x100;165,00;kutija;;izvršeno
+94;11.12.2024;Duga Energija d.o.o.;900000393;250.733,00;Električna energija;Električna energija za decembar;;;;izvršeno
+95;19.12.2024;Sigma Higijena d.o.o.;900000617;149.191,00;Usluge čišćenja;Čišćenje prostorija za decembar;;;;izvršeno
+96;26.12.2024;Most Servis d.o.o.;900000127;66.976,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+97;29.12.2024;Mega Med d.o.o.;900000456;100.868,00;Medicinske rukavice;Nitrilne rukavice M, 149 kutija x100;149,00;kutija;;izvršeno
+98;11.01.2025;Duga Energija d.o.o.;900000393;162.646,00;Električna energija;Električna energija za januar;;;;izvršeno
+99;13.01.2025;Beta Vodovod d.o.o.;900000400;53.852,00;Komunalne usluge;Voda i odvoz smeća za januar;;;;izvršeno
+100;31.01.2025;Mega Medika d.o.o.;900000547;82.951,00;Medicinski potrošni materijal;Šprici i igle;;;;izvršeno
+101;01.02.2025;Mega Medika d.o.o.;900000547;221.919,00;Medicinski potrošni materijal;Urinarni kateteri;;;;izvršeno
+102;05.02.2025;Pro Med d.o.o.;900000470;140.850,00;Medicinske rukavice;Nitrilne rukavice M, 168 kutija x100;168,00;kutija;;izvršeno
+103;06.02.2025;Mega Med d.o.o.;900000456;138.172,00;Medicinske rukavice;Nitrilne rukavice M, 188 kutija x100;188,00;kutija;;izvršeno
+104;06.02.2025;Most Servis d.o.o.;900000127;91.323,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+105;06.02.2025;Beta Vodovod d.o.o.;900000400;42.957,00;Komunalne usluge;Voda i odvoz smeća za februar;;;;izvršeno
+106;10.02.2025;Mega Medika d.o.o.;900000547;266.448,00;Medicinski potrošni materijal;Urinarni kateteri;;;;izvršeno
+107;10.02.2025;Orion Servis d.o.o.;900000134;57.853,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+108;12.02.2025;Duga Energija d.o.o.;900000393;225.676,00;Električna energija;Električna energija za februar;;;;izvršeno
+109;21.02.2025;Sigma Higijena d.o.o.;900000617;123.032,00;Usluge čišćenja;Čišćenje prostorija za februar;;;;izvršeno
+110;24.02.2025;Tim Petrol d.o.o.;900000582;148.809,00;Gorivo;Gorivo eurodizel, 807 l;807,00;litar;;izvršeno
+111;28.02.2025;Duga Usluge d.o.o.;900000435;17.189,00;Ostali troškovi;Takse za registraciju vozila;;;;izvršeno
+112;03.03.2025;Duga Higijena d.o.o.;900000624;106.227,00;Usluge čišćenja;Čišćenje prostorija za mart;;;;izvršeno
+113;08.03.2025;Euro Print d.o.o.;900000169;88.078,00;Toneri i kertridži;Toner Samsung MLT-D111S, 19 kom;19,00;kom;;izvršeno
+114;09.03.2025;Kristal Medika d.o.o.;900000519;224.053,00;Medicinski potrošni materijal;Sterilne gaze i zavoji;;;;izvršeno
+115;11.03.2025;Duga Higijena d.o.o.;900000624;116.864,00;Usluge čišćenja;Čišćenje prostorija za mart;;;;izvršeno
+116;12.03.2025;Beta Vodovod d.o.o.;900000400;44.401,00;Komunalne usluge;Voda i odvoz smeća za mart;;;;izvršeno
+117;13.03.2025;Duga Energija d.o.o.;900000393;100.249,00;Električna energija;Električna energija za mart;;;;izvršeno
+118;17.03.2025;Most Servis d.o.o.;900000127;157.956,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+119;20.03.2025;Javor Print d.o.o.;900000162;47.573,00;Toneri i kertridži;Toner HP 26A, 12 kom;12,00;kom;;izvršeno
+120;20.03.2025;Nova Linija Konsalting d.o.o.;900000911;1.450.000,00;Konsultantske usluge;Konsultantske usluge za unapređenje poslovanja;;;;izvršeno
+121;01.04.2025;Omega Papir d.o.o.;900000365;17.707,00;Kancelarijski papir;Papir A4 80g, 34 rismi;34,00;risma;;izvršeno
+122;01.04.2025;Sigma Higijena d.o.o.;900000617;141.592,00;Usluge čišćenja;Čišćenje prostorija za april;;;;izvršeno
+123;08.04.2025;Mega Medika d.o.o.;900000547;79.265,00;Medicinski potrošni materijal;Test trake za glukozu;;;;izvršeno
+124;08.04.2025;Beta Vodovod d.o.o.;900000400;50.076,00;Komunalne usluge;Voda i odvoz smeća za april;;;;izvršeno
+125;10.04.2025;Sigma Medika d.o.o.;900000526;112.585,00;Medicinski potrošni materijal;Dezinfekciona sredstva;;;;izvršeno
+126;13.04.2025;Pro Med d.o.o.;900000470;22.225,00;Medicinske rukavice;Nitrilne rukavice M, 30 kutija x100;30,00;kutija;;izvršeno
+127;13.04.2025;Duga Energija d.o.o.;900000393;153.491,00;Električna energija;Električna energija za april;;;;izvršeno
+128;22.04.2025;Grand Higijena d.o.o.;900000603;100.722,00;Usluge čišćenja;Čišćenje prostorija za april;;;;izvršeno
+129;24.04.2025;Kristal Petrol d.o.o.;900000568;96.045,00;Gorivo;Gorivo eurodizel, 522 l;522,00;litar;;izvršeno
+130;28.04.2025;Pro Servis d.o.o.;900000099;81.406,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+131;30.04.2025;Orion Servis d.o.o.;900000134;81.638,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+132;30.04.2025;Lux Petrol d.o.o.;900000561;93.032,00;Gorivo;Gorivo eurodizel, 510 l;510,00;litar;;izvršeno
+133;10.05.2025;Mega Medika d.o.o.;900000547;220.434,00;Medicinski potrošni materijal;Urinarni kateteri;;;;izvršeno
+134;14.05.2025;Duga Energija d.o.o.;900000393;164.325,00;Električna energija;Električna energija za maj;;;;izvršeno
+135;15.05.2025;Beta Vodovod d.o.o.;900000400;37.238,00;Komunalne usluge;Voda i odvoz smeća za maj;;;;izvršeno
+136;20.05.2025;Sunce Medika d.o.o.;900000533;292.273,00;Medicinski potrošni materijal;Šprici i igle;;;;izvršeno
+137;28.05.2025;Nova Linija Konsalting d.o.o.;900000911;980.000,00;Konsultantske usluge;Konsultantske usluge - druga faza;;;;izvršeno
+138;31.05.2025;Tim Petrol d.o.o.;900000582;164.543,00;Gorivo;Gorivo eurodizel, 861 l;861,00;litar;;izvršeno
+139;01.06.2025;Zenit Papir d.o.o.;900000379;36.302,00;Kancelarijski papir;Papir A4 80g, 72 rismi;72,00;risma;;izvršeno
+140;04.06.2025;Omega Papir d.o.o.;900000365;23.677,00;Kancelarijski papir;Papir A4 80g, 47 rismi;47,00;risma;;izvršeno
+141;05.06.2025;Duga Energija d.o.o.;900000393;253.164,00;Električna energija;Električna energija za jun;;;;izvršeno
+142;06.06.2025;Most Servis d.o.o.;900000127;156.879,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+143;09.06.2025;Beta Vodovod d.o.o.;900000400;38.629,00;Komunalne usluge;Voda i odvoz smeća za jun;;;;izvršeno
+144;10.06.2025;Sigma Higijena d.o.o.;900000617;90.743,00;Usluge čišćenja;Čišćenje prostorija za jun;;;;izvršeno
+145;13.06.2025;Maxi Petrol d.o.o.;900000575;39.000,00;Gorivo;Gorivo eurodizel, 205 l;205,00;litar;;izvršeno
+146;17.06.2025;Javor Print d.o.o.;900000162;62.821,00;Toneri i kertridži;Toner HP 26A, 12 kom;12,00;kom;;izvršeno
+147;21.06.2025;Zenit Papir d.o.o.;900000379;51.108,00;Kancelarijski papir;Papir A4 80g, 101 rismi;101,00;risma;;izvršeno
+148;06.07.2025;Most Servis d.o.o.;900000127;39.568,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+149;07.07.2025;Beta Vodovod d.o.o.;900000400;46.018,00;Komunalne usluge;Voda i odvoz smeća za jul;;;;izvršeno
+150;09.07.2025;Euro Print d.o.o.;900000169;33.281,00;Toneri i kertridži;Toner HP 85A, 6 kom;6,00;kom;;izvršeno
+151;10.07.2025;Pro Servis d.o.o.;900000099;40.065,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+152;10.07.2025;Duga Energija d.o.o.;900000393;224.323,00;Električna energija;Električna energija za jul;;;;izvršeno
+153;21.07.2025;Fokus Usluge d.o.o.;900000414;19.478,00;Ostali troškovi;Overa dokumenata kod notara;;;;izvršeno
+154;22.07.2025;Sigma Higijena d.o.o.;900000617;122.482,00;Usluge čišćenja;Čišćenje prostorija za jul;;;;izvršeno
+155;03.08.2025;Tim Med d.o.o.;900000463;121.528,00;Medicinske rukavice;Nitrilne rukavice M, 145 kutija x100;145,00;kutija;;izvršeno
+156;06.08.2025;Beta Vodovod d.o.o.;900000400;27.267,00;Komunalne usluge;Voda i odvoz smeća za avgust;;;;izvršeno
+157;11.08.2025;Pro Servis d.o.o.;900000099;112.556,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+158;12.08.2025;Kristal Medika d.o.o.;900000519;179.434,00;Medicinski potrošni materijal;Sterilne gaze i zavoji;;;;izvršeno
+159;12.08.2025;Duga Energija d.o.o.;900000393;138.050,00;Električna energija;Električna energija za avgust;;;;izvršeno
+160;13.08.2025;Duga Usluge d.o.o.;900000435;6.406,00;Ostali troškovi;Članarina u strukovnom udruženju;;;;izvršeno
+161;15.08.2025;Lux Petrol d.o.o.;900000561;54.535,00;Gorivo;Gorivo eurodizel, 309 l;309,00;litar;;izvršeno
+162;16.08.2025;Sigma Medika d.o.o.;900000526;208.518,00;Medicinski potrošni materijal;Šprici i igle;;;;izvršeno
+163;17.08.2025;Mega Medika d.o.o.;900000547;124.822,00;Medicinski potrošni materijal;Dezinfekciona sredstva;;;;izvršeno
+164;26.08.2025;Tim Petrol d.o.o.;900000582;85.298,00;Gorivo;Gorivo eurodizel, 475 l;475,00;litar;;izvršeno
+165;28.08.2025;Kristal Medika d.o.o.;900000519;69.108,00;Medicinski potrošni materijal;Dezinfekciona sredstva;;;;izvršeno
+166;30.08.2025;Sigma Higijena d.o.o.;900000617;89.535,00;Usluge čišćenja;Čišćenje prostorija za avgust;;;;izvršeno
+167;10.09.2025;Maxi Petrol d.o.o.;900000575;40.642,00;Gorivo;Gorivo eurodizel, 224 l;224,00;litar;;izvršeno
+168;10.09.2025;Duga Energija d.o.o.;900000393;197.844,00;Električna energija;Električna energija za septembar;;;;izvršeno
+169;11.09.2025;Grand Higijena d.o.o.;900000603;138.596,00;Usluge čišćenja;Čišćenje prostorija za septembar;;;;izvršeno
+170;12.09.2025;Sigma Medika d.o.o.;900000526;131.578,00;Medicinski potrošni materijal;Sterilne gaze i zavoji;;;;izvršeno
+171;14.09.2025;Beta Vodovod d.o.o.;900000400;33.592,00;Komunalne usluge;Voda i odvoz smeća za septembar;;;;izvršeno
+172;17.09.2025;Tim Med d.o.o.;900000463;99.943,00;Medicinske rukavice;Nitrilne rukavice M, 132 kutija x100;132,00;kutija;;izvršeno
+173;19.09.2025;Mega Medika d.o.o.;900000547;30.009,00;Medicinski potrošni materijal;Šprici i igle;;;;izvršeno
+174;21.09.2025;Polar Print d.o.o.;900000183;55.455,00;Toneri i kertridži;Toner Brother TN-2421, 11 kom;11,00;kom;;izvršeno
+175;23.09.2025;Mega Medika d.o.o.;900000547;190.086,00;Medicinski potrošni materijal;Dezinfekciona sredstva;;;;izvršeno
+176;30.09.2025;Javor Print d.o.o.;900000162;37.925,00;Toneri i kertridži;Toner HP 85A, 8 kom;8,00;kom;;izvršeno
+177;03.10.2025;Zenit Papir d.o.o.;900000379;16.383,00;Kancelarijski papir;Papir A4 80g, 34 rismi;34,00;risma;;izvršeno
+178;06.10.2025;Duga Energija d.o.o.;900000393;186.102,00;Električna energija;Električna energija za oktobar;;;;izvršeno
+179;11.10.2025;Tim Petrol d.o.o.;900000582;77.144,00;Gorivo;Gorivo eurodizel, 404 l;404,00;litar;;izvršeno
+180;13.10.2025;Beta Vodovod d.o.o.;900000400;51.245,00;Komunalne usluge;Voda i odvoz smeća za oktobar;;;;izvršeno
+181;28.10.2025;Sigma Higijena d.o.o.;900000617;103.908,00;Usluge čišćenja;Čišćenje prostorija za oktobar;;;;izvršeno
+182;11.11.2025;Beta Vodovod d.o.o.;900000400;55.576,00;Komunalne usluge;Voda i odvoz smeća za novembar;;;;izvršeno
+183;13.11.2025;Duga Energija d.o.o.;900000393;222.700,00;Električna energija;Električna energija za novembar;;;;izvršeno
+184;16.11.2025;Kristal Petrol d.o.o.;900000568;153.299,00;Gorivo;Gorivo eurodizel, 821 l;821,00;litar;;izvršeno
+185;20.11.2025;Maxi Servis d.o.o.;900000113;78.623,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+186;23.11.2025;Tim Higijena d.o.o.;900000638;105.117,00;Usluge čišćenja;Čišćenje prostorija za novembar;;;;izvršeno
+187;26.11.2025;Tim Med d.o.o.;900000463;58.662,00;Medicinske rukavice;Nitrilne rukavice M, 87 kutija x100;87,00;kutija;;izvršeno
+188;28.11.2025;Sigma Medika d.o.o.;900000526;240.552,00;Medicinski potrošni materijal;Šprici i igle;;;;izvršeno
+189;29.11.2025;Tim Higijena d.o.o.;900000638;139.782,00;Usluge čišćenja;Čišćenje prostorija za novembar;;;;izvršeno
+190;02.12.2025;Maxi Petrol d.o.o.;900000575;113.065,00;Gorivo;Gorivo eurodizel, 599 l;599,00;litar;;izvršeno
+191;11.12.2025;Beta Vodovod d.o.o.;900000400;42.990,00;Komunalne usluge;Voda i odvoz smeća za decembar;;;;izvršeno
+192;13.12.2025;Duga Energija d.o.o.;900000393;116.898,00;Električna energija;Električna energija za decembar;;;;izvršeno
+193;16.12.2025;Most Servis d.o.o.;900000127;180.806,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+194;25.12.2025;Kristal Petrol d.o.o.;900000568;72.923,00;Gorivo;Gorivo eurodizel, 407 l;407,00;litar;;izvršeno

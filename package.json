@@ -1,0 +1,38 @@
+{
+  "name": "inquest",
+  "version": "0.1.0",
+  "description": "Inquest: a team of concurrent AI agents that screens how public money is spent and produces verified risk dossiers. Built on Mozaik.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "data": "python data/prep/build_all.py",
+    "investigate": "tsx src/cli/investigate.ts",
+    "baseline": "tsx src/cli/baseline.ts",
+    "compare": "tsx src/cli/compare.ts",
+    "eval": "tsx src/cli/evaluate.ts",
+    "serve": "tsx src/server/server.ts",
+    "dashboard:dev": "npm --prefix dashboard run dev",
+    "dashboard:build": "npm --prefix dashboard run build",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuk-djordjevic/inquest.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@mozaik-ai/core": "^6.0.0",
+    "better-sqlite3": "^13.2.0",
+    "dotenv": "^18.0.10"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.11",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

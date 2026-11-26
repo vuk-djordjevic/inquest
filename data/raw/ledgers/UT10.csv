@@ -1,0 +1,160 @@
+rb;datum;naziv_primaoca;pib_primaoca;iznos;vrsta_troska;opis;kolicina;jedinica_mere;objekat;status
+1;06.01.2024;Duga Energija d.o.o.;900000393;363.493,00;Električna energija;Električna energija za januar;;;;izvršeno
+2;13.01.2024;Beta Vodovod d.o.o.;900000400;31.078,00;Komunalne usluge;Voda i odvoz smeća za januar;;;;izvršeno
+3;16.01.2024;Vita Petrol d.o.o.;900000596;504.360,00;Gorivo;Gorivo eurodizel, 2597 l;2.597,00;litar;;izvršeno
+4;22.01.2024;Pro Servis d.o.o.;900000099;112.953,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+5;29.01.2024;Orion Servis d.o.o.;900000134;300.809,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+6;06.02.2024;Duga Energija d.o.o.;900000393;204.885,00;Električna energija;Električna energija za februar;;;;izvršeno
+7;07.02.2024;Tera Petrol d.o.o.;900000554;740.628,00;Gorivo;Gorivo eurodizel, 3896 l;3.896,00;litar;;izvršeno
+8;15.02.2024;Beta Vodovod d.o.o.;900000400;25.468,00;Komunalne usluge;Voda i odvoz smeća za februar;;;;izvršeno
+9;21.02.2024;Beta Servis d.o.o.;900000106;367.086,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+10;28.02.2024;Tim Konsalting d.o.o.;900000792;191.397,00;Konsultantske usluge;Konsultantske usluge za strateški plan;;;;izvršeno
+11;29.02.2024;Kristal Petrol d.o.o.;900000568;408.041,00;Gorivo;Gorivo eurodizel, 2109 l;2.109,00;litar;;izvršeno
+12;02.03.2024;Duga Usluge d.o.o.;900000435;20.240,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+13;04.03.2024;Orion Servis d.o.o.;900000134;383.695,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+14;05.03.2024;Orion Servis d.o.o.;900000134;204.466,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+15;05.03.2024;Pro Servis d.o.o.;900000099;392.247,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+16;07.03.2024;Omega Papir d.o.o.;900000365;26.875,00;Kancelarijski papir;Papir A4 80g, 62 rismi;62,00;risma;;izvršeno
+17;07.03.2024;Duga Energija d.o.o.;900000393;361.327,00;Električna energija;Električna energija za mart;;;;izvršeno
+18;07.03.2024;Beta Vodovod d.o.o.;900000400;46.802,00;Komunalne usluge;Voda i odvoz smeća za mart;;;;izvršeno
+19;25.03.2024;Kristal Petrol d.o.o.;900000568;690.660,00;Gorivo;Gorivo eurodizel, 3744 l;3.744,00;litar;;izvršeno
+20;26.03.2024;Delta Servis d.o.o.;900000120;40.190,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+21;30.03.2024;Nova Print d.o.o.;900000148;54.804,00;Toneri i kertridži;Toner HP 26A, 11 kom;11,00;kom;;izvršeno
+22;02.04.2024;Javor Usluge d.o.o.;900000407;7.887,00;Ostali troškovi;Takse za registraciju vozila;;;;izvršeno
+23;06.04.2024;Duga Energija d.o.o.;900000393;307.401,00;Električna energija;Električna energija za april;;;;izvršeno
+24;06.04.2024;Beta Vodovod d.o.o.;900000400;42.041,00;Komunalne usluge;Voda i odvoz smeća za april;;;;izvršeno
+25;07.04.2024;Tera Petrol d.o.o.;900000554;398.129,00;Gorivo;Gorivo eurodizel, 2173 l;2.173,00;litar;;izvršeno
+26;15.04.2024;Orion Servis d.o.o.;900000134;181.699,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+27;24.04.2024;Kristal Petrol d.o.o.;900000568;697.529,00;Gorivo;Gorivo eurodizel, 3739 l;3.739,00;litar;;izvršeno
+28;25.04.2024;Beta Servis d.o.o.;900000106;369.350,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+29;03.05.2024;Tim Papir d.o.o.;900000344;21.692,00;Kancelarijski papir;Papir A4 80g, 50 rismi;50,00;risma;;izvršeno
+30;04.05.2024;Lux Petrol d.o.o.;900000561;570.305,00;Gorivo;Gorivo eurodizel, 3205 l;3.205,00;litar;;izvršeno
+31;08.05.2024;Tera Petrol d.o.o.;900000554;544.846,00;Gorivo;Gorivo eurodizel, 3092 l;3.092,00;litar;;izvršeno
+32;08.05.2024;Vita Petrol d.o.o.;900000596;538.478,00;Gorivo;Gorivo eurodizel, 3048 l;3.048,00;litar;;izvršeno
+33;09.05.2024;Duga Energija d.o.o.;900000393;400.080,00;Električna energija;Električna energija za maj;;;;izvršeno
+34;11.05.2024;Beta Servis d.o.o.;900000106;340.182,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+35;14.05.2024;Beta Vodovod d.o.o.;900000400;22.459,00;Komunalne usluge;Voda i odvoz smeća za maj;;;;izvršeno
+36;24.05.2024;Lux Petrol d.o.o.;900000561;355.343,00;Gorivo;Gorivo eurodizel, 1955 l;1.955,00;litar;;izvršeno
+37;27.05.2024;Vita Petrol d.o.o.;900000596;447.378,00;Gorivo;Gorivo eurodizel, 2370 l;2.370,00;litar;;izvršeno
+38;30.05.2024;Kristal Petrol d.o.o.;900000568;392.908,00;Gorivo;Gorivo eurodizel, 2219 l;2.219,00;litar;;izvršeno
+39;05.06.2024;Duga Energija d.o.o.;900000393;419.017,00;Električna energija;Električna energija za jun;;;;izvršeno
+40;06.06.2024;Kristal Petrol d.o.o.;900000568;687.992,00;Gorivo;Gorivo eurodizel, 3641 l;3.641,00;litar;;izvršeno
+41;07.06.2024;Vita Petrol d.o.o.;900000596;627.343,00;Gorivo;Gorivo eurodizel, 3240 l;3.240,00;litar;;izvršeno
+42;07.06.2024;Lipa Tech d.o.o.;900000197;107.260,00;Računarska oprema - laptopovi;Laptop Lenovo ThinkPad E14, 1 kom;1,00;kom;;izvršeno
+43;11.06.2024;Beta Vodovod d.o.o.;900000400;31.675,00;Komunalne usluge;Voda i odvoz smeća za jun;;;;izvršeno
+44;09.07.2024;Polar Print d.o.o.;900000183;30.029,00;Toneri i kertridži;Toner Canon 725, 7 kom;7,00;kom;;izvršeno
+45;09.07.2024;Duga Energija d.o.o.;900000393;394.677,00;Električna energija;Električna energija za jul;;;;izvršeno
+46;13.07.2024;Beta Vodovod d.o.o.;900000400;27.898,00;Komunalne usluge;Voda i odvoz smeća za jul;;;;izvršeno
+47;14.07.2024;Vita Petrol d.o.o.;900000596;657.517,00;Gorivo;Gorivo eurodizel, 3389 l;3.389,00;litar;;izvršeno
+48;19.07.2024;Kristal Petrol d.o.o.;900000568;659.207,00;Gorivo;Gorivo eurodizel, 3522 l;3.522,00;litar;;izvršeno
+49;23.07.2024;Vita Petrol d.o.o.;900000596;474.047,00;Gorivo;Gorivo eurodizel, 2670 l;2.670,00;litar;;izvršeno
+50;23.07.2024;Polar Print d.o.o.;900000183;58.676,00;Toneri i kertridži;Toner HP 85A, 15 kom;15,00;kom;;izvršeno
+51;11.08.2024;Beta Vodovod d.o.o.;900000400;25.310,00;Komunalne usluge;Voda i odvoz smeća za avgust;;;;izvršeno
+52;12.08.2024;Lux Petrol d.o.o.;900000561;561.793,00;Gorivo;Gorivo eurodizel, 2932 l;2.932,00;litar;;izvršeno
+53;13.08.2024;Javor Usluge d.o.o.;900000407;5.401,00;Ostali troškovi;Takse za registraciju vozila;;;;izvršeno
+54;15.08.2024;Orion Servis d.o.o.;900000134;374.377,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+55;15.08.2024;Duga Energija d.o.o.;900000393;384.207,00;Električna energija;Električna energija za avgust;;;;izvršeno
+56;25.08.2024;Kristal Petrol d.o.o.;900000568;453.622,00;Gorivo;Gorivo eurodizel, 2388 l;2.388,00;litar;;izvršeno
+57;27.08.2024;Beta Servis d.o.o.;900000106;234.939,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+58;27.08.2024;Beta Servis d.o.o.;900000106;173.782,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+59;03.09.2024;Lipa Gradnja d.o.o.;900000722;904.678,00;Sanacija kolovoza;Sanacija udarnih rupa, Ulica Jasena, 388 m2;388,00;m2;Ulica Jasena;izvršeno
+60;07.09.2024;Duga Energija d.o.o.;900000393;412.075,00;Električna energija;Električna energija za septembar;;;;izvršeno
+61;11.09.2024;Beta Vodovod d.o.o.;900000400;21.563,00;Komunalne usluge;Voda i odvoz smeća za septembar;;;;izvršeno
+62;06.10.2024;Beta Vodovod d.o.o.;900000400;23.359,00;Komunalne usluge;Voda i odvoz smeća za oktobar;;;;izvršeno
+63;13.10.2024;Duga Energija d.o.o.;900000393;300.024,00;Električna energija;Električna energija za oktobar;;;;izvršeno
+64;19.10.2024;Delta Servis d.o.o.;900000120;319.709,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+65;21.10.2024;Pro Servis d.o.o.;900000099;34.199,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+66;25.10.2024;Orion Servis d.o.o.;900000134;65.305,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+67;06.11.2024;Beta Vodovod d.o.o.;900000400;16.313,00;Komunalne usluge;Voda i odvoz smeća za novembar;;;;izvršeno
+68;09.11.2024;Beta Servis d.o.o.;900000106;276.029,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+69;14.11.2024;Lux Petrol d.o.o.;900000561;385.695,00;Gorivo;Gorivo eurodizel, 2091 l;2.091,00;litar;;izvršeno
+70;15.11.2024;Duga Energija d.o.o.;900000393;173.832,00;Električna energija;Električna energija za novembar;;;;izvršeno
+71;18.11.2024;Vita Petrol d.o.o.;900000596;241.230,00;Gorivo;Gorivo eurodizel, 1316 l;1.316,00;litar;;izvršeno
+72;21.11.2024;Lipa Gradnja d.o.o.;900000722;367.270,00;Sanacija kolovoza;Sanacija udarnih rupa, Ulica Ruža, 140 m2;140,00;m2;Ulica Ruža;izvršeno
+73;27.11.2024;Lux Petrol d.o.o.;900000561;691.942,00;Gorivo;Gorivo eurodizel, 3711 l;3.711,00;litar;;izvršeno
+74;30.11.2024;Omega Papir d.o.o.;900000365;18.114,00;Kancelarijski papir;Papir A4 80g, 33 rismi;33,00;risma;;izvršeno
+75;06.12.2024;Duga Energija d.o.o.;900000393;182.192,00;Električna energija;Električna energija za decembar;;;;izvršeno
+76;08.12.2024;Lux Petrol d.o.o.;900000561;639.061,00;Gorivo;Gorivo eurodizel, 3382 l;3.382,00;litar;;izvršeno
+77;09.12.2024;Sunce Print d.o.o.;900000176;21.533,00;Toneri i kertridži;Toner Samsung MLT-D111S, 5 kom;5,00;kom;;izvršeno
+78;15.12.2024;Beta Vodovod d.o.o.;900000400;32.476,00;Komunalne usluge;Voda i odvoz smeća za decembar;;;;izvršeno
+79;17.12.2024;Orion Servis d.o.o.;900000134;38.555,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+80;31.12.2024;Kristal Petrol d.o.o.;900000568;439.747,00;Gorivo;Gorivo eurodizel, 2361 l;2.361,00;litar;;izvršeno
+81;01.01.2025;Vita Petrol d.o.o.;900000596;242.200,00;Gorivo;Gorivo eurodizel, 1339 l;1.339,00;litar;;izvršeno
+82;07.01.2025;Beta Vodovod d.o.o.;900000400;46.533,00;Komunalne usluge;Voda i odvoz smeća za januar;;;;izvršeno
+83;09.01.2025;Kristal Petrol d.o.o.;900000568;303.697,00;Gorivo;Gorivo eurodizel, 1637 l;1.637,00;litar;;izvršeno
+84;11.01.2025;Tim Papir d.o.o.;900000344;19.920,00;Kancelarijski papir;Papir A4 80g, 46 rismi;46,00;risma;;izvršeno
+85;13.01.2025;Duga Energija d.o.o.;900000393;165.818,00;Električna energija;Električna energija za januar;;;;izvršeno
+86;14.01.2025;Lux Petrol d.o.o.;900000561;578.435,00;Gorivo;Gorivo eurodizel, 3054 l;3.054,00;litar;;izvršeno
+87;01.02.2025;Lux Petrol d.o.o.;900000561;703.123,00;Gorivo;Gorivo eurodizel, 3613 l;3.613,00;litar;;izvršeno
+88;05.02.2025;Lux Petrol d.o.o.;900000561;583.635,00;Gorivo;Gorivo eurodizel, 3277 l;3.277,00;litar;;izvršeno
+89;07.02.2025;Beta Vodovod d.o.o.;900000400;22.441,00;Komunalne usluge;Voda i odvoz smeća za februar;;;;izvršeno
+90;08.02.2025;Orion Servis d.o.o.;900000134;40.989,00;Tekuće održavanje;Zamena stakla na prozorima;;;;izvršeno
+91;10.02.2025;Pro Servis d.o.o.;900000099;293.549,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+92;10.02.2025;Duga Energija d.o.o.;900000393;209.387,00;Električna energija;Električna energija za februar;;;;izvršeno
+93;18.02.2025;Orion Servis d.o.o.;900000134;56.932,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+94;21.02.2025;Vita Petrol d.o.o.;900000596;439.851,00;Gorivo;Gorivo eurodizel, 2395 l;2.395,00;litar;;izvršeno
+95;24.02.2025;Delta Servis d.o.o.;900000120;129.151,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+96;27.02.2025;Nova Print d.o.o.;900000148;81.432,00;Toneri i kertridži;Toner Brother TN-2421, 15 kom;15,00;kom;;izvršeno
+97;28.02.2025;Vita Petrol d.o.o.;900000596;295.148,00;Gorivo;Gorivo eurodizel, 1660 l;1.660,00;litar;;izvršeno
+98;03.03.2025;Beta Servis d.o.o.;900000106;352.487,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+99;05.03.2025;Duga Energija d.o.o.;900000393;288.248,00;Električna energija;Električna energija za mart;;;;izvršeno
+100;13.03.2025;Beta Vodovod d.o.o.;900000400;15.167,00;Komunalne usluge;Voda i odvoz smeća za mart;;;;izvršeno
+101;22.03.2025;Omega Papir d.o.o.;900000365;19.589,00;Kancelarijski papir;Papir A4 80g, 39 rismi;39,00;risma;;izvršeno
+102;25.03.2025;Tim Papir d.o.o.;900000344;26.166,00;Kancelarijski papir;Papir A4 80g, 48 rismi;48,00;risma;;izvršeno
+103;05.04.2025;Beta Vodovod d.o.o.;900000400;24.587,00;Komunalne usluge;Voda i odvoz smeća za april;;;;izvršeno
+104;08.04.2025;Duga Energija d.o.o.;900000393;279.306,00;Električna energija;Električna energija za april;;;;izvršeno
+105;16.04.2025;Beta Servis d.o.o.;900000106;325.951,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+106;26.04.2025;Vita Petrol d.o.o.;900000596;537.953,00;Gorivo;Gorivo eurodizel, 2823 l;2.823,00;litar;;izvršeno
+107;30.04.2025;Most Print d.o.o.;900000190;67.867,00;Toneri i kertridži;Toner Samsung MLT-D111S, 15 kom;15,00;kom;;izvršeno
+108;11.05.2025;Duga Energija d.o.o.;900000393;316.311,00;Električna energija;Električna energija za maj;;;;izvršeno
+109;12.05.2025;Beta Vodovod d.o.o.;900000400;39.830,00;Komunalne usluge;Voda i odvoz smeća za maj;;;;izvršeno
+110;18.05.2025;Kristal Petrol d.o.o.;900000568;677.187,00;Gorivo;Gorivo eurodizel, 3753 l;3.753,00;litar;;izvršeno
+111;22.05.2025;Tera Petrol d.o.o.;900000554;337.643,00;Gorivo;Gorivo eurodizel, 1852 l;1.852,00;litar;;izvršeno
+112;24.05.2025;Tim Konsalting d.o.o.;900000792;216.046,00;Konsultantske usluge;Izrada elaborata energetske efikasnosti;;;;izvršeno
+113;25.05.2025;Orion Servis d.o.o.;900000134;393.095,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+114;07.06.2025;Duga Energija d.o.o.;900000393;322.840,00;Električna energija;Električna energija za jun;;;;izvršeno
+115;08.06.2025;Fokus Usluge d.o.o.;900000414;7.174,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+116;09.06.2025;Beta Vodovod d.o.o.;900000400;18.871,00;Komunalne usluge;Voda i odvoz smeća za jun;;;;izvršeno
+117;18.06.2025;Kristal Petrol d.o.o.;900000568;634.161,00;Gorivo;Gorivo eurodizel, 3513 l;3.513,00;litar;;izvršeno
+118;02.07.2025;Beta Gradnja d.o.o.;900000743;792.969,00;Sanacija kolovoza;Sanacija udarnih rupa, Ulica Višanja, 263 m2;263,00;m2;Ulica Višanja;izvršeno
+119;08.07.2025;Javor Usluge d.o.o.;900000407;1.587,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+120;09.07.2025;Orion Gradnja d.o.o.;900000708;237.383,00;Sanacija kolovoza;Sanacija udarnih rupa, Ulica Višanja, 80 m2;80,00;m2;Ulica Višanja;izvršeno
+121;10.07.2025;Beta Vodovod d.o.o.;900000400;26.970,00;Komunalne usluge;Voda i odvoz smeća za jul;;;;izvršeno
+122;11.07.2025;Duga Energija d.o.o.;900000393;229.855,00;Električna energija;Električna energija za jul;;;;izvršeno
+123;13.07.2025;Javor Usluge d.o.o.;900000407;9.049,00;Ostali troškovi;Takse za registraciju vozila;;;;izvršeno
+124;30.07.2025;Lux Petrol d.o.o.;900000561;486.247,00;Gorivo;Gorivo eurodizel, 2599 l;2.599,00;litar;;izvršeno
+125;31.07.2025;Kristal Petrol d.o.o.;900000568;217.584,00;Gorivo;Gorivo eurodizel, 1239 l;1.239,00;litar;;izvršeno
+126;09.08.2025;Duga Energija d.o.o.;900000393;274.155,00;Električna energija;Električna energija za avgust;;;;izvršeno
+127;10.08.2025;Kristal Petrol d.o.o.;900000568;245.205,00;Gorivo;Gorivo eurodizel, 1266 l;1.266,00;litar;;izvršeno
+128;11.08.2025;Beta Vodovod d.o.o.;900000400;36.012,00;Komunalne usluge;Voda i odvoz smeća za avgust;;;;izvršeno
+129;11.08.2025;Omega Usluge d.o.o.;900000421;9.442,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+130;13.08.2025;Lux Petrol d.o.o.;900000561;376.271,00;Gorivo;Gorivo eurodizel, 2060 l;2.060,00;litar;;izvršeno
+131;13.08.2025;Javor Usluge d.o.o.;900000407;26.571,00;Ostali troškovi;Overa dokumenata kod notara;;;;izvršeno
+132;22.08.2025;Beta Servis d.o.o.;900000106;255.790,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+133;24.08.2025;Lux Petrol d.o.o.;900000561;228.778,00;Gorivo;Gorivo eurodizel, 1307 l;1.307,00;litar;;izvršeno
+134;30.08.2025;Delta Servis d.o.o.;900000120;383.906,00;Tekuće održavanje;Servis vodovodnih instalacija;;;;izvršeno
+135;08.09.2025;Sunce Print d.o.o.;900000176;67.491,00;Toneri i kertridži;Toner HP 26A, 13 kom;13,00;kom;;izvršeno
+136;10.09.2025;Beta Vodovod d.o.o.;900000400;33.710,00;Komunalne usluge;Voda i odvoz smeća za septembar;;;;izvršeno
+137;12.09.2025;Duga Energija d.o.o.;900000393;382.114,00;Električna energija;Električna energija za septembar;;;;izvršeno
+138;15.09.2025;Lux Petrol d.o.o.;900000561;471.702,00;Gorivo;Gorivo eurodizel, 2655 l;2.655,00;litar;;izvršeno
+139;07.10.2025;Duga Energija d.o.o.;900000393;237.239,00;Električna energija;Električna energija za oktobar;;;;izvršeno
+140;08.10.2025;Orion Servis d.o.o.;900000134;319.249,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+141;10.10.2025;Tera Petrol d.o.o.;900000554;322.675,00;Gorivo;Gorivo eurodizel, 1754 l;1.754,00;litar;;izvršeno
+142;10.10.2025;Beta Vodovod d.o.o.;900000400;31.049,00;Komunalne usluge;Voda i odvoz smeća za oktobar;;;;izvršeno
+143;11.10.2025;Lux Petrol d.o.o.;900000561;414.679,00;Gorivo;Gorivo eurodizel, 2323 l;2.323,00;litar;;izvršeno
+144;17.10.2025;Kristal Petrol d.o.o.;900000568;523.615,00;Gorivo;Gorivo eurodizel, 2724 l;2.724,00;litar;;izvršeno
+145;17.10.2025;Delta Servis d.o.o.;900000120;65.375,00;Tekuće održavanje;Popravka rasvete;;;;izvršeno
+146;18.10.2025;Neo Komp d.o.o.;900000694;312.204,00;Računarska oprema - desktop računari;Desktop računar i5/16GB, 4 kom;4,00;kom;;izvršeno
+147;21.10.2025;Orion Servis d.o.o.;900000134;43.473,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+148;05.11.2025;Duga Energija d.o.o.;900000393;293.506,00;Električna energija;Električna energija za novembar;;;;izvršeno
+149;14.11.2025;Beta Vodovod d.o.o.;900000400;47.486,00;Komunalne usluge;Voda i odvoz smeća za novembar;;;;izvršeno
+150;01.12.2025;Delta Servis d.o.o.;900000120;191.572,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+151;06.12.2025;Delta Servis d.o.o.;900000120;226.327,00;Tekuće održavanje;Servis klima uređaja;;;;izvršeno
+152;11.12.2025;Orion Servis d.o.o.;900000134;387.857,00;Tekuće održavanje;Popravka krova;;;;izvršeno
+153;11.12.2025;Beta Vodovod d.o.o.;900000400;21.094,00;Komunalne usluge;Voda i odvoz smeća za decembar;;;;izvršeno
+154;15.12.2025;Duga Energija d.o.o.;900000393;199.730,00;Električna energija;Električna energija za decembar;;;;izvršeno
+155;19.12.2025;Beta Servis d.o.o.;900000106;41.821,00;Tekuće održavanje;Zamena brava i okova;;;;izvršeno
+156;20.12.2025;Delta Servis d.o.o.;900000120;223.951,00;Tekuće održavanje;Popravka grejanja;;;;izvršeno
+157;25.12.2025;Lux Petrol d.o.o.;900000561;288.804,00;Gorivo;Gorivo eurodizel, 1555 l;1.555,00;litar;;izvršeno
+158;28.12.2025;Javor Usluge d.o.o.;900000407;19.561,00;Ostali troškovi;Poštanske usluge;;;;izvršeno
+159;30.12.2025;Lux Petrol d.o.o.;900000561;334.620,00;Gorivo;Gorivo eurodizel, 1911 l;1.911,00;litar;;izvršeno
