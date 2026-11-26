@@ -149,6 +149,33 @@ console.warn = (...args: unknown[]) => {
   originalWarn(...args)
 }
 
+// Mozaik opens one cloud session per agent loop and prints its link each time.
+// Print the first link and a single pointer to the project view, not one line per LLM call.
+const originalLog = console.log
+let cloudLinks = 0
+console.log = (...args: unknown[]) => {
+  if (typeof args[0] === "string" && args[0].includes("mozaik cloud") && args[0].includes("watching live")) {
+    cloudLinks++
+    if (cloudLinks > 1) return
+    originalLog(args[0])
+    originalLog("  (each LLM call is its own Mozaik loop; see all of them under Agents at https://app.jigjoy.ai)")
+    return
+  }
+  originalLog(...args)
+}
+
+// Last-resort guard: a Mozaik loop that outlives its agent rejects with
+// "Participant ... not found" in fire-and-forget code. Log it instead of crashing the process.
+process.on("unhandledRejection", (reason) => {
+  const message = reason instanceof Error ? reason.message : String(reason)
+  if (/^Participant .* not found$/.test(message)) {
+    console.warn(`[mozaik] ignored late event from a finished agent: ${message}`)
+    return
+  }
+  console.error("Unhandled rejection:", reason)
+  process.exitCode = 1
+})
+
 const runtime = defineRuntime<InquestState>()
 export const { join, leave, sendEvent, runLoop, resolveRuntime } = runtime
 

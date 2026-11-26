@@ -4,6 +4,7 @@
  * Checks: parallel searches -> page extraction -> Verifier drops a price whose
  * quote is not on the page -> rule on the median of verified offers.
  */
+import "./setup-env.js"
 import assert from "node:assert/strict"
 import { mkdtempSync, readFileSync } from "node:fs"
 import { tmpdir } from "node:os"

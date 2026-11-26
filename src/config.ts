@@ -73,6 +73,8 @@ export const CONFIG = {
     modelFast: process.env.INQUEST_MODEL_FAST ?? "claude-haiku-4-5",
     modelSmart: process.env.INQUEST_MODEL_SMART ?? "claude-sonnet-5-5",
     concurrency: envNumber("INQUEST_LLM_CONCURRENCY", 8),
+    /** Max LLM requests started per minute (0 = no limit). Needed for free provider tiers. */
+    requestsPerMinute: envNumber("INQUEST_LLM_RPM", 0),
     budgetPerCase: envNumber("INQUEST_LLM_BUDGET_PER_CASE", 12),
     timeoutMs: envNumber("INQUEST_LLM_TIMEOUT_MS", 90_000),
     offlineLatencyMs: envNumber("INQUEST_OFFLINE_LATENCY_MS", 120),

@@ -51,7 +51,8 @@ test("think() runs a Mozaik worker loop with structured output", async () => {
   assert.equal(r.via, "llm")
   assert.deepEqual(r.value, { answer: "from-model" })
   assert.equal(seen[0].structuredOutput?.strict, true)
-  // The worker left the runtime after answering; only bookkeeping participants remain.
+  // The worker leaves the runtime on the tick after answering; only bookkeeping participants remain.
+  await new Promise((r) => setImmediate(r))
   assert.equal([...state.participants.values()].filter((p) => p.getManifest().name === "price/t").length, 0)
 
   // Ten calls in parallel all resolve to their own answer.

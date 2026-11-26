@@ -76,6 +76,56 @@ export const bool = (description?: string): JsonSchema => ({ type: "boolean", ..
 export const nullable = (schema: JsonSchema): JsonSchema => ({ anyOf: [schema, { type: "null" }] })
 export const arr = (items: JsonSchema, description?: string): JsonSchema => ({ type: "array", items, ...(description ? { description } : {}) })
 
+export function isGemini(model: string): boolean {
+  return model.startsWith("gemini")
+}
+
+/**
+ * Gemini's responseSchema is an OpenAPI subset: it rejects `additionalProperties`
+ * and `{ type: "null" }`, and marks optional values with `nullable: true` instead.
+ */
+export function toGeminiSchema(schema: JsonSchema): JsonSchema {
+  const anyOf = schema.anyOf as JsonSchema[] | undefined
+  if (anyOf) {
+    const rest = anyOf.filter((s) => s.type !== "null")
+    if (rest.length === 1 && rest.length < anyOf.length) {
+      const { anyOf: _drop, ...outer } = schema
+      return { ...toGeminiSchema(rest[0]!), ...outer, nullable: true }
+    }
+    return { ...schema, anyOf: rest.map(toGeminiSchema) }
+  }
+  const out: JsonSchema = {}
+  for (const [key, value] of Object.entries(schema)) {
+    if (key === "additionalProperties") continue
+    if (key === "properties") {
+      out.properties = Object.fromEntries(Object.entries(value as Record<string, JsonSchema>).map(([k, v]) => [k, toGeminiSchema(v)]))
+    } else if (key === "items") {
+      out.items = toGeminiSchema(value as JsonSchema)
+    } else {
+      out[key] = value
+    }
+  }
+  return out
+}
+
+const RETRY_DELAYS_MS = [5000, 15000, 30000]
+
+/** Spaces request starts evenly so that at most INQUEST_LLM_RPM requests start per minute. */
+let nextSlotAt = 0
+async function waitForRateSlot(): Promise<void> {
+  const rpm = CONFIG.llm.requestsPerMinute
+  if (!rpm || rpm <= 0) return
+  const now = Date.now()
+  const slot = Math.max(now, nextSlotAt)
+  nextSlotAt = slot + 60_000 / rpm
+  if (slot > now) await sleep(slot - now)
+}
+
+/** Provider errors worth retrying: overload (503), rate limit (429), timeouts. */
+export function isTransient(message: string): boolean {
+  return /(429|500|502|503|504|529)|UNAVAILABLE|RESOURCE_EXHAUSTED|overloaded|high demand|rate.?limit|ECONNRESET|ETIMEDOUT/i.test(message)
+}
+
 export async function think<T>(opts: ThinkOptions<T>): Promise<ThinkResult<T>> {
   const state = runtimeState()
   const started = Date.now()
@@ -95,10 +145,21 @@ export async function think<T>(opts: ThinkOptions<T>): Promise<ThinkResult<T>> {
   await semaphore.acquire()
   try {
     state.counters.llmCalls++
-    const text = await runWorker(opts)
-    const parsed = JSON.parse(extractJson(text)) as T & { __inquest_error?: string }
-    if (parsed && typeof parsed === "object" && "__inquest_error" in parsed) throw new Error(String(parsed.__inquest_error))
-    return { value: parsed, via: "llm", ms: Date.now() - started }
+    for (let attempt = 1; ; attempt++) {
+      await waitForRateSlot()
+      const text = await runWorker(opts)
+      const parsed = JSON.parse(extractJson(text)) as T & { __inquest_error?: string }
+      if (parsed && typeof parsed === "object" && "__inquest_error" in parsed) {
+        const message = String(parsed.__inquest_error)
+        // Overloaded or rate-limited provider: wait and try again before falling back.
+        if (attempt < RETRY_DELAYS_MS.length + 1 && isTransient(message)) {
+          await sleep(RETRY_DELAYS_MS[attempt - 1]! * (0.75 + Math.random() * 0.5))
+          continue
+        }
+        throw new Error(message)
+      }
+      return { value: parsed, via: "llm", ms: Date.now() - started }
+    }
   } catch (error) {
     state.counters.llmFailures++
     const message = error instanceof Error ? error.message : String(error)
@@ -125,19 +186,35 @@ function runWorker<T>(opts: ThinkOptions<T>): Promise<string> {
   const state = runtimeState()
   return new Promise<string>((resolve, reject) => {
     let worker: Agent | null = null
-    const timer = setTimeout(() => finish(new Error(`timeout after ${CONFIG.llm.timeoutMs} ms`)), CONFIG.llm.timeoutMs)
-    const finish = (error: Error | null, text?: string) => {
+    let settled = false
+    const timer = setTimeout(() => settle(new Error(`timeout after ${CONFIG.llm.timeoutMs} ms`)), CONFIG.llm.timeoutMs)
+    const settle = (error: Error | null, text?: string) => {
+      if (settled) return
+      settled = true
       clearTimeout(timer)
-      if (worker) {
+      if (error) reject(error)
+      else resolve(text ?? "")
+    }
+    // The worker leaves only once its loop has ended. Leaving earlier (e.g. on our own
+    // timeout) makes Mozaik throw "Participant not found" when the late answer arrives.
+    // Leave on the next tick: Mozaik delivers model.answer synchronously, and its cloud
+    // exporter looks the agent up right after publishing that event.
+    const loopEnded = () => {
+      const done = worker
+      if (!done) return
+      worker = null
+      setImmediate(() => {
         try {
-          leave(worker)
+          leave(done)
         } catch {
           /* already left */
         }
-        state.roles.delete(worker.getId())
-      }
-      if (error) reject(error)
-      else resolve(text ?? "")
+        state.roles.delete(done.getId())
+      })
+    }
+    const finish = (error: Error | null, text?: string) => {
+      loopEnded()
+      settle(error, text)
     }
     const onOwnAnswer: SituationHandler = {
       specification: new OnEvents(["model.answer"], true),
@@ -158,12 +235,26 @@ function runWorker<T>(opts: ThinkOptions<T>): Promise<string> {
     })
     state.roles.set(worker.getId(), opts.role)
     join(worker)
-    runLoop(worker.getId(), opts.prompt, {
-      model: opts.model === "smart" ? CONFIG.llm.modelSmart : CONFIG.llm.modelFast,
+    const model = opts.model === "smart" ? CONFIG.llm.modelSmart : CONFIG.llm.modelFast
+    const gemini = isGemini(model)
+    const looping: unknown = runLoop(worker.getId(), opts.prompt, {
+      model,
       context: worker.getMemory().getContext(),
-      structuredOutput: { name: opts.task.replace(/[^a-zA-Z0-9_]/g, "_"), schema: opts.schema, strict: true },
-      maxOutputTokens: opts.maxOutputTokens ?? 2000,
+      structuredOutput: {
+        name: opts.task.replace(/[^a-zA-Z0-9_]/g, "_"),
+        schema: gemini ? toGeminiSchema(opts.schema) : opts.schema,
+        strict: true,
+      },
+      // Gemini counts its thinking tokens against the output limit, so keep thinking short and the limit roomy.
+      maxOutputTokens: gemini ? Math.max(opts.maxOutputTokens ?? 2000, 8000) : (opts.maxOutputTokens ?? 2000),
+      ...(gemini ? { reasoningEffort: "low" } : {}),
     })
+    if (looping instanceof Promise) {
+      looping.catch((error: unknown) => {
+        loopEnded()
+        settle(error instanceof Error ? error : new Error(String(error)))
+      })
+    }
   })
 }
 
