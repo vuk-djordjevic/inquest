@@ -4,7 +4,6 @@ import { CONFIG } from "../config.js"
 import { CaseBoard } from "../db/board.js"
 import type { PaymentFilter } from "../db/source.js"
 import { evaluate, type Evaluation } from "../eval/evaluate.js"
-import { isFullRun } from "../cli/args.js"
 import { runSingle } from "./single.js"
 import type { RunStats } from "./stats.js"
 import { runTeam } from "./team.js"
@@ -20,11 +19,10 @@ export interface Comparison {
 export const COMPARISON_PATH = resolve(CONFIG.runsDir, "comparison.json")
 
 export async function compare(filter: PaymentFilter): Promise<Comparison> {
-  const full = isFullRun(filter)
   const teamStats = await runTeam(filter)
-  const teamEval = full ? evaluate(CaseBoard.open("team")!) : null
+  const teamEval = evaluate(CaseBoard.open("team")!)
   const singleStats = await runSingle(filter)
-  const singleEval = full ? evaluate(CaseBoard.open("single")!) : null
+  const singleEval = evaluate(CaseBoard.open("single")!)
   const result: Comparison = {
     at: new Date().toISOString(),
     filter,

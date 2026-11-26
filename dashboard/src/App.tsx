@@ -9,8 +9,8 @@ import { Results } from "./components/Results"
 
 type Tab = "live" | "cases" | "results"
 
-/** Payers of the demo scenario: the fictional municipality X (laptops), municipality Z (street), school Y. */
-const DEMO_PAYERS = ["MU03", "MU07", "SC03", "SC08", "HE02"]
+/** Demo payers: municipality X (laptops), municipality Z (street), school Y, plus two with legitimate look-alikes (GIS workstations, monthly rent). */
+const DEMO_PAYERS = ["MU03", "MU07", "SC03", "SC08", "HE02", "MU04", "UT02"]
 
 function useThrottled(fn: () => void, ms: number) {
   const last = useRef(0)

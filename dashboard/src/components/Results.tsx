@@ -35,12 +35,19 @@ export function Results({ evaluation, comparison, stats, state, real, onCase }: 
           {!evaluation && <div className="empty">Run the team on the full dataset to evaluate.</div>}
           {evaluation && (
             <>
+              {!evaluation.scope.full && (
+                <p className="note" style={{ marginTop: 0 }}>
+                  This run screened {evaluation.scope.screenedPayments.toLocaleString()} of {evaluation.scope.totalPayments.toLocaleString()} payments.
+                  Only the {evaluation.injected} injected cases inside that scope are counted; {evaluation.scope.injectedOutOfScope} are outside it.
+                  The demo institutions were chosen because they contain test cases, so the flagged share here is higher than on the full data. Run "All payments" for the full evaluation.
+                </p>
+              )}
               <div className="cards">
                 <Metric value={`${evaluation.detected}/${evaluation.injected}`} label="injected cases found" />
                 <Metric value={pct(evaluation.correctSignalRate)} label="correct signal type" />
                 <Metric value={pct(evaluation.expectedSignalRecall)} label="expected signals recovered" />
-                <Metric value={`${evaluation.falseAlarms}/${evaluation.cleanPayments}`} label="false alarms on clean payments" />
-                <Metric value={pct(evaluation.flaggedShare.procurement, 1)} label="procurement payments flagged (target < 10%)" />
+                <Metric value={evaluation.cleanPayments ? `${evaluation.falseAlarms}/${evaluation.cleanPayments}` : "n/a"} label="false alarms on clean payments" />
+                <Metric value={pct(evaluation.flaggedShare.procurement, 1)} label="screened procurement payments flagged (target < 10%)" />
                 <Metric value={evaluation.verifierCorrections} label="wrong claims caught by the Verifier" />
                 {stats?.avgSecondsToApprovedDossier != null && <Metric value={`${stats.avgSecondsToApprovedDossier} s`} label="from payment to approved dossier" />}
               </div>

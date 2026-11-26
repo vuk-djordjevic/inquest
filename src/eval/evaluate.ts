@@ -44,6 +44,8 @@ export interface Evaluation {
   verifierCorrections: number
   cases: CaseResult[]
   falseAlarmCases: Array<{ truthId: string; paymentId: string; caseId: number; score: number }>
+  /** What the run covered: metrics only count payments that were actually screened. */
+  scope: { screenedPayments: number; totalPayments: number; injectedOutOfScope: number; full: boolean }
 }
 
 export function loadTruth(): TruthCase[] {
@@ -61,8 +63,17 @@ export function evaluate(board: CaseBoard): Evaluation {
   const caseScore = (id: number) => board.getCase(id)?.score ?? null
   const caseCodes = (id: number) => (db.prepare(`SELECT DISTINCT code FROM signals WHERE case_id = ?`).all(id) as Array<{ code: string }>).map((r) => r.code)
 
+  // A run may cover only some institutions (e.g. the demo set): evaluate only what was screened.
+  board.flushEvents()
+  const screened = new Set(
+    (db.prepare(`SELECT DISTINCT json_extract(payload_json, '$.paymentId') AS id FROM events WHERE type = 'contract.queued'`).all() as Array<{ id: string }>).map((r) => r.id),
+  )
+  const totalPayments = (sourceDb().prepare(`SELECT COUNT(*) AS n FROM payments`).get() as { n: number }).n
+  const inScope = (t: TruthCase) => t.paymentIds.some((id) => screened.has(id))
+  const injectedAll = truth.filter((x) => !x.clean)
+
   const results: CaseResult[] = []
-  for (const t of truth.filter((x) => !x.clean)) {
+  for (const t of injectedAll.filter(inScope)) {
     const caseIds = [...new Set(t.paymentIds.flatMap(casesForPayment))]
     const flaggedIds = caseIds.filter((id) => (caseScore(id) ?? 0) >= th)
     const found = [...new Set(flaggedIds.flatMap(caseCodes))]
@@ -83,7 +94,7 @@ export function evaluate(board: CaseBoard): Evaluation {
   let cleanPayments = 0
   let falseAlarms = 0
   for (const t of truth.filter((x) => x.clean)) {
-    for (const pid of t.paymentIds) {
+    for (const pid of t.paymentIds.filter((id) => screened.has(id))) {
       cleanPayments++
       const flagged = casesForPayment(pid).filter((id) => (caseScore(id) ?? 0) >= th)
       if (flagged.length) {
@@ -97,7 +108,7 @@ export function evaluate(board: CaseBoard): Evaluation {
   const flaggedPayments = new Set<string>()
   for (const c of board.listCases()) if ((c.score ?? 0) >= th) for (const pid of board.casePaymentIds(c.id)) flaggedPayments.add(pid)
   const share = (where: string) => {
-    const ids = (sourceDb().prepare(`SELECT id FROM payments WHERE ${where}`).all() as Array<{ id: string }>).map((r) => r.id)
+    const ids = (sourceDb().prepare(`SELECT id FROM payments WHERE ${where}`).all() as Array<{ id: string }>).map((r) => r.id).filter((id) => screened.has(id))
     return ids.length ? ids.filter((id) => flaggedPayments.has(id)).length / ids.length : 0
   }
   const realCount = (sourceDb().prepare(`SELECT COUNT(*) AS n FROM payments WHERE dataset = 'real'`).get() as { n: number }).n
@@ -132,12 +143,19 @@ export function evaluate(board: CaseBoard): Evaluation {
     verifierCorrections,
     cases: results,
     falseAlarmCases,
+    scope: {
+      screenedPayments: screened.size,
+      totalPayments,
+      injectedOutOfScope: injectedAll.length - results.length,
+      full: screened.size === totalPayments,
+    },
   }
 }
 
 export function formatEvaluation(e: Evaluation): string {
   const pct = (x: number) => `${(x * 100).toFixed(1)}%`
   const lines = [
+    ...(e.scope.full ? [] : [`Scope: ${e.scope.screenedPayments} of ${e.scope.totalPayments} payments screened; ${e.scope.injectedOutOfScope} injected case(s) outside the run are not counted.`]),
     `Injected cases found:        ${e.detected}/${e.injected} (${pct(e.detectionRate)})`,
     `Correct signal type:         ${e.correctSignal}/${e.detected} (${pct(e.correctSignalRate)})`,
     `Expected signals recovered:  ${pct(e.expectedSignalRecall)}`,

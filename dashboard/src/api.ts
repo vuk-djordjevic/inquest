@@ -101,6 +101,7 @@ export interface Evaluation {
   flaggedShare: { procurement: number; ledgers: number; real: number | null }
   verifierRejections: number
   verifierCorrections: number
+  scope: { screenedPayments: number; totalPayments: number; injectedOutOfScope: number; full: boolean }
   cases: Array<{ id: string; title: string; detected: boolean; score: number | null; primarySignal: string; primaryFound: boolean; foundSignals: string[]; caseIds: number[] }>
 }
 
