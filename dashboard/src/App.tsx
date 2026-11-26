@@ -149,47 +149,31 @@ export function App() {
 
       <main className="main">
         {tab === "live" && (
-          <div className="grid-live">
-            <div className="col">
-              <section className="panel">
-                <div className="progress">
-                  <div className="stat"><b>{p.queued.toLocaleString()}</b><span>payments queued</span></div>
-                  <div className="stat"><b>{(p.screened.price ?? p.screened.single ?? 0).toLocaleString()}</b><span>price-checked</span></div>
-                  <div className="stat"><b>{cases.length}</b><span>open cases</span></div>
-                  <div className="stat"><b>{cases.filter((c) => c.flagged).length}</b><span>flagged</span></div>
-                  <div className="stat"><b>{live.merges.length}</b><span>merges</span></div>
-                  <div className="stat"><b>{p.llm}</b><span>LLM calls</span></div>
-                  {runStats && !running && <div className="stat"><b>{(runStats.durationMs / 1000).toFixed(1)} s</b><span>last run</span></div>}
-                </div>
-              </section>
-              <section className="panel grow">
-                <div className="panel-head"><h2>Agents</h2><span className="note">each lane is one Mozaik participant; all work at the same time</span></div>
-                <AgentLanes live={live} onCase={openCase} />
-              </section>
-            </div>
-            <div className="col">
-              <section className="panel grow">
-                <div className="panel-head"><h2>Institutions and recipients</h2></div>
-                <Graph data={graph} onCase={openCase} />
-                <div className="legend">
-                  <span><i style={{ background: "var(--accent)", borderRadius: 2 }} />institution</span>
-                  <span><i style={{ background: "var(--faint)", borderRadius: "50%" }} />recipient</span>
-                  <span><i style={{ background: "var(--risk)" }} />in a flagged case</span>
-                  <span>click a link to open its case</span>
-                </div>
-              </section>
-              <section className="panel" style={{ maxHeight: 260 }}>
-                <div className="panel-head"><h2>Investigations meeting</h2></div>
-                <div className="panel-body">
-                  {live.merges.length === 0 && <div className="note">When two lines of investigation reach the same payments, supplier or institution, the Coordinator merges them here.</div>}
-                  <ul className="merges">
-                    {live.merges.map((m) => (
-                      <li key={m.id} onClick={() => m.caseId && openCase(m.caseId)} style={{ cursor: "pointer" }}>{m.text}</li>
-                    ))}
-                  </ul>
-                </div>
-              </section>
-            </div>
+          <div className="live-page">
+            <section className="panel live-stats">
+              <div className="progress">
+                <div className="stat"><b>{p.queued.toLocaleString()}</b><span>payments queued</span></div>
+                <div className="stat"><b>{(p.screened.price ?? p.screened.single ?? 0).toLocaleString()}</b><span>price-checked</span></div>
+                <div className="stat"><b>{cases.length}</b><span>open cases</span></div>
+                <div className="stat"><b>{cases.filter((c) => c.flagged).length}</b><span>flagged</span></div>
+                <div className="stat"><b>{p.llm}</b><span>LLM calls</span></div>
+                {runStats && !running && <div className="stat"><b>{(runStats.durationMs / 1000).toFixed(1)} s</b><span>last run</span></div>}
+              </div>
+            </section>
+            <section className="panel agents-panel">
+              <div className="panel-head"><h2>Agents</h2></div>
+              <AgentLanes live={live} onCase={openCase} />
+            </section>
+            <section className="panel graph-panel">
+              <div className="panel-head"><h2>Institutions and recipients</h2></div>
+              <Graph data={graph} onCase={openCase} />
+              <div className="legend">
+                <span><i style={{ background: "var(--accent)", borderRadius: 2 }} />institution</span>
+                <span><i style={{ background: "var(--faint)", borderRadius: "50%" }} />recipient</span>
+                <span><i style={{ background: "var(--risk)" }} />in a flagged case</span>
+                <span>click a link to open its case</span>
+              </div>
+            </section>
           </div>
         )}
 

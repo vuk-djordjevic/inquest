@@ -34,23 +34,28 @@ export function CaseDetail({ detail }: { detail: Detail | null }) {
   return (
     <div className="detail">
       <h3>#{c.id} {c.title}</h3>
-      <div className="sub">
-        Risk score <b>{c.score === null ? "not scored" : Math.round(c.score * 100)}</b>
-        {c.parent_id ? ` · branch of case #${c.parent_id}` : ""} · {detail.payments.length} payments · {detail.signals.length} signals
-      </div>
-      {c.score_rationale && <p>{c.score_rationale}</p>}
-      {c.explanation && <p className="note">Legitimate explanation considered: {c.explanation}</p>}
 
-      {detail.merged.length > 0 && (
-        <div className="section">
-          <h4>Lines of investigation merged into this case</h4>
-          <ul className="merges">
-            {detail.merged.map((m) => (
-              <li key={m.id}><b>#{m.id}</b> {m.title} {m.reason === "closed" ? "(branch closed, nothing new)" : ""}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="section">
+        <h4>Dossier</h4>
+        {!dossier && <div className="note">No dossier: the case is below the flag threshold or still being scored.</div>}
+        {dossier && (
+          <>
+            <div className="version-tabs">
+              {detail.dossiers.map((d) => (
+                <button key={d.version} className={`btn ${d.version === dossier.version ? "primary" : ""}`} onClick={() => setVersion(d.version)}>
+                  v{d.version} · {d.status}
+                </button>
+              ))}
+            </div>
+            {rejections.length > 0 && (
+              <ol className="rejections">
+                {rejections.map((r, i) => <li key={i}>Verifier: {r.reason}</li>)}
+              </ol>
+            )}
+            <div className="dossier" dangerouslySetInnerHTML={{ __html: html }} />
+          </>
+        )}
+      </div>
 
       <div className="section">
         <h4>Signals</h4>
@@ -68,6 +73,17 @@ export function CaseDetail({ detail }: { detail: Detail | null }) {
           </div>
         ))}
       </div>
+
+      {detail.merged.length > 0 && (
+        <div className="section">
+          <h4>Lines of investigation merged into this case</h4>
+          <ul className="merges">
+            {detail.merged.map((m) => (
+              <li key={m.id}><b>#{m.id}</b> {m.title} {m.reason === "closed" ? "(branch closed, nothing new)" : ""}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {detail.findings.length > 0 && (
         <div className="section">
@@ -96,27 +112,6 @@ export function CaseDetail({ detail }: { detail: Detail | null }) {
         </div>
       )}
 
-      <div className="section">
-        <h4>Dossier</h4>
-        {!dossier && <div className="note">No dossier: the case is below the flag threshold or still being scored.</div>}
-        {dossier && (
-          <>
-            <div className="version-tabs">
-              {detail.dossiers.map((d) => (
-                <button key={d.version} className={`btn ${d.version === dossier.version ? "primary" : ""}`} onClick={() => setVersion(d.version)}>
-                  v{d.version} · {d.status}
-                </button>
-              ))}
-            </div>
-            {rejections.length > 0 && (
-              <ol className="rejections">
-                {rejections.map((r, i) => <li key={i}>Verifier: {r.reason}</li>)}
-              </ol>
-            )}
-            <div className="dossier" dangerouslySetInnerHTML={{ __html: html }} />
-          </>
-        )}
-      </div>
     </div>
   )
 }

@@ -23,7 +23,7 @@ export function AgentLanes({ live, onCase }: { live: LiveState; onCase: (id: num
     return () => clearInterval(t)
   }, [])
   const now = Date.now()
-  const roles = live.lanes.single ? ["single", ...ROLE_ORDER] : ROLE_ORDER
+  const roles = live.lanes.single ? ["single"] : ROLE_ORDER
   return (
     <div className="lanes">
       {roles.map((role) => {
@@ -31,22 +31,24 @@ export function AgentLanes({ live, onCase }: { live: LiveState; onCase: (id: num
         const active = now - (live.lastActive[role] ?? 0) < 1200
         const screened = live.progress.screened[role]
         return (
-          <section key={role} className="lane" aria-label={ROLE_LABEL[role]}>
-            <div className="lane-head">
-              <span className={`dot ${active ? "on" : ""}`} />
-              <b title={ROLE_HINT[role]}>{ROLE_LABEL[role] ?? role}</b>
-              <span className="count">{screened !== undefined ? `${screened} screened · ` : ""}{live.counts[role] ?? 0} events</span>
-            </div>
-            <ul className="lane-feed">
-              {items.length === 0 && <li className="note">{ROLE_HINT[role]}</li>}
-              {items.slice(0, 6).map((it) => (
-                <li key={it.id} className={it.tone ?? ""} onClick={() => it.caseId && onCase(it.caseId)} style={{ cursor: it.caseId ? "pointer" : undefined }}>
-                  <time>{time(it.at)}</time>
-                  {it.text}
-                </li>
-              ))}
-            </ul>
-          </section>
+          <div key={role} className="lane-wrap" data-role={role}>
+            <section className="lane" aria-label={ROLE_LABEL[role]}>
+              <div className="lane-head">
+                <span className={`dot ${active ? "on" : ""}`} />
+                <b title={ROLE_HINT[role]}>{ROLE_LABEL[role] ?? role}</b>
+                <span className="count">{screened !== undefined ? `${screened} screened · ` : ""}{live.counts[role] ?? 0} events</span>
+              </div>
+              <ul className="lane-feed">
+                {items.length === 0 && <li className="note">{ROLE_HINT[role]}</li>}
+                {items.slice(0, 6).map((it) => (
+                  <li key={it.id} className={it.tone ?? ""} onClick={() => it.caseId && onCase(it.caseId)} style={{ cursor: it.caseId ? "pointer" : undefined }}>
+                    <time>{time(it.at)}</time>
+                    {it.text}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
         )
       })}
     </div>
