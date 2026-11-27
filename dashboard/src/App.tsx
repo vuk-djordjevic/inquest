@@ -8,6 +8,7 @@ import { Graph } from "./components/Graph"
 import { Results } from "./components/Results"
 
 type Tab = "live" | "cases" | "results"
+type Scope = "demo" | "synthetic" | "real"
 
 /** Demo payers: municipality X (laptops), municipality Z (street), school Y, plus two with legitimate look-alikes (GIS workstations, monthly rent). */
 const DEMO_PAYERS = ["MU03", "MU07", "SC03", "SC08", "HE02", "MU04", "UT02"]
@@ -33,7 +34,7 @@ function useThrottled(fn: () => void, ms: number) {
 export function App() {
   const [tab, setTab] = useState<Tab>("live")
   const [mode, setMode] = useState<Mode>("team")
-  const [scope, setScope] = useState<"demo" | "all">("demo")
+  const [scope, setScope] = useState<Scope>("demo")
   const [state, setState] = useState<ServerState | null>(null)
   const [cases, setCases] = useState<CaseSummary[]>([])
   const [graph, setGraph] = useState<GraphData>({ nodes: [], edges: [] })
@@ -95,7 +96,7 @@ export function App() {
   const start = async (m: "team" | "single" | "compare") => {
     if (m !== "compare") setMode(m)
     else setMode("team")
-    const ok = await api.run(m, scope === "demo" ? DEMO_PAYERS : undefined)
+    const ok = await api.run(m, scope === "demo" ? { payers: DEMO_PAYERS } : { dataset: scope })
     if (ok) {
       setTab("live")
       loadState()

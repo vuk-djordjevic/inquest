@@ -139,7 +139,9 @@ def main() -> None:
 
     real_dir = RAW / "real"
     if real_dir.exists():
-        for path in sorted(list(real_dir.glob("*.json")) + list(real_dir.glob("*.jsonl"))):
+        real_files = [f for f in real_dir.iterdir()
+                      if f.name.endswith((".json", ".jsonl", ".json.gz", ".jsonl.gz"))]
+        for path in sorted(real_files):
             rp, rc, rb = adapt_file(path)
             for pay in rp:
                 pay["dataset"] = "real"

@@ -28,6 +28,8 @@ export interface ThinkOptions<T> {
   caseId?: number
   maxOutputTokens?: number
   offline: () => T
+  /** When false, skip the LLM and use the offline result (the answer could not change the outcome). */
+  useLlm?: boolean
 }
 
 export interface ThinkResult<T> {
@@ -135,7 +137,12 @@ export async function think<T>(opts: ThinkOptions<T>): Promise<ThinkResult<T>> {
     return { value: opts.offline(), via: "offline", ms: Date.now() - started, note }
   }
 
+  // Not worth a model call: answer by rules at once (no simulated latency, since no call would happen).
+  if (opts.useLlm === false) return { value: opts.offline(), via: "offline", ms: Date.now() - started, note: "rules only" }
   if (!CONFIG.llm.enabled) return offline()
+  if (CONFIG.llm.maxCallsPerRun > 0 && state.counters.llmCalls >= CONFIG.llm.maxCallsPerRun) {
+    return offline("LLM call limit for this run reached (INQUEST_LLM_MAX_CALLS)")
+  }
   if (opts.caseId !== undefined) {
     const used = callsPerCase.get(opts.caseId) ?? 0
     if (used >= CONFIG.llm.budgetPerCase) return offline("LLM budget for this case used up")

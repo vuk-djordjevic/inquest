@@ -71,45 +71,43 @@ export function listPaymentIds(filter: PaymentFilter = {}): string[] {
   return (sourceDb().prepare(sql).all(...params) as Array<{ id: string }>).map((r) => r.id)
 }
 
-export function paymentsByPayer(payerId: string, opts: { category?: string; group?: string; from?: string; to?: string } = {}): Payment[] {
-  const where = ["payer_id = ?"]
-  const params: unknown[] = [payerId]
-  if (opts.category) {
-    where.push("category = ?")
-    params.push(opts.category)
+// The source database is read-only during a run, so each payer's and recipient's
+// payments are read once and filtered in memory. Large real institutions have
+// thousands of contracts, and signal formulas ask for them once per payment.
+const byPayerCache = new Map<string, Payment[]>()
+const byRecipientCache = new Map<string, Payment[]>()
+
+function allByPayer(payerId: string): Payment[] {
+  let rows = byPayerCache.get(payerId)
+  if (!rows) {
+    rows = sourceDb().prepare(`SELECT ${PAYMENT_COLUMNS} FROM payments WHERE payer_id = ? ORDER BY date, rowid`).all(payerId) as Payment[]
+    byPayerCache.set(payerId, rows)
   }
-  if (opts.group) {
-    const cats = categoriesInGroup(opts.group)
-    where.push(`category IN (${cats.map(() => "?").join(",")})`)
-    params.push(...cats)
-  }
-  if (opts.from) {
-    where.push("date >= ?")
-    params.push(opts.from)
-  }
-  if (opts.to) {
-    where.push("date <= ?")
-    params.push(opts.to)
-  }
-  return sourceDb()
-    .prepare(`SELECT ${PAYMENT_COLUMNS} FROM payments WHERE ${where.join(" AND ")} ORDER BY date`)
-    .all(...params) as Payment[]
+  return rows
 }
 
+function allByRecipient(recipientId: string): Payment[] {
+  let rows = byRecipientCache.get(recipientId)
+  if (!rows) {
+    rows = sourceDb().prepare(`SELECT ${PAYMENT_COLUMNS} FROM payments WHERE recipient_id = ? ORDER BY date, rowid`).all(recipientId) as Payment[]
+    byRecipientCache.set(recipientId, rows)
+  }
+  return rows
+}
+
+/** Payments of one payer, oldest first. Returns a new array; the payment objects are shared and must not be mutated. */
+export function paymentsByPayer(payerId: string, opts: { category?: string; group?: string; from?: string; to?: string } = {}): Payment[] {
+  const cats = opts.group ? new Set(categoriesInGroup(opts.group)) : null
+  return allByPayer(payerId).filter((p) =>
+    (!opts.category || p.category === opts.category) &&
+    (!cats || cats.has(p.category)) &&
+    (!opts.from || p.date >= opts.from) &&
+    (!opts.to || p.date <= opts.to))
+}
+
+/** Payments to one recipient, oldest first. Returns a new array; the payment objects are shared and must not be mutated. */
 export function paymentsByRecipient(recipientId: string, opts: { from?: string; to?: string } = {}): Payment[] {
-  const where = ["recipient_id = ?"]
-  const params: unknown[] = [recipientId]
-  if (opts.from) {
-    where.push("date >= ?")
-    params.push(opts.from)
-  }
-  if (opts.to) {
-    where.push("date <= ?")
-    params.push(opts.to)
-  }
-  return sourceDb()
-    .prepare(`SELECT ${PAYMENT_COLUMNS} FROM payments WHERE ${where.join(" AND ")} ORDER BY date`)
-    .all(...params) as Payment[]
+  return allByRecipient(recipientId).filter((p) => (!opts.from || p.date >= opts.from) && (!opts.to || p.date <= opts.to))
 }
 
 /** Unit prices of completed payments in a category among payers of the same kind. */

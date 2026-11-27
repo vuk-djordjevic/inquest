@@ -12,7 +12,9 @@ agents can see it, but the verifier can exclude it from counts.
 
 from __future__ import annotations
 
+import gzip
 import json
+import re
 from pathlib import Path
 from typing import Iterator
 
@@ -49,14 +51,22 @@ def category_for_cpv(cpv: str | None) -> str:
     return "other"
 
 
+def _open_text(path: Path):
+    if path.suffix == ".gz":
+        return gzip.open(path, "rt", encoding="utf-8")
+    return path.open(encoding="utf-8")
+
+
 def iter_releases(path: Path) -> Iterator[dict]:
-    text = path.read_text(encoding="utf-8")
-    if path.suffix == ".jsonl":
-        for line in text.splitlines():
-            if line.strip():
-                yield json.loads(line)
+    """Releases from .json / .jsonl, optionally gzip-compressed (.json.gz, .jsonl.gz)."""
+    if path.name.endswith((".jsonl", ".jsonl.gz")):
+        with _open_text(path) as f:
+            for line in f:
+                if line.strip():
+                    yield json.loads(line)
         return
-    data = json.loads(text)
+    with _open_text(path) as f:
+        data = json.load(f)
     if isinstance(data, list):
         yield from data
     elif "releases" in data:
@@ -70,20 +80,48 @@ def iter_releases(path: Path) -> Iterator[dict]:
 
 
 def _party_identifier(release: dict, party_ref: dict) -> tuple[str, str]:
-    """Return (stable id, name) for a party reference; prefers the legal identifier (e.g. PIB)."""
+    """Return (stable id, name) for a party reference; prefers the legal identifier (e.g. PIB).
+
+    Publishers differ: some use `identifier`, OpenTender puts the national id in
+    `additionalIdentifiers` with scheme ORGANIZATION_ID.
+    """
     parties = {p.get("id"): p for p in release.get("parties", [])}
     party = parties.get(party_ref.get("id"), {})
-    ident = party.get("identifier", {}).get("id")
+    ident = (party.get("identifier") or {}).get("id")
+    if not ident:
+        ident = next((a.get("id") for a in party.get("additionalIdentifiers", [])
+                      if a.get("scheme") == "ORGANIZATION_ID" and a.get("id")), None)
     return str(ident or party_ref.get("id")), party_ref.get("name") or party.get("name", "")
 
 
+# Buyer kind from its name (Serbian, Cyrillic or Latin). Used for peer groups.
+_KIND_PATTERNS = [
+    ("school", r"школ|škol|гимназиј|gimnazij|вртић|vrtić|предшколск|predškolsk|факултет|fakultet|универзитет|univerzitet"),
+    ("health_center", r"дом здрављ|dom zdravlj|болниц|bolnic|клиник|klinik|здравствен|zdravstven|апотек|apotek"),
+    ("utility", r"комунал|komunal|јкп|jkp|водовод|vodovod|топлан|toplan|чистоћ|čistoć"),
+    ("municipality", r"општин|opštin|opstin|градск|gradsk|^град |^grad |месна заједниц|mesna zajednic"),
+]
+
+
+def buyer_kind(name: str) -> str:
+    lowered = name.lower()
+    for kind, pattern in _KIND_PATTERNS:
+        if re.search(pattern, lowered):
+            return kind
+    return "other"
+
+
 def _to_rsd(value: dict | None) -> float | None:
+    """Amount in RSD. A missing currency is read as RSD (national portals); other currencies are skipped."""
     if not value or value.get("amount") is None:
         return None
     amount = float(value["amount"])
-    if value.get("currency") == "EUR":
+    currency = value.get("currency")
+    if currency == "EUR":
         return amount * EUR_TO_RSD
-    return amount
+    if currency in (None, "RSD"):
+        return amount
+    return None
 
 
 def _date(text: str | None) -> str | None:
@@ -100,11 +138,33 @@ def ocds_payment_id(release: dict, contract_or_award_id: str | None = None) -> s
     return f"{release['ocid']}/{contract_or_award_id}"
 
 
+def _bids_per_lot(release: dict) -> dict[str | None, int]:
+    """Number of bids per lot from the bid statistics (OCDS bid extension), if published."""
+    out: dict[str | None, int] = {}
+    for stat in (release.get("bids") or {}).get("statistics", []):
+        if stat.get("measure") in ("bids", "validBids", "electronicBids") and stat.get("value") is not None:
+            lot = stat.get("relatedLot")
+            # Prefer the general "bids" measure when a publisher gives several.
+            if stat["measure"] == "bids" or lot not in out:
+                out[lot] = int(stat["value"])
+    return out
+
+
+def _tender_start(tender: dict) -> str | None:
+    period = tender.get("tenderPeriod") or {}
+    if period.get("startDate"):
+        return _date(period["startDate"])
+    # Some publishers give only the deadline; the tender notice publication date is the start.
+    notices = [d.get("datePublished") for d in tender.get("documents", [])
+               if d.get("documentType") == "tenderNotice" and d.get("datePublished")]
+    return _date(min(notices)) if notices else None
+
+
 def adapt_release(release: dict, source_file: str) -> tuple[list[dict], list[dict], dict]:
     """Translate one compiled release. Returns (payments, procurement contexts, buyer institution)."""
     buyer_ref = release.get("buyer") or {}
-    buyer = {"id": str(buyer_ref.get("id")), "name": buyer_ref.get("name", ""), "kind": "municipality",
-             "municipality": ""}
+    buyer_id, buyer_name = _party_identifier(release, buyer_ref) if buyer_ref else ("", "")
+    buyer = {"id": buyer_id, "name": buyer_name, "kind": buyer_kind(buyer_name), "municipality": ""}
     tender = release.get("tender", {})
     items = tender.get("items", [])
     item = next((i for i in items if i.get("quantity")), items[0] if items else {})
@@ -112,14 +172,16 @@ def adapt_release(release: dict, source_file: str) -> tuple[list[dict], list[dic
     category = category_for_cpv(cpv)
     unit_name = ((item.get("unit") or {}).get("name") or "").strip().lower()
     unit = UNIT_ALIASES.get(unit_name)
-    description = item.get("description") or tender.get("title") or ""
     object_ref = (item.get("deliveryAddress") or {}).get("streetAddress")
+    lots = {lot.get("id"): lot for lot in tender.get("lots", [])}
+    bids_per_lot = _bids_per_lot(release)
 
     bids = []
     for bid in (release.get("bids") or {}).get("details", []):
         tenderer = (bid.get("tenderers") or [{}])[0]
         bidder_id, bidder_name = _party_identifier(release, tenderer)
-        bids.append({"bidderId": bidder_id, "bidderName": bidder_name, "amount": _to_rsd(bid.get("value"))})
+        bids.append({"bidderId": bidder_id, "bidderName": bidder_name, "amount": _to_rsd(bid.get("value")),
+                     "lots": bid.get("relatedLots") or []})
 
     contracts_by_award = {c.get("awardID"): c for c in release.get("contracts", [])}
     payments, contexts = [], []
@@ -128,10 +190,16 @@ def adapt_release(release: dict, source_file: str) -> tuple[list[dict], list[dic
         supplier_ref = (award.get("suppliers") or [{}])[0]
         supplier_id, supplier_name = _party_identifier(release, supplier_ref)
         award_value = _to_rsd(award.get("value"))
-        final_value = _to_rsd(contract.get("value")) if contract else award_value
+        contract_value = _to_rsd(contract.get("value")) if contract and contract.get("value") else None
+        final_value = contract_value if contract_value is not None else award_value
+        if final_value is None and (award.get("value") or {}).get("amount") is not None:
+            continue  # value in a currency we cannot convert
         cancelled = contract is None and award.get("status") in CANCELLED_AWARD_STATUSES
         pid = ocds_payment_id(release, contract["id"] if contract else award["id"])
         quantity = float(item["quantity"]) if item.get("quantity") else None
+        lot_ids = award.get("relatedLots") or []
+        lot = lots.get(lot_ids[0]) if lot_ids else None
+        description = item.get("description") or (lot or {}).get("title") or tender.get("title") or ""
         payments.append({
             "id": pid,
             "payer_id": buyer["id"],
@@ -153,17 +221,24 @@ def adapt_release(release: dict, source_file: str) -> tuple[list[dict], list[dic
             "status": "cancelled" if cancelled else "completed",
         })
         period = tender.get("tenderPeriod") or {}
+        # Bids for this award's lot. Bid details may list only the winning bid, so a
+        # published bid count (tender.numberOfTenderers or bid statistics) wins over counting details.
+        lot_bids = [b for b in bids if not lot_ids or not b["lots"] or set(b["lots"]) & set(lot_ids)]
+        published = next((bids_per_lot[l] for l in lot_ids if l in bids_per_lot), bids_per_lot.get(None))
+        bids_count = None if lot_ids else tender.get("numberOfTenderers")
+        if bids_count is None:
+            bids_count = published if published is not None else (len(lot_bids) or None)
         contexts.append({
             "payment_id": pid,
             "ocid": release["ocid"],
             "procedure_type": tender.get("procurementMethod"),
             "procedure_details": tender.get("procurementMethodDetails"),
             "contract_kind": tender.get("mainProcurementCategory"),
-            "estimated_value": _to_rsd(tender.get("value")),
-            "tender_start": _date(period.get("startDate")),
+            "estimated_value": _to_rsd((lot or {}).get("value")) or _to_rsd(tender.get("value")),
+            "tender_start": _tender_start(tender),
             "tender_end": _date(period.get("endDate")),
-            "bids_count": tender.get("numberOfTenderers", len(bids) or None),
-            "bids_json": json.dumps(bids, ensure_ascii=False),
+            "bids_count": bids_count,
+            "bids_json": json.dumps([{k: v for k, v in b.items() if k != "lots"} for b in lot_bids], ensure_ascii=False),
             "original_value": award_value,
             "final_value": final_value,
             "amendments_json": json.dumps((contract or {}).get("amendments", []), ensure_ascii=False),

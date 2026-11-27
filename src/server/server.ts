@@ -52,8 +52,13 @@ function withBoard<T>(mode: BoardMode, fn: (b: CaseBoard) => T): T | null {
 
 const modeOf = (url: URL): BoardMode => (url.searchParams.get("mode") === "single" ? "single" : "team")
 
+// Real institutions and companies are shown only in aggregate unless explicitly enabled:
+// a risk signal is not a finding, and named lists of real entities are easy to misread.
+const SHOW_REAL_CASES = process.env.INQUEST_SHOW_REAL_CASES === "1"
+const isRealCase = (b: CaseBoard, caseId: number) => getPayments(b.casePaymentIds(caseId).slice(0, 1))[0]?.dataset === "real"
+
 function casesView(b: CaseBoard) {
-  return b.listCases().map((c) => {
+  return b.listCases().filter((c) => SHOW_REAL_CASES || !isRealCase(b, c.id)).map((c) => {
     const signals = b.caseSignals(c.id)
     const dossiers = b.dossiers(c.id)
     return {
@@ -77,7 +82,7 @@ function casesView(b: CaseBoard) {
 
 function caseDetail(b: CaseBoard, id: number) {
   const c = b.getCase(id)
-  if (!c) return null
+  if (!c || (!SHOW_REAL_CASES && isRealCase(b, id))) return null
   const paymentIds = b.casePaymentIds(id)
   const payments = getPayments(paymentIds)
   const merged = b.listCases({ includeMerged: true }).filter((x) => x.merged_into === id).map((x) => ({ id: x.id, title: x.title, reason: x.merge_reason }))
@@ -99,7 +104,7 @@ function graphView(b: CaseBoard) {
   for (const c of b.listCases()) {
     const flagged = (c.score ?? 0) >= CONFIG.investigation.flagThreshold
     for (const p of getPayments(b.casePaymentIds(c.id))) {
-      if (p.dataset === "real") continue // real data is shown only in aggregate
+      if (p.dataset === "real" && !SHOW_REAL_CASES) continue // real data is shown only in aggregate
       const payer = `payer:${p.payer_id}`
       const recipient = `recipient:${p.recipient_id}`
       const pn = nodes.get(payer) ?? { id: payer, label: p.payer_name, type: "payer" as const, flagged: false, kind: p.payer_kind }
@@ -201,6 +206,7 @@ async function api(req: IncomingMessage, res: ServerResponse, url: URL): Promise
     const filter: PaymentFilter = {
       payerIds: Array.isArray(body.payers) && body.payers.length ? body.payers.map(String) : undefined,
       limit: typeof body.limit === "number" ? body.limit : undefined,
+      dataset: body.dataset === "real" || body.dataset === "synthetic" ? body.dataset : undefined,
     }
     return startRun(mode, filter) ? json(res, 202, { started: mode }) : json(res, 409, { error: "a run is already in progress" })
   }
