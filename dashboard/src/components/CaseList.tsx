@@ -19,7 +19,17 @@ export function CaseList({ cases, selected, onSelect, state, showAll }: {
     <ul className="case-list">
       {visible.map((c) => (
         <li key={c.id} className={`case-row ${selected === c.id ? "selected" : ""}`} onClick={() => onSelect(c.id)}>
-          <div className={`score ${scoreClass(c.score, threshold)}`}>{c.score === null ? "…" : Math.round(c.score * 100)}</div>
+          <div
+            className={`score ${scoreClass(c.score, threshold)}`}
+            role="progressbar"
+            aria-label={`Case #${c.id} risk score`}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={c.score === null ? undefined : Math.round(c.score * 100)}
+            style={{ background: c.score === null ? undefined : `conic-gradient(var(--gauge-color) ${Math.round(c.score * 100)}%, var(--panel-2) 0)` }}
+          >
+            <span>{c.score === null ? "…" : Math.round(c.score * 100)}</span>
+          </div>
           <div style={{ minWidth: 0 }}>
             <div className="title" title={c.title}>#{c.id} {c.title}</div>
             <div className="meta">

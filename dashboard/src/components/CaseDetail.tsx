@@ -1,6 +1,25 @@
 import { marked } from "marked"
 import { useEffect, useMemo, useState } from "react"
 import { ROLE_LABEL, rsd, type CaseDetail as Detail } from "../api"
+import coordinatorPicture from "../../assets/coordinator_picture.png"
+import networkPicture from "../../assets/network_picture.png"
+import patternsPicture from "../../assets/patterns_picture.png"
+import pricePicture from "../../assets/price_picture.png"
+import procedurePicture from "../../assets/procedure_picture.png"
+import riskPicture from "../../assets/risk_picture.png"
+import verifierPicture from "../../assets/verifier_picture.png"
+import writerPicture from "../../assets/writer_picture.png"
+
+const AGENT_PICTURES: Record<string, string> = {
+  coordinator: coordinatorPicture,
+  network: networkPicture,
+  patterns: patternsPicture,
+  price: pricePicture,
+  procedure: procedurePicture,
+  risk: riskPicture,
+  verifier: verifierPicture,
+  writer: writerPicture,
+}
 
 // Dossiers may contain text an LLM took from web pages: never render raw HTML, and only allow http(s) links.
 const escapeHtml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
@@ -34,12 +53,48 @@ export function CaseDetail({ detail }: { detail: Detail | null }) {
   return (
     <div className="detail">
       <h3>#{c.id} {c.title}</h3>
-      <div className="sub">
-        Risk score <b>{c.score === null ? "not scored" : Math.round(c.score * 100)}</b>
-        {c.parent_id ? ` · branch of case #${c.parent_id}` : ""} · {detail.payments.length} payments · {detail.signals.length} signals
+
+      <div className="section">
+        <h4>Dossier</h4>
+        {!dossier && <div className="note">No dossier: the case is below the flag threshold or still being scored.</div>}
+        {dossier && (
+          <>
+            <div className="version-tabs">
+              {detail.dossiers.map((d) => (
+                <button key={d.version} className={`btn ${d.version === dossier.version ? "primary" : ""}`} onClick={() => setVersion(d.version)}>
+                  v{d.version} · {d.status}
+                </button>
+              ))}
+            </div>
+            {rejections.length > 0 && (
+              <ol className="rejections">
+                {rejections.map((r, i) => <li key={i}>Verifier: {r.reason}</li>)}
+              </ol>
+            )}
+            <div className="dossier" dangerouslySetInnerHTML={{ __html: html }} />
+          </>
+        )}
       </div>
-      {c.score_rationale && <p>{c.score_rationale}</p>}
-      {c.explanation && <p className="note">Legitimate explanation considered: {c.explanation}</p>}
+
+      <div className="section">
+        <h4>Signals</h4>
+        {detail.signals.map((s) => (
+          <div key={s.id} className="signal-card signal-with-agent">
+            {AGENT_PICTURES[s.agent] && <img src={AGENT_PICTURES[s.agent]} alt={ROLE_LABEL[s.agent] ?? s.agent} />}
+            <div className="signal-content">
+              <div className="top">
+                <b>{s.info.name}</b>
+                {s.info.ocp && <span className="chip accent">OCP {s.info.ocp}</span>}
+                <span className="chip">{ROLE_LABEL[s.agent] ?? s.agent}</span>
+                <span className="bar" title={`strength ${s.strength.toFixed(2)}`}><i style={{ width: `${s.strength * 100}%` }} /></span>
+              </div>
+              <div>{s.summary}</div>
+              <div className="rule">Rule: {s.rule}</div>
+              {s.explanation && <div className="rule">Explanation found: {s.explanation}</div>}
+            </div>
+          </div>
+        ))}
+      </div>
 
       {detail.merged.length > 0 && (
         <div className="section">
@@ -51,23 +106,6 @@ export function CaseDetail({ detail }: { detail: Detail | null }) {
           </ul>
         </div>
       )}
-
-      <div className="section">
-        <h4>Signals</h4>
-        {detail.signals.map((s) => (
-          <div key={s.id} className="signal-card">
-            <div className="top">
-              <b>{s.info.name}</b>
-              {s.info.ocp && <span className="chip accent">OCP {s.info.ocp}</span>}
-              <span className="chip">{ROLE_LABEL[s.agent] ?? s.agent}</span>
-              <span className="bar" title={`strength ${s.strength.toFixed(2)}`}><i style={{ width: `${s.strength * 100}%` }} /></span>
-            </div>
-            <div>{s.summary}</div>
-            <div className="rule">Rule: {s.rule}</div>
-            {s.explanation && <div className="rule">Explanation found: {s.explanation}</div>}
-          </div>
-        ))}
-      </div>
 
       {detail.findings.length > 0 && (
         <div className="section">
@@ -96,27 +134,6 @@ export function CaseDetail({ detail }: { detail: Detail | null }) {
         </div>
       )}
 
-      <div className="section">
-        <h4>Dossier</h4>
-        {!dossier && <div className="note">No dossier: the case is below the flag threshold or still being scored.</div>}
-        {dossier && (
-          <>
-            <div className="version-tabs">
-              {detail.dossiers.map((d) => (
-                <button key={d.version} className={`btn ${d.version === dossier.version ? "primary" : ""}`} onClick={() => setVersion(d.version)}>
-                  v{d.version} · {d.status}
-                </button>
-              ))}
-            </div>
-            {rejections.length > 0 && (
-              <ol className="rejections">
-                {rejections.map((r, i) => <li key={i}>Verifier: {r.reason}</li>)}
-              </ol>
-            )}
-            <div className="dossier" dangerouslySetInnerHTML={{ __html: html }} />
-          </>
-        )}
-      </div>
     </div>
   )
 }

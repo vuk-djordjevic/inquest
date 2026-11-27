@@ -16,7 +16,6 @@ export interface LiveState {
   lanes: Record<string, FeedItem[]>
   counts: Record<string, number>
   lastActive: Record<string, number>
-  merges: FeedItem[]
   stats: unknown
 }
 
@@ -27,7 +26,6 @@ const EMPTY: LiveState = {
   lanes: {},
   counts: {},
   lastActive: {},
-  merges: [],
   stats: null,
 }
 
@@ -110,7 +108,6 @@ export function useLive(onChange: (type: string) => void): LiveState {
           }
           const item = describe(e)
           if (item && role) s = { ...s, lanes: { ...s.lanes, [role]: [item, ...(s.lanes[role] ?? [])].slice(0, 30) } }
-          if (item && e.type === "cases.merged") s = { ...s, merges: [item, ...s.merges].slice(0, 30) }
         }
         return s
       })

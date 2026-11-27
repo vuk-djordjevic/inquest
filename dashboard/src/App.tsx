@@ -115,83 +115,49 @@ export function App() {
       <header className="header">
         <div className="brand">
           <h1>Inquest</h1>
-          <span>concurrent agents screening public spending · risk signals, not proof</span>
         </div>
-        <nav className="tabs">
-          {(["live", "cases", "results"] as Tab[]).map((t) => (
-            <button key={t} className={`tab ${tab === t ? "active" : ""}`} onClick={() => setTab(t)}>
-              {t === "live" ? "Live" : t === "cases" ? "Cases" : "Results"}
-            </button>
-          ))}
+        <nav className="tabs" aria-label="Main navigation">
+          <button className={`tab ${tab === "live" ? "active" : ""}`} onClick={() => setTab("live")}>Live</button>
+          <button className={`tab ${tab === "cases" ? "active" : ""}`} onClick={() => setTab("cases")}>Cases</button>
         </nav>
-        <div className="spacer" />
-        <div className="runbar">
-          <select className="btn" value={scope} onChange={(e) => setScope(e.target.value as Scope)} disabled={running} aria-label="Scope">
-            <option value="demo">Demo institutions</option>
-            <option value="synthetic">All test data ({((state?.dataset.payments ?? 0) - (state?.dataset.real ?? 0)).toLocaleString()} payments)</option>
-            {Boolean(state?.dataset.real) && <option value="real">Real procurement data ({state?.dataset.real.toLocaleString()} contracts)</option>}
-          </select>
-          <button className="btn primary" disabled={running} onClick={() => start("team")}>Run agent team</button>
-          <button className="btn" disabled={running} onClick={() => start("single")}>Run single agent</button>
-          <button className="btn" disabled={running} onClick={() => start("compare")}>Compare</button>
-          <select className="btn" value={mode} onChange={(e) => setMode(e.target.value as Mode)} aria-label="Board to view">
-            <option value="team">View: team board</option>
-            <option value="single">View: single-agent board</option>
-          </select>
-        </div>
-        <div className="chips">
-          <span className={`chip ${live.connected ? "ok" : "risk"}`}>{live.connected ? "live" : "offline"}</span>
-          <span className={`chip ${state?.llm.enabled ? "accent" : "warn"}`} title="LLM used for understanding, judging, writing and checking">
-            LLM: {state?.llm.enabled ? state.llm.modelFast : "offline fallbacks"}
-          </span>
-          <span className="chip" title="Where web results come from">web: {state?.web ?? "?"}</span>
-          {running && <span className="chip warn">running {state?.activeRun?.mode ?? ""}</span>}
-        </div>
       </header>
 
       <main className="main">
         {tab === "live" && (
-          <div className="grid-live">
-            <div className="col">
-              <section className="panel">
-                <div className="progress">
-                  <div className="stat"><b>{p.queued.toLocaleString()}</b><span>payments queued</span></div>
-                  <div className="stat"><b>{(p.screened.price ?? p.screened.single ?? 0).toLocaleString()}</b><span>price-checked</span></div>
-                  <div className="stat"><b>{cases.length}</b><span>open cases</span></div>
-                  <div className="stat"><b>{cases.filter((c) => c.flagged).length}</b><span>flagged</span></div>
-                  <div className="stat"><b>{live.merges.length}</b><span>merges</span></div>
-                  <div className="stat"><b>{p.llm}</b><span>LLM calls</span></div>
-                  {runStats && !running && <div className="stat"><b>{(runStats.durationMs / 1000).toFixed(1)} s</b><span>last run</span></div>}
-                </div>
-              </section>
-              <section className="panel grow">
-                <div className="panel-head"><h2>Agents</h2><span className="note">each lane is one Mozaik participant; all work at the same time</span></div>
-                <AgentLanes live={live} onCase={openCase} />
-              </section>
+          <div className="live-page">
+            <div className="live-toolbar">
+              <select className="btn" value={scope} onChange={(e) => setScope(e.target.value as "demo" | "all")} disabled={running} aria-label="Payment data scope">
+                <option value="demo">Demo institutions</option>
+                <option value="all">All {state?.dataset.payments.toLocaleString() ?? ""} payments</option>
+              </select>
+              <button className="btn primary" disabled={running} onClick={() => start("team")}>
+                {running ? "Team running" : "Run agent team"}
+              </button>
             </div>
-            <div className="col">
-              <section className="panel grow">
-                <div className="panel-head"><h2>Institutions and recipients</h2></div>
-                <Graph data={graph} onCase={openCase} />
-                <div className="legend">
-                  <span><i style={{ background: "var(--accent)", borderRadius: 2 }} />institution</span>
-                  <span><i style={{ background: "var(--faint)", borderRadius: "50%" }} />recipient</span>
-                  <span><i style={{ background: "var(--risk)" }} />in a flagged case</span>
-                  <span>click a link to open its case</span>
-                </div>
-              </section>
-              <section className="panel" style={{ maxHeight: 260 }}>
-                <div className="panel-head"><h2>Investigations meeting</h2></div>
-                <div className="panel-body">
-                  {live.merges.length === 0 && <div className="note">When two lines of investigation reach the same payments, supplier or institution, the Coordinator merges them here.</div>}
-                  <ul className="merges">
-                    {live.merges.map((m) => (
-                      <li key={m.id} onClick={() => m.caseId && openCase(m.caseId)} style={{ cursor: "pointer" }}>{m.text}</li>
-                    ))}
-                  </ul>
-                </div>
-              </section>
-            </div>
+            <section className="panel live-stats">
+              <div className="progress">
+                <div className="stat"><b>{p.queued.toLocaleString()}</b><span>payments queued</span></div>
+                <div className="stat"><b>{(p.screened.price ?? p.screened.single ?? 0).toLocaleString()}</b><span>price-checked</span></div>
+                <div className="stat"><b>{cases.length}</b><span>open cases</span></div>
+                <div className="stat"><b>{cases.filter((c) => c.flagged).length}</b><span>flagged</span></div>
+                <div className="stat"><b>{p.llm}</b><span>LLM calls</span></div>
+                {runStats && !running && <div className="stat"><b>{(runStats.durationMs / 1000).toFixed(1)} s</b><span>last run</span></div>}
+              </div>
+            </section>
+            <section className="panel agents-panel">
+              <div className="panel-head"><h2>Agents</h2></div>
+              <AgentLanes live={live} onCase={openCase} />
+            </section>
+            <section className="panel graph-panel">
+              <div className="panel-head"><h2>Institutions and recipients</h2></div>
+              <Graph data={graph} onCase={openCase} />
+              <div className="legend">
+                <span><i style={{ background: "var(--accent)", borderRadius: 2 }} />institution</span>
+                <span><i style={{ background: "var(--faint)", borderRadius: "50%" }} />recipient</span>
+                <span><i style={{ background: "var(--risk)" }} />in a flagged case</span>
+                <span>click a link to open its case</span>
+              </div>
+            </section>
           </div>
         )}
 
