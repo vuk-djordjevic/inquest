@@ -30,7 +30,8 @@ export function singleBidSignal(p: Payment, ctx: ProcurementContext): SignalDraf
 
 /** R003: bid deadline - tender start below the minimum for the procedure type. */
 export function shortTenderSignal(p: Payment, ctx: ProcurementContext): SignalDraft | null {
-  const minimum = ctx.procedure_type ? REFERENCE.minimumTenderDays[ctx.procedure_type] : undefined
+  const table = p.dataset === "real" && REFERENCE.minimumTenderDaysReal ? REFERENCE.minimumTenderDaysReal : REFERENCE.minimumTenderDays
+  const minimum = ctx.procedure_type ? table[ctx.procedure_type] : undefined
   if (!minimum || !ctx.tender_start || !ctx.tender_end) return null
   const days = daysBetween(ctx.tender_start, ctx.tender_end)
   if (days >= minimum) return null

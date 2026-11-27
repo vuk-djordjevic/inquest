@@ -122,7 +122,9 @@ const GENERIC_DESCRIPTIONS = new Set([
 export const VAGUE_MIN_AMOUNT = 40_000
 
 export function vaguePurposeCandidate(p: Payment): { candidate: boolean; reason: string } {
-  if (!completed(p) || p.amount < VAGUE_MIN_AMOUNT) return { candidate: false, reason: "" }
+  // Ledger payments only: a procurement has a CPV code and tender documents, so a short
+  // lot title ("Gorivo", "Lekovi") is normal there and says nothing about the purpose.
+  if (p.source === "procurement" || !completed(p) || p.amount < VAGUE_MIN_AMOUNT) return { candidate: false, reason: "" }
   const text = (p.description ?? "").trim().toLowerCase().replace(/[.,;:!"']/g, "")
   if (!text) return { candidate: true, reason: "description is empty" }
   if (GENERIC_DESCRIPTIONS.has(text)) return { candidate: true, reason: `description is generic ("${p.description}")` }

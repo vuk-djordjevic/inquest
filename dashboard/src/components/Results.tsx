@@ -35,11 +35,16 @@ export function Results({ evaluation, comparison, stats, state, real, onCase }: 
           {!evaluation && <div className="empty">Run the team on the full dataset to evaluate.</div>}
           {evaluation && (
             <>
-              {!evaluation.scope.full && (
+              {evaluation.scope.screenedPayments === 0 && (
+                <p className="note" style={{ marginTop: 0 }}>
+                  This run screened only real data ({evaluation.scope.realScreened.toLocaleString()} contracts). Accuracy can only be measured on the test data, where the truth is known; see "Real data" below.
+                </p>
+              )}
+              {!evaluation.scope.full && evaluation.scope.screenedPayments > 0 && (
                 <p className="note" style={{ marginTop: 0 }}>
                   This run screened {evaluation.scope.screenedPayments.toLocaleString()} of {evaluation.scope.totalPayments.toLocaleString()} payments.
                   Only the {evaluation.injected} injected cases inside that scope are counted; {evaluation.scope.injectedOutOfScope} are outside it.
-                  The demo institutions were chosen because they contain test cases, so the flagged share here is higher than on the full data. Run "All payments" for the full evaluation.
+                  The demo institutions were chosen because they contain test cases, so the flagged share here is higher than on the full data. Run "All test data" for the full evaluation.
                 </p>
               )}
               <div className="cards">

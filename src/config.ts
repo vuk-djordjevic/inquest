@@ -26,6 +26,8 @@ interface ReferenceFile {
   approvalThresholdsRsd: Record<string, number>
   procurementExemptionThresholdRsd: Record<string, number>
   minimumTenderDays: Record<string, number>
+  /** Minimum tender days for real (national portal) data, where lower-value procedures may be shorter. */
+  minimumTenderDaysReal?: Record<string, number>
   eurToRsd: number
 }
 
@@ -76,6 +78,8 @@ export const CONFIG = {
     /** Max LLM requests started per minute (0 = no limit). Needed for free provider tiers. */
     requestsPerMinute: envNumber("INQUEST_LLM_RPM", 0),
     budgetPerCase: envNumber("INQUEST_LLM_BUDGET_PER_CASE", 12),
+    /** Max real LLM calls per run (0 = no limit). Protects the budget on large real datasets. */
+    maxCallsPerRun: envNumber("INQUEST_LLM_MAX_CALLS", 300),
     timeoutMs: envNumber("INQUEST_LLM_TIMEOUT_MS", 90_000),
     offlineLatencyMs: envNumber("INQUEST_OFFLINE_LATENCY_MS", 120),
     reportLanguage: (process.env.INQUEST_REPORT_LANGUAGE ?? "en") as "en" | "sr",

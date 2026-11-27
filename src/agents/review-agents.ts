@@ -30,7 +30,7 @@ import { makeAgent } from "./common.js"
 /** Keys of in-flight work that would still change a case. */
 function caseWorkKeys(caseId: number): string[] {
   const board = runtimeState().requireBoard()
-  const ids = board.listCases({ includeMerged: true }).filter((c) => board.resolveCase(c.id) === caseId).map((c) => c.id)
+  const ids = board.mergedFamily(caseId)
   const keys = ids.map((id) => `case:${id}`)
   for (const pid of board.casePaymentIds(caseId)) keys.push(`payment:${pid}`)
   for (const e of board.caseEntities(caseId)) keys.push(`entity:${e.type}:${e.id}`)
