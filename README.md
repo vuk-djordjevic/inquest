@@ -1,232 +1,205 @@
 # Inquest
 
-**A team of concurrent AI agents that screens how public money is spent** (public procurement of municipalities and ministries, municipal payments, the budget of a single school) and produces a ranked list of risky expenses, each with a dossier that a Verifier agent has checked against the source records.
+**A team of AI agents that simultaneously monitors how public money is being spent, regardless of its source:** public procurement by ministries and municipalities, payments from municipal budgets, or school funds and the budget of an individual school.
 
-Agents look for signals that something was overpaid or that money moves in an unusual way: prices far above comparable institutions or the market, the same recipient always winning, payments split just below an approval threshold, expenses without a clear purpose, year-end spending spikes. When one agent finds a suspicious recipient or institution, the others immediately widen the investigation to that entity's other payments, and when two lines of investigation meet, the Coordinator merges them.
+The agents look for signals that money is being spent in ways that do not make financial sense or is flowing in unusual patterns:
 
-> **Inquest reports risk, never guilt.** It shows *where it is worth looking, and why*. A flagged case may be fully legitimate, poorly executed, or worth deeper review; a person decides.
+- overpriced goods compared to similar institutions or the market,
+- the same recipient repeatedly receiving payments,
+- payments deliberately split into smaller amounts to stay below approval thresholds,
+- expenses with no clear purpose,
+- sudden spikes in spending towards the end of the year.
 
-Built for the JigJoy Hackathon 2026 ("AI agents in finance", risk & compliance) on [Mozaik](https://github.com/jigjoy-ai/mozaik), JigJoy's TypeScript runtime for concurrent agents.
+When one agent finds a suspicious recipient or institution, the others widen the investigation to that entity's other payments. Each flagged case ends in a plain-language dossier that a Verifier agent has checked against the source records.
+
+> **Inquest reports risk, never guilt.** It shows *where it is worth looking, and why*. A person decides.
+
+Built by **team Wision** for the JigJoy Hackathon 2026 ("AI agents in finance", risk & compliance) on [Mozaik](https://github.com/jigjoy-ai/mozaik), JigJoy's TypeScript runtime for concurrent agents.
 
 ---
 
-## Quick start
+## 1. Install
 
-Requirements: Node 20+ and Python 3.10+ (standard library only).
+Requirements: **Node 20+** and **Python 3.10+** (standard library only).
 
 ```bash
+git clone https://github.com/vuk-djordjevic/inquest.git
+cd inquest
 npm install
 npm install --prefix dashboard
+```
 
-npm run data            # generate the dataset and load SQLite (data/inquest.db)
-npm run investigate     # run the agent team over all 7,578 payments + evaluation
-npm run compare         # agent team vs. one sequential agent, same work
+## 2. Choose your data
 
+Everything is loaded into one SQLite database, `data/inquest.db`, by `npm run data`. Rerun it whenever you add or change data.
+
+### a) Test data (default, no download)
+
+```bash
+npm run data
+```
+
+This generates 7,578 fictional payments (procurement of 10 municipalities and ministries, ledgers of 48 schools, health centers, utilities and local communities, over 2 years). It also injects **21 known test cases** and clean controls, so you can measure what the agents find. All names are fictional.
+
+### b) Real Serbian public procurement
+
+```bash
+python data/prep/fetch_real.py          # 2021, about 64,000 contracts (~22 MB)
+npm run data                            # loads test data + real data
+```
+
+Other ranges: `python data/prep/fetch_real.py 2020 2022` or `full` (July 2020 to May 2022).
+
+Source: [Serbia: OpenTender](https://data.open-contracting.org/en/publication/139) from the OCP Data Registry, compiled by the Government Transparency Institute from the national Public Procurement Portal. License CC BY-NC-SA 4.0.
+
+The real data has buyers and suppliers (with national IDs), contract values, procedure types, number of bids, tender dates and CPV codes. It has **no item quantities**, so unit-price comparison does not run on it; the procedure, pattern and network signals do.
+
+### c) Your own procurement data
+
+Any [OCDS](https://standard.open-contracting.org/) file (`.json`, `.jsonl`, optionally `.gz`) placed in `data/raw/real/` is loaded by `npm run data` and marked as real data. Most national portals publish OCDS; see the [OCP Data Registry](https://data.open-contracting.org/).
+
+## 3. Offline or with real AI agents
+
+Without any keys, everything runs **offline**: the agents use deterministic rules and templates instead of an LLM. This is free and good for trying things out.
+
+To run real LLM agents, create `.env`:
+
+```bash
+cp .env.example .env
+```
+
+and set at least:
+
+```ini
+ANTHROPIC_API_KEY=sk-ant-...
+INQUEST_MODEL_FAST=claude-haiku-4-5
+INQUEST_MODEL_SMART=claude-haiku-4-5    # cheapest; use a larger model for better dossiers
+INQUEST_LLM_MAX_CALLS=300               # hard cap on LLM calls per run
+TAVILY_API_KEY=tvly-...                 # optional: live web search for market prices
+```
+
+Without a search key, the Price agent replays the recorded search cache. To force offline mode even with a key, set `INQUEST_LLM_MODE=offline`.
+
+Rough cost with Haiku: the test data run is a few cents; all 64,000 real 2021 contracts need about 1,600 LLM calls, about $2 (set `INQUEST_LLM_MAX_CALLS=2000`). The agents call the LLM only for cases that could still cross the flag threshold.
+
+## 4. Run
+
+### Dashboard (recommended)
+
+```bash
 npm run dashboard:build
-npm run serve           # http://localhost:8787
+npm run serve            # open http://localhost:8787
 ```
 
-Without an API key everything runs with deterministic offline fallbacks (rules, keyword checks, templates). Running the LLM agents for real needs a key:
+In the toolbar choose the scope and press **Run agent team**:
+
+| Scope | What runs | Time offline |
+|---|---|---|
+| Demo institutions | 7 institutions with the most interesting test cases | seconds |
+| All test data | all 7,578 test payments, with evaluation | ~15 s |
+| Real procurement data, sample | the first 5,000 real contracts (recommended with an LLM: ~40 s, ~$0.03 with Haiku) | ~10 s |
+| Real procurement data | all loaded real contracts | ~2 min for 64,000 |
+
+Real cases are shown only **in aggregate** (counts per signal), never by company name. To list them by name for local review, set `INQUEST_SHOW_REAL_CASES=1` in `.env`.
+
+For dashboard development: `npm run serve` plus `npm run dashboard:dev` (Vite on :5173, proxies `/api`).
+
+### Command line
 
 ```bash
-cp .env.example .env    # then set ANTHROPIC_API_KEY (or OPENAI_API_KEY / GEMINI_API_KEY)
-                        # and optionally TAVILY_API_KEY or BRAVE_API_KEY for live market prices
+npm run investigate                                  # all test data + evaluation
+npm run investigate -- --payers MU03,MU07,SC03       # only these institutions
+npm run investigate -- --dataset real                # only real data
+npm run investigate -- --dataset real --limit 5000   # a quick sample of real data
+npm run compare                                      # agent team vs. one sequential agent
+npm test
 ```
 
-For development, run `npm run serve` and `npm run dashboard:dev` (Vite on :5173, proxying `/api` to :8787).
+### Recommended: real data with real agents, first 5,000 contracts
 
-Useful options:
+The full real dataset with an LLM takes a while, so start with a sample. Set `INQUEST_LLM_MODE=auto` in `.env` (with `ANTHROPIC_API_KEY` set), then:
 
 ```bash
-npm run investigate -- --payers MU03,MU07,SC03   # only these institutions (the demo cases)
-npm run investigate -- --limit 1000
-INQUEST_LLM_MODE=offline npm run compare           # force offline even if a key is set
-npm test                                           # unit + Mozaik loop + market-research tests
+npm run investigate -- --dataset real --limit 5000
 ```
+
+or choose **Real procurement data, sample** in the dashboard.
+
+With Haiku this took about 40 s, 26 LLM calls and about $0.03; 6 contracts were flagged. The first 5,000 contracts cover only the start of 2021, so mostly procedure signals (single bid, short tender) fire. When that works, run without `--limit` (about 1,600 LLM calls, ~$2, set `INQUEST_LLM_MAX_CALLS=2000`).
+
+### Live view of the agents (optional)
+
+To watch every agent's loop in Mozaik Cloud, pair once:
+
+```bash
+node node_modules/@mozaik-ai/core/node_modules/@mozaik-ai/cloud-sdk/src/bin.mjs pair
+```
+
+The run then prints a "mozaik cloud — watching live" link. Note that prompts, including real data, are sent to the cloud.
 
 ---
 
-## How it works
+## How it works (in short)
 
 ```mermaid
 flowchart LR
-  subgraph Sources["Sources, each in its own format"]
-    OCDS["Procurement (OCDS JSON)"]
-    LED["Institution ledgers (CSV)"]
-    REAL["Real OCDS feeds (optional)"]
-  end
-  Sources --> AD["Adapters (Python)"] --> DB[("Common model\nSQLite")]
+  SRC["OCDS / ledger CSV / real OCDS"] --> AD["Adapters (Python)"] --> DB[("Common payment model\nSQLite")]
   DB --> CO[Coordinator]
-  CO -- contract.queued --> PR[Price] & PP[Procurement procedure] & IP[Institution patterns] & RN[Recipient network]
-  PR & PP & IP & RN -- signal.raised --> CO
-  CO -- entity.flagged --> IP & RN
-  IP & RN -- entity.claimed / finding.reported --> CO
-  CO -- case.updated / cases.merged --> RA[Risk assessment]
-  RA -- case.scored --> DW[Dossier writer]
-  DW -- dossier.drafted --> VE[Verifier]
-  VE -- claim.rejected --> DW
-  VE -- dossier.approved --> UI[Dashboard]
-  PR -- prices.extracted --> VE -- prices.verified --> PR
-  CO <--> BOARD[("Case board\nSQLite: cases, signals,\nclaims, findings")]
+  CO --> PR[Price] & PP[Procedure] & IP[Institution patterns] & RN[Recipient network]
+  PR & PP & IP & RN -- signals --> CO
+  CO -- branch to entity --> IP & RN
+  CO --> RA[Risk] --> DW[Dossier writer] --> VE[Verifier]
+  VE -- rejected claims --> DW
+  VE -- approved --> UI[Dashboard]
 ```
 
-Every arrow is a Mozaik event. All agents are participants in one Mozaik runtime; event fan-out never waits for a slow agent, so the four signal agents check the same payment **at the same time**, and branch investigations run alongside the screening of further payments.
+- **Adapters** convert each source format into one common payment model, so the agents never see source formats.
+- All agents are participants in one **Mozaik runtime** and talk only through events. The four signal agents check the same payment at the same time.
+- When a case is strong enough, the Coordinator opens a **branch investigation** of the recipient or institution. When two lines of investigation meet, it **merges** the cases.
+- The **Risk** agent combines signals into a score. The **Dossier writer** writes a report that may only cite numbered facts. The **Verifier** recomputes every fact from the source records and rejects wrong claims; the writer then writes a new draft (shown as Draft 1, Draft 2… in the dashboard).
+- Shared state (the case board) lives in SQLite.
 
-### Agents
-
-| Agent | Code / LLM | Job |
-|---|---|---|
-| **Coordinator** | code + LLM | Queues payments (with back-pressure), owns the case board, attaches signals and findings, merges cases, decides which entities deserve a branch investigation (rule proposes, LLM confirms). |
-| **Price** | code + LLM | Compares unit prices with institutions of the same kind (Tukey fences). For comparable goods it understands the purchase (LLM), runs several web searches **in parallel**, has the LLM read each page and normalize the price to the same unit, sends the prices to the Verifier, and then a **rule** decides (≥3 verified offers, > 2× median). Looks for a legitimate explanation before raising a signal. |
-| **Procurement procedure** | code | OCP red flags: single bid (R018), short tender period (R003), identical bids (R028), second bid suspiciously close (R024), value raised by amendments. Skipped automatically for sources without procedure data (schools, ledgers). |
-| **Institution patterns** | code + LLM | Splitting below thresholds (R011), year-end spikes, repeated works on the same object, over-plan spending, round repeated amounts, non-competitive share (R013); the LLM judges whether a description is too vague. On a branch it examines all payments of an institution and reports dominant recipients as leads. |
-| **Recipient network** | code + LLM | Looks recipients up in the business register (registration date, activity), flags brand-new recipients and activity mismatches (LLM judges plausibility). On a branch it maps where all of a recipient's public money comes from and computes supplier concentration. |
-| **Risk assessment** | code + LLM | Combines signals (noisy-OR of signal strengths, bonus when several agents or lines of investigation converge), the LLM looks for a legitimate explanation and may adjust the score within fixed bounds (−0.3 … +0.1). |
-| **Dossier writer** | LLM | Plain-language dossier that may only cite numbered facts and links to every source record. |
-| **Verifier** | code + LLM | Recomputes **every** fact from the source records with strict rules (e.g. only completed contracts count), checks every market price is really on its page, rejects forbidden wording and unbacked numbers; the LLM reads the prose against the facts. Rejections go back to the writer with corrections. |
-
-A **Recorder** observer writes every event to the run log and streams it to the dashboard.
-
-### Branching, claims and merging
-
-- When a case is strong enough (signals from ≥2 agents, or one strong signal), the Coordinator opens a **branch case** for its recipient and/or payer (`entity.flagged`). Limits: 2 hops from the starting payment, a ±2-year window, an LLM-call budget per case, and a cap on market-research lookups per run.
-- The agent taking a branch first **claims** the entity in a SQLite transaction (`INSERT OR IGNORE`). If another investigation already holds the claim, it does no duplicate work and its case joins the owner's case.
-- When a branch finds signals on payments, a payer–recipient pair, or an entity that another line of investigation already holds, the Coordinator **merges** the cases (`cases.merged`) and raises their priority. A branch that finds nothing new is folded back into the case it came from.
-
-Example from the synthetic data (fictional entities): municipality "Brestograd" buys 40 laptops at 210,000 RSD each from "Alfa Tech" in a 3-day tender with a single bid. Price, Procurement procedure and Recipient network check the contract concurrently. The Coordinator branches to Alfa Tech and to the municipality. The network branch finds that Alfa won "9 of 11" IT procurements, and the patterns branch finds four direct purchases each 1–2% below the threshold, three of them from Alfa. The lines meet and the cases merge. The Verifier then rejects "9 of 11", because one award was cancelled, so over completed contracts it is **8 of 10**, and the dossier is corrected.
-
-### How Mozaik is used
-
-Inquest targets `@mozaik-ai/core` 6.x. The specification was written against an older API description (`AgenticEnvironment`, `onExternalEvent`); in 6.x the same ideas are:
-
-| Spec | Mozaik 6 |
+| Agent | Job |
 |---|---|
-| shared environment | `defineRuntime()` → `join`, `sendEvent`, `runLoop` |
-| `onExternalEvent` / `listens` | `SituationHandler` = `SituationSpecification` (event type, producer ≠ self) + processor |
-| `runInference` + `structuredOutput` | `runLoop` with `structuredOutput` (JSON schema); every LLM call runs in a short-lived worker agent of the calling role that joins, runs one loop, and leaves on its own `model.answer` |
-| `Tool` objects | every data access (DB queries, web search, page fetch, register lookup) is a Mozaik `Tool` declared by the agent that uses it |
+| Coordinator | queues payments, owns the case board, opens branches, merges cases |
+| Price | compares unit prices with similar institutions and with live market prices from the web |
+| Procurement procedure | single bid, short tender period, identical or suspiciously close bids, value raised by amendments |
+| Institution patterns | splitting below thresholds, year-end spikes, repeated works, over-plan spending, vague purpose |
+| Recipient network | newly founded or unusual recipients, supplier concentration |
+| Risk assessment | combines signals, looks for a legitimate explanation |
+| Dossier writer | plain-language dossier with links to every source record |
+| Verifier | checks every number and every market price before a dossier is approved |
 
-Implementation notes:
+Signals and their thresholds: [src/domain/signal-catalog.ts](src/domain/signal-catalog.ts) and [data/reference/categories.json](data/reference/categories.json). Thresholds are assumptions and should be tuned to local law; for real Serbian data a single bid alone never flags a case (about 62% of open procedures have one bid), and the minimum tender period is 9 days.
 
-- `runLoop` is fire-and-forget, so a failed provider call never reaches the caller. `SafeInferenceRunner` (see [src/runtime/runtime.ts](src/runtime/runtime.ts)) turns provider errors into an error answer, and the caller falls back to the deterministic path.
-- Mozaik 6.0 runs only the first tool call of a model response, so LLM loops here use structured output only. Agents call their `Tool`s from code, which also makes the parallel searches explicit.
-- Shared state lives in SQLite (the case board), and every change is published as an event, as the spec describes.
-- If `MOZAIK_API_KEY` is set, Mozaik Cloud receives the agent-loop events, including prompts. Leave it unset for real or sensitive data.
-
----
-
-## Data
-
-Each source has its own adapter that converts it into the **common payment model** (payer, recipient, amount, date, category, description, quantity/unit, object, source record). The agents never see source formats.
-
-| Source | Format | Adapter | Status |
-|---|---|---|---|
-| Public procurement | OCDS 1.1 release/record packages (+ bids extension) | [data/prep/ocds_adapter.py](data/prep/ocds_adapter.py) | synthetic package generated; real OCDS files go in `data/raw/real/` |
-| Institution payment ledgers | CSV with Serbian column names, `;`, `98.000,00`, `dd.mm.yyyy` | [data/prep/ledger_adapter.py](data/prep/ledger_adapter.py) | synthetic: 16 schools, 12 health centers, 10 utility companies, 10 local communities, 2 years |
-| Budget plans | CSV | same | synthetic |
-| Business register | lookup tool | [src/tools/registry.ts](src/tools/registry.ts) | fictional register, deliberately **not** in the payments DB |
-| Internet | Tavily or Brave search + page fetch | [src/tools/web.ts](src/tools/web.ts) | live when a key is set; every result is cached in `data/cache/web-cache.db` for replay |
-
-`npm run data` (seed 42) generates 7,578 payments, injects **21 test cases** with known signals plus clean controls (legitimate but unusual-looking payments, and a random sample of untouched payments), and writes the truth to `data/truth/ground_truth.json`, which **no agent reads**; only the evaluator does. All names are fictional.
-
-**Demo cache.** With a search key set, run the demo once and commit `data/cache/web-cache.db`. Later runs, including offline ones, replay those searches, pages and LLM price extractions with their original links. This is the agents' recorded work, not a hand-written table.
-
-**Real data.** `python data/prep/fetch_real.py` downloads Serbian public procurement contracts for 2021 (about 64,000 awards) from the OCP Data Registry ([Serbia: OpenTender](https://data.open-contracting.org/en/publication/139), compiled by the Government Transparency Institute from the national Public Procurement Portal, CC BY-NC-SA 4.0, July 2020 to May 2022; pass `2020`, `2022` or `full` for other ranges). Any other OCDS JSON/JSONL file (optionally gzip-compressed) in `data/raw/real/` works too. Rerun `npm run data` afterwards. Real payments are marked `dataset='real'`; choose "Real procurement data" in the dashboard to screen them.
-
-The dashboard shows real data only **in aggregate** (counts per signal), never by name. Set `INQUEST_SHOW_REAL_CASES=1` to list real cases by name for local review; a risk signal is a reason to look, not a finding.
-
-What the real data allows: buyer and supplier (with national IDs), contract value, procedure type, number of bids per lot, tender notice date and deadline, CPV code. What it lacks: item quantities (so no unit-price comparison), budget plans, amendments. Calibration differs from the test data: about 62% of real open procedures received a single bid, so a single bid alone never flags a case; the minimum tender period for real data is 9 days (`minimumTenderDaysReal` in `data/reference/categories.json`), because lower-value procedures may legally be shorter. Check that value against the Public Procurement Law before relying on it.
-
-Large real runs and the LLM: the Risk agent calls the LLM only for cases that could still cross the flag threshold, and `INQUEST_LLM_MAX_CALLS` (default 300) caps LLM calls per run. With `MOZAIK_API_KEY` or a paired machine, prompts with real data go to Mozaik Cloud.
-
----
-
-## Signals
-
-General signals work on any public spending; procurement signals need bid/procedure data. See [src/domain/signal-catalog.ts](src/domain/signal-catalog.ts).
-
-| Code | Signal | Rule (simplified) |
-|---|---|---|
-| PEER_PRICE (R016) | Price above comparable institutions | unit price > Q3 + 1.5×IQR and ≥ 1.5× median, same category and institution kind, ≥ 8 peers |
-| MARKET_PRICE | Price above market reference | > 2× median of ≥ 3 verified online offers, else "not enough data" |
-| WIDE_BID_SPREAD (R022) | Wide spread of bids | (max − min) / mean ≥ 60% |
-| SINGLE_BID (R018) | Only one bid | open procedure, 1 bidder |
-| SHORT_TENDER (R003) | Tender period too short | below the minimum days for the procedure type |
-| IDENTICAL_BIDS (R028) | Identical bid prices | two bids with the same price |
-| CLOSE_SECOND_BID (R024) | Second bid too close | gap ≤ 0.1% |
-| AMENDMENT_INFLATION | Value raised by amendments | final / original ≥ 1.3 |
-| SPLIT (R011) | Split below threshold | ≥ 3 payments in a short window, each just below the approval / procurement threshold |
-| REPEATED_OBJECT | Repeated expense, same object | same street/object and category ≥ 3× in 2 years |
-| VAGUE_PURPOSE | No clear purpose | generic description (code), judged by the LLM |
-| YEAR_END_SPIKE | Year-end spike | December ≥ 40% of the year and ≥ 3× other months |
-| ROUND_REPEATED | Round repeated amounts | ≥ 6 identical round amounts to one recipient |
-| OVER_PLAN | Paid more than planned | > 110% of the budget line |
-| NONCOMPETITIVE_SHARE (R013) | Frequent non-competitive procedures | ≥ 30% negotiated without a call |
-| CONCENTRATION | Captive supplier | one recipient ≥ 60% of ≥ 4 purchases in a category group |
-| NEW_RECIPIENT | Newly founded recipient | first payment ≤ 90 days after registration |
-| UNUSUAL_RECIPIENT | Activity mismatch | registered activity cannot plausibly supply the category |
-
-Thresholds are assumptions, set in [data/reference/categories.json](data/reference/categories.json) and the signal modules. They should be tuned to local law and market. A signal is not proof; a single signal means little.
-
----
-
-## Measuring
-
-`npm run investigate` (full dataset) and `npm run eval` report:
-
-| Metric | Measures |
-|---|---|
-| Injected cases found | does the system find what it should |
-| Correct signal type | is the reason named correctly |
-| False alarms on clean payments | does it flag innocent payments |
-| Flagged share | are the thresholds reasonable (target < 10%) |
-| Verifier corrections | wrong claims caught before a dossier was approved |
-| Time to approved dossier | from a payment entering the queue to an approved dossier |
-
-`npm run compare` processes the same payments twice, once with the concurrent team and once with a single agent that does the **same work with the same skills and prompts** one step at a time. The difference in wall time and in merged lines of investigation shows what concurrency adds. Results are written to `runs/comparison.json` and shown on the dashboard.
-
-Offline results on the full synthetic dataset (seed 42, no API key, simulated LLM latency of 120 ms):
+## Results on the test data
 
 | | Agent team | Single agent |
 |---|---:|---:|
 | Injected cases found | 21/21 | 21/21 |
 | False alarms on 67 clean payments | 0 | 0 |
-| Procurement payments flagged | 7.6% | |
-| Wall time | 9.1 s | 35.0 s |
-| Average time from payment to approved dossier | 1.5 s | 13.1 s |
+| Wall time (offline) | 9.1 s | 35.0 s |
 | Merged lines of investigation | 23 | 10 |
 
-These numbers come from synthetic data with clearly injected cases. They show that the pipeline works end to end; they do not measure accuracy on real spending. Wall times depend on the machine. With a real LLM and web search, network latency dominates, and that is the work concurrency hides best.
-
----
+On real 2021 procurement (offline), 2.1% of contracts are flagged. Test results show that the pipeline works end to end; they do not measure accuracy on real spending.
 
 ## Ethics and limits
 
-- **Vocabulary:** "risk signal", "unusual", "worth checking". The writer is instructed, and the Verifier enforces, that words like *corruption, fraud, theft* (and Serbian equivalents) are never used about an entity.
-- **Explainability:** every dossier lists its signals, rules, numbered facts, links to source records and market pages; every number is recomputed by the Verifier.
-- **Demo:** fictional cases on stage; real data only in aggregate.
-- **Users:** journalists, civil-society organizations, internal audit, the State Audit Institution. The system shortens the search; a person decides.
-
-Known limitations: accuracy can only be measured on injected cases; price comparison only works where the unit is clear (goods, per-m² works, per-student-day trips); procurements exempt from the law are often not published and therefore invisible; registry lookups for real companies need a real register integration; Mozaik 6.0 handles one tool call per model turn.
-
----
+- The vocabulary is "risk signal", "unusual", "worth checking". Words like *corruption* or *fraud* are never used about an entity; the Verifier enforces this.
+- Every dossier lists its signals, rules, facts and links to the source records.
+- Real data is shown only in aggregate by default.
+- Price comparison works only where the unit is clear; registry lookups use a fictional register; procurements exempt from the law are often not published.
 
 ## Project layout
 
 ```
-data/prep/            Python: generators, adapters (OCDS, ledgers), SQLite loader
-data/reference/       categories, units, thresholds, activity codes (shared by Python and TS)
-data/raw/             generated raw sources (CSV ledgers, OCDS JSON); real/ for real OCDS files
-data/truth/           ground truth of injected cases (evaluator only)
-src/runtime/          Mozaik runtime, events, safe inference runner
-src/agents/           Mozaik participants: coordinator, signal agents, risk/writer/verifier, recorder
-src/skills/           the investigative work, shared by the team and the single-agent baseline
-src/signals/          deterministic signal formulas
-src/tools/            Mozaik Tools: web search, page fetch, business register, DB queries
-src/db/               source DB access and the case board
-src/run/              team run, single-agent baseline, comparison, statistics
-src/eval/             evaluation against the ground truth
-src/server/           HTTP API + server-sent events + static dashboard
-dashboard/            React + Vite + Cytoscape dashboard
-test/                 tests (node:test)
+data/prep/        Python: data generators, adapters (OCDS, ledgers), loader, fetch_real.py
+data/reference/   categories, units, thresholds
+data/raw/         raw sources; real/ for real OCDS files
+src/agents/       Mozaik agents
+src/signals/      signal rules
+src/tools/        web search, page fetch, business register, DB queries
+src/server/       HTTP API + live event stream
+dashboard/        React dashboard
+test/             tests
 ```

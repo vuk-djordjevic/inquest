@@ -31,6 +31,7 @@ export interface RunStats {
 
 export interface ServerState {
   activeRun: { mode: string; startedAt: number } | null
+  showRealCases: boolean
   lastError: string | null
   dataset: { payments: number; institutions: number; recipients: number; real: number }
   llm: { enabled: boolean; modelFast: string; modelSmart: string; language: string }
@@ -136,7 +137,7 @@ export const api = {
   evaluation: (mode: Mode) => get<Evaluation | null>(`/api/eval?mode=${mode}`),
   comparison: () => get<Comparison | null>("/api/comparison"),
   realSummary: (mode: Mode) => get<{ payments: number; flaggedPayments: number; bySignal: Record<string, number> } | null>(`/api/real-summary?mode=${mode}`),
-  run: async (mode: "team" | "single" | "compare", opts: { payers?: string[]; dataset?: "synthetic" | "real" } = {}) => {
+  run: async (mode: "team" | "single" | "compare", opts: { payers?: string[]; dataset?: "synthetic" | "real"; limit?: number } = {}) => {
     const res = await fetch("/api/run", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ mode, ...opts }) })
     return res.ok
   },

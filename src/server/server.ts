@@ -57,8 +57,19 @@ const modeOf = (url: URL): BoardMode => (url.searchParams.get("mode") === "singl
 const SHOW_REAL_CASES = process.env.INQUEST_SHOW_REAL_CASES === "1"
 const isRealCase = (b: CaseBoard, caseId: number) => getPayments(b.casePaymentIds(caseId).slice(0, 1))[0]?.dataset === "real"
 
+// A run over real data opens thousands of cases. The browser gets every flagged case but only the
+// highest-scoring unflagged ones, and the graph shows unflagged cases only while it stays readable.
+const MAX_UNFLAGGED_CASES = 300
+const MAX_GRAPH_NODES = 300
+const isFlagged = (c: { score: number | null }) => (c.score ?? 0) >= CONFIG.investigation.flagThreshold
+
 function casesView(b: CaseBoard) {
-  return b.listCases().filter((c) => SHOW_REAL_CASES || !isRealCase(b, c.id)).map((c) => {
+  let unflagged = 0
+  const visible = b.listCases().filter((c) => {
+    if (!SHOW_REAL_CASES && isRealCase(b, c.id)) return false
+    return isFlagged(c) || unflagged++ < MAX_UNFLAGGED_CASES
+  })
+  return visible.map((c) => {
     const signals = b.caseSignals(c.id)
     const dossiers = b.dossiers(c.id)
     return {
@@ -102,7 +113,8 @@ function graphView(b: CaseBoard) {
   const nodes = new Map<string, { id: string; label: string; type: "payer" | "recipient"; flagged: boolean; kind?: string }>()
   const edges = new Map<string, { id: string; source: string; target: string; amount: number; count: number; flagged: boolean; cases: number[] }>()
   for (const c of b.listCases()) {
-    const flagged = (c.score ?? 0) >= CONFIG.investigation.flagThreshold
+    const flagged = isFlagged(c)
+    if (!flagged && nodes.size >= MAX_GRAPH_NODES) continue
     for (const p of getPayments(b.casePaymentIds(c.id))) {
       if (p.dataset === "real" && !SHOW_REAL_CASES) continue // real data is shown only in aggregate
       const payer = `payer:${p.payer_id}`
@@ -166,6 +178,7 @@ async function api(req: IncomingMessage, res: ServerResponse, url: URL): Promise
     return json(res, 200, {
       activeRun,
       lastError,
+      showRealCases: SHOW_REAL_CASES,
       dataset: datasetStats(),
       llm: { enabled: CONFIG.llm.enabled, modelFast: CONFIG.llm.modelFast, modelSmart: CONFIG.llm.modelSmart, language: CONFIG.llm.reportLanguage },
       web: webMode(),

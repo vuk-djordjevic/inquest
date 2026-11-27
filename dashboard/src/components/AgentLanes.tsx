@@ -15,7 +15,7 @@ const ROLE_HINT: Record<string, string> = {
 
 const time = (t: number) => new Date(t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" })
 
-export function AgentLanes({ live, onCase }: { live: LiveState; onCase: (id: number) => void }) {
+export function AgentLanes({ live, running, onCase }: { live: LiveState; running: boolean; onCase: (id: number) => void }) {
   // Re-render every half second so activity dots fade out.
   const [, tick] = useState(0)
   useEffect(() => {
@@ -25,7 +25,7 @@ export function AgentLanes({ live, onCase }: { live: LiveState; onCase: (id: num
   const now = Date.now()
   const roles = live.lanes.single ? ["single"] : ROLE_ORDER
   return (
-    <div className="lanes" data-running={live.running}>
+    <div className="lanes" data-running={running}>
       {roles.map((role) => {
         const items = live.lanes[role] ?? []
         const active = now - (live.lastActive[role] ?? 0) < 1200

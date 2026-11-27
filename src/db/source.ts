@@ -165,11 +165,15 @@ export function getInstitution(id: string): { id: string; name: string; kind: st
     | undefined
 }
 
-export function datasetStats(): { payments: number; institutions: number; recipients: number; real: number } {
-  return sourceDb()
+type DatasetStats = { payments: number; institutions: number; recipients: number; real: number }
+let datasetStatsCache: DatasetStats | null = null
+
+/** Totals of the source database. It does not change while the server runs, so they are computed once. */
+export function datasetStats(): DatasetStats {
+  return (datasetStatsCache ??= sourceDb()
     .prepare(
       `SELECT COUNT(*) AS payments, COUNT(DISTINCT payer_id) AS institutions, COUNT(DISTINCT recipient_id) AS recipients,
               SUM(dataset = 'real') AS real FROM payments`,
     )
-    .get() as { payments: number; institutions: number; recipients: number; real: number }
+    .get() as DatasetStats)
 }
