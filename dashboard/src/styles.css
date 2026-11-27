@@ -121,6 +121,12 @@ select.btn { padding-right: 8px; }
 }
 .lane-wrap[data-role="coordinator"]::before { background-image: url("../assets/coordinator.gif"); }
 .lane-wrap[data-role="price"]::before { background-image: url("../assets/price.gif"); }
+.lane-wrap[data-role="writer"]::before { background-image: url("../assets/writer.gif"); }
+.lane-wrap[data-role="risk"]::before { background-image: url("../assets/risk.gif"); }
+.lane-wrap[data-role="verifier"]::before { background-image: url("../assets/verifier.gif"); }
+.lane-wrap[data-role="procedure"]::before { background-image: url("../assets/procedure.gif"); }
+.lane-wrap[data-role="patterns"]::before { background-image: url("../assets/patterns.gif"); }
+.lane-wrap[data-role="network"]::before { background-image: url("../assets/network.gif"); }
 .lane {
   --terminal-bg: #090b0e;
   --terminal-border: #29303a;
@@ -172,6 +178,9 @@ select.btn { padding-right: 8px; }
 .section { margin: 28px 0; }
 .section h4 { margin: 0 0 14px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
 .signal-card { border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 12px; line-height: 1.6; }
+.signal-card.signal-with-agent { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: stretch; gap: 16px; }
+.signal-with-agent > img { display: block; width: 96px; height: auto; min-height: 120px; align-self: stretch; object-fit: contain; object-position: center top; image-rendering: pixelated; border-radius: 4px; background: var(--panel-2); }
+.signal-content { min-width: 0; }
 .signal-card .top { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
 .signal-card .rule { color: var(--faint); font-size: 13px; margin-top: 8px; }
 .bar { height: 6px; border-radius: 3px; background: var(--panel-2); width: 80px; overflow: hidden; }

@@ -1,6 +1,25 @@
 import { marked } from "marked"
 import { useEffect, useMemo, useState } from "react"
 import { ROLE_LABEL, rsd, type CaseDetail as Detail } from "../api"
+import coordinatorPicture from "../../assets/coordinator_picture.png"
+import networkPicture from "../../assets/network_picture.png"
+import patternsPicture from "../../assets/patterns_picture.png"
+import pricePicture from "../../assets/price_picture.png"
+import procedurePicture from "../../assets/procedure_picture.png"
+import riskPicture from "../../assets/risk_picture.png"
+import verifierPicture from "../../assets/verifier_picture.png"
+import writerPicture from "../../assets/writer_picture.png"
+
+const AGENT_PICTURES: Record<string, string> = {
+  coordinator: coordinatorPicture,
+  network: networkPicture,
+  patterns: patternsPicture,
+  price: pricePicture,
+  procedure: procedurePicture,
+  risk: riskPicture,
+  verifier: verifierPicture,
+  writer: writerPicture,
+}
 
 // Dossiers may contain text an LLM took from web pages: never render raw HTML, and only allow http(s) links.
 const escapeHtml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
@@ -60,16 +79,19 @@ export function CaseDetail({ detail }: { detail: Detail | null }) {
       <div className="section">
         <h4>Signals</h4>
         {detail.signals.map((s) => (
-          <div key={s.id} className="signal-card">
-            <div className="top">
-              <b>{s.info.name}</b>
-              {s.info.ocp && <span className="chip accent">OCP {s.info.ocp}</span>}
-              <span className="chip">{ROLE_LABEL[s.agent] ?? s.agent}</span>
-              <span className="bar" title={`strength ${s.strength.toFixed(2)}`}><i style={{ width: `${s.strength * 100}%` }} /></span>
+          <div key={s.id} className="signal-card signal-with-agent">
+            {AGENT_PICTURES[s.agent] && <img src={AGENT_PICTURES[s.agent]} alt={ROLE_LABEL[s.agent] ?? s.agent} />}
+            <div className="signal-content">
+              <div className="top">
+                <b>{s.info.name}</b>
+                {s.info.ocp && <span className="chip accent">OCP {s.info.ocp}</span>}
+                <span className="chip">{ROLE_LABEL[s.agent] ?? s.agent}</span>
+                <span className="bar" title={`strength ${s.strength.toFixed(2)}`}><i style={{ width: `${s.strength * 100}%` }} /></span>
+              </div>
+              <div>{s.summary}</div>
+              <div className="rule">Rule: {s.rule}</div>
+              {s.explanation && <div className="rule">Explanation found: {s.explanation}</div>}
             </div>
-            <div>{s.summary}</div>
-            <div className="rule">Rule: {s.rule}</div>
-            {s.explanation && <div className="rule">Explanation found: {s.explanation}</div>}
           </div>
         ))}
       </div>

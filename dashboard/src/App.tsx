@@ -114,7 +114,6 @@ export function App() {
       <header className="header">
         <div className="brand">
           <h1>Inquest</h1>
-          <span>concurrent agents screening public spending · risk signals, not proof</span>
         </div>
         <nav className="tabs">
           {(["live", "cases", "results"] as Tab[]).map((t) => (
