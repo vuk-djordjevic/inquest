@@ -101,7 +101,8 @@ export function useLive(onChange: (type: string) => void): LiveState {
           if (e.type === "run.started") s = { ...EMPTY, connected: true, running: true }
           else if (e.type === "run.settled") s = { ...s, running: false, stats: e.payload }
           else if (e.type === "server.run_finished") s = { ...s, running: false }
-          else if (e.type === "progress") s = { ...s, running: true, progress: e.payload }
+          // Progress is flushed on a timer and can arrive after the run settled, so it must not set `running`.
+          else if (e.type === "progress") s = { ...s, progress: e.payload }
           const role = e.role ?? (e.type === "progress" ? null : "coordinator")
           if (role && e.type !== "progress") {
             s = { ...s, lastActive: { ...s.lastActive, [role]: Date.now() }, counts: { ...s.counts, [role]: (s.counts[role] ?? 0) + 1 } }

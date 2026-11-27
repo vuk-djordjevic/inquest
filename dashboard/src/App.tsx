@@ -126,9 +126,10 @@ export function App() {
         {tab === "live" && (
           <div className="live-page">
             <div className="live-toolbar">
-              <select className="btn" value={scope} onChange={(e) => setScope(e.target.value as "demo" | "all")} disabled={running} aria-label="Payment data scope">
+              <select className="btn" value={scope} onChange={(e) => setScope(e.target.value as Scope)} disabled={running} aria-label="Payment data scope">
                 <option value="demo">Demo institutions</option>
-                <option value="all">All {state?.dataset.payments.toLocaleString() ?? ""} payments</option>
+                <option value="synthetic">All test data ({((state?.dataset.payments ?? 0) - (state?.dataset.real ?? 0)).toLocaleString()} payments)</option>
+                {Boolean(state?.dataset.real) && <option value="real">Real procurement data ({state?.dataset.real.toLocaleString()} contracts)</option>}
               </select>
               <button className="btn primary" disabled={running} onClick={() => start("team")}>
                 {running ? "Team running" : "Run agent team"}

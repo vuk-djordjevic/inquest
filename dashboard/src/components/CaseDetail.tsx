@@ -37,6 +37,12 @@ marked.use({
 
 interface Rejection { factIndex: number | null; reason: string }
 
+const DRAFT_STATUS: Record<string, string> = {
+  draft: "awaiting verifier",
+  approved: "approved by verifier",
+  rejected: "rejected by verifier",
+}
+
 export function CaseDetail({ detail }: { detail: Detail | null }) {
   const [version, setVersion] = useState<number | null>(null)
   useEffect(() => setVersion(null), [detail?.case.id])
@@ -59,10 +65,13 @@ export function CaseDetail({ detail }: { detail: Detail | null }) {
         {!dossier && <div className="note">No dossier: the case is below the flag threshold or still being scored.</div>}
         {dossier && (
           <>
+            {detail.dossiers.length > 1 && (
+              <div className="note">The writer drafts the dossier and the verifier checks every claim against the data. A rejected draft is rewritten.</div>
+            )}
             <div className="version-tabs">
               {detail.dossiers.map((d) => (
                 <button key={d.version} className={`btn ${d.version === dossier.version ? "primary" : ""}`} onClick={() => setVersion(d.version)}>
-                  v{d.version} · {d.status}
+                  Draft {d.version} · {DRAFT_STATUS[d.status] ?? d.status}
                 </button>
               ))}
             </div>
