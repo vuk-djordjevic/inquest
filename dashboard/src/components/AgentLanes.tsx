@@ -25,7 +25,7 @@ export function AgentLanes({ live, onCase }: { live: LiveState; onCase: (id: num
   const now = Date.now()
   const roles = live.lanes.single ? ["single"] : ROLE_ORDER
   return (
-    <div className="lanes">
+    <div className="lanes" data-running={live.running}>
       {roles.map((role) => {
         const items = live.lanes[role] ?? []
         const active = now - (live.lastActive[role] ?? 0) < 1200

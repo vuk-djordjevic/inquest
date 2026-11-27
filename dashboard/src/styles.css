@@ -117,16 +117,17 @@ select.btn { padding-right: 8px; }
 .lane-wrap { position: relative; min-width: 0; }
 .lane-wrap::before {
   content: ""; position: absolute; z-index: 0; top: -76px; left: -14px; width: 64px; height: 128px;
-  background-position: left top; background-repeat: no-repeat; background-size: contain; image-rendering: pixelated; pointer-events: none;
+  background-image: var(--sleep-sprite); background-position: left top; background-repeat: no-repeat; background-size: contain; image-rendering: pixelated; pointer-events: none;
 }
-.lane-wrap[data-role="coordinator"]::before { background-image: url("../assets/coordinator.gif"); }
-.lane-wrap[data-role="price"]::before { background-image: url("../assets/price.gif"); }
-.lane-wrap[data-role="writer"]::before { background-image: url("../assets/writer.gif"); }
-.lane-wrap[data-role="risk"]::before { background-image: url("../assets/risk.gif"); }
-.lane-wrap[data-role="verifier"]::before { background-image: url("../assets/verifier.gif"); }
-.lane-wrap[data-role="procedure"]::before { background-image: url("../assets/procedure.gif"); }
-.lane-wrap[data-role="patterns"]::before { background-image: url("../assets/patterns.gif"); }
-.lane-wrap[data-role="network"]::before { background-image: url("../assets/network.gif"); }
+.lane-wrap[data-role="coordinator"] { --sleep-sprite: url("../assets/coordinator_sleeping.gif"); --active-sprite: url("../assets/coordinator.gif"); }
+.lane-wrap[data-role="price"] { --sleep-sprite: url("../assets/price_sleeping.gif"); --active-sprite: url("../assets/price.gif"); }
+.lane-wrap[data-role="writer"] { --sleep-sprite: url("../assets/writer_sleeping.gif"); --active-sprite: url("../assets/writer.gif"); }
+.lane-wrap[data-role="risk"] { --sleep-sprite: url("../assets/risk_sleeping.gif"); --active-sprite: url("../assets/risk.gif"); }
+.lane-wrap[data-role="verifier"] { --sleep-sprite: url("../assets/verifier_sleeping.gif"); --active-sprite: url("../assets/verifier.gif"); }
+.lane-wrap[data-role="procedure"] { --sleep-sprite: url("../assets/procedure_sleeping.gif"); --active-sprite: url("../assets/procedure.gif"); }
+.lane-wrap[data-role="patterns"] { --sleep-sprite: url("../assets/patterns_sleeping.gif"); --active-sprite: url("../assets/patterns.gif"); }
+.lane-wrap[data-role="network"] { --sleep-sprite: url("../assets/network_sleeping.gif"); --active-sprite: url("../assets/network.gif"); }
+.lanes[data-running="true"] .lane-wrap::before { background-image: var(--active-sprite); }
 .lane {
   --terminal-bg: #090b0e;
   --terminal-border: #29303a;
