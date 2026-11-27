@@ -74,5 +74,10 @@
     "selective": 30,
     "limited": 10
   },
+  "minimumTenderDaysReal": {
+    "_comment": "Real Serbian portal data (ZJN 2019): shorter deadlines are allowed for lower-value procurements. Tender start is the notice publication date. In the 2021 data, open procedures cluster from 9 days up; fewer than 9 days occurs in about 0.5% of them. Check against the law before relying on it.",
+    "open": 9,
+    "selective": 9
+  },
   "eurToRsd": 117.2
 }

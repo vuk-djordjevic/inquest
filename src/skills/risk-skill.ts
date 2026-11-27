@@ -41,6 +41,9 @@ export async function scoreCase(board: CaseBoard, caseId: number): Promise<CaseS
     task: "assess_case",
     model: "smart",
     caseId,
+    // The adjustment is at most +0.1, so a case that cannot reach the flag threshold
+    // even with it is scored by the rules alone (saves most calls on real data).
+    useLlm: baseline + 0.1 >= CONFIG.investigation.flagThreshold,
     instruction: `You are the Risk-assessment agent. You receive the risk signals found for one case of public spending, computed by rules. A single signal means little; several signals on the same payer or recipient mean more. Your job: (1) check whether the payment descriptions contain a legitimate explanation that the rules could not see (examples: ${EXPLANATION_HINTS.join("; ")}), ignoring explanations already recorded on a signal; (2) choose an adjustment between -0.3 (fully explained) and +0.1 (signals reinforce each other in a way the rules undercount); (3) write a 2-3 sentence rationale. ${LANGUAGE_RULES} ${reportLanguageInstruction()}`,
     prompt: JSON.stringify({
       baselineScore: round(baseline, 2),

@@ -71,6 +71,12 @@ CREATE TABLE dossiers (case_id INTEGER NOT NULL, version INTEGER NOT NULL, title
 CREATE TABLE events (id INTEGER PRIMARY KEY AUTOINCREMENT, at_ms INTEGER NOT NULL, type TEXT NOT NULL, producer TEXT,
   producer_role TEXT, payload_json TEXT);
 CREATE TABLE notes (id INTEGER PRIMARY KEY AUTOINCREMENT, at_ms INTEGER NOT NULL, agent TEXT NOT NULL, payment_id TEXT, text TEXT NOT NULL);
+CREATE INDEX idx_cases_merged_into ON cases(merged_into);
+CREATE INDEX idx_signals_case ON signals(case_id);
+CREATE INDEX idx_findings_case ON findings(case_id);
+CREATE INDEX idx_case_entities_entity ON case_entities(entity_type, entity_id);
+CREATE INDEX idx_events_type ON events(type);
+CREATE INDEX idx_price_refs_payment ON price_refs(payment_id);
 `
 
 export type BoardMode = "team" | "single"
@@ -93,6 +99,18 @@ export class CaseBoard {
 
   private constructor(db: Database.Database, readonly mode: BoardMode) {
     this.db = db
+    // Reuse prepared statements: the board runs the same few queries hundreds of
+    // thousands of times on large datasets, and preparing is the expensive part.
+    const statements = new Map<string, Database.Statement>()
+    const prepare = db.prepare.bind(db)
+    db.prepare = ((sql: string) => {
+      let stmt = statements.get(sql)
+      if (!stmt) {
+        stmt = prepare(sql)
+        statements.set(sql, stmt)
+      }
+      return stmt
+    }) as typeof db.prepare
   }
 
   /**
@@ -140,6 +158,14 @@ export class CaseBoard {
       current = row.merged_into
     }
     return current
+  }
+
+  /** The case and every case merged into it, directly or through other merged cases. */
+  mergedFamily(caseId: number): number[] {
+    const rows = this.db.prepare(
+      `WITH RECURSIVE family(id) AS (SELECT ? UNION SELECT c.id FROM cases c JOIN family f ON c.merged_into = f.id) SELECT id FROM family`,
+    ).all(caseId) as Array<{ id: number }>
+    return rows.map((r) => r.id)
   }
 
   getCase(id: number): CaseRow | undefined {

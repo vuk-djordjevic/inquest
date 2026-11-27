@@ -45,7 +45,8 @@ export interface Evaluation {
   cases: CaseResult[]
   falseAlarmCases: Array<{ truthId: string; paymentId: string; caseId: number; score: number }>
   /** What the run covered: metrics only count payments that were actually screened. */
-  scope: { screenedPayments: number; totalPayments: number; injectedOutOfScope: number; full: boolean }
+  /** Accuracy is measured on the synthetic data only; real payments screened are counted separately. */
+  scope: { screenedPayments: number; totalPayments: number; injectedOutOfScope: number; full: boolean; realScreened: number }
 }
 
 export function loadTruth(): TruthCase[] {
@@ -68,7 +69,9 @@ export function evaluate(board: CaseBoard): Evaluation {
   const screened = new Set(
     (db.prepare(`SELECT DISTINCT json_extract(payload_json, '$.paymentId') AS id FROM events WHERE type = 'contract.queued'`).all() as Array<{ id: string }>).map((r) => r.id),
   )
-  const totalPayments = (sourceDb().prepare(`SELECT COUNT(*) AS n FROM payments`).get() as { n: number }).n
+  const syntheticIds = (sourceDb().prepare(`SELECT id FROM payments WHERE dataset = 'synthetic'`).all() as Array<{ id: string }>).map((r) => r.id)
+  const totalPayments = syntheticIds.length
+  const syntheticScreened = syntheticIds.filter((id) => screened.has(id)).length
   const inScope = (t: TruthCase) => t.paymentIds.some((id) => screened.has(id))
   const injectedAll = truth.filter((x) => !x.clean)
 
@@ -144,10 +147,11 @@ export function evaluate(board: CaseBoard): Evaluation {
     cases: results,
     falseAlarmCases,
     scope: {
-      screenedPayments: screened.size,
+      screenedPayments: syntheticScreened,
       totalPayments,
-      injectedOutOfScope: injectedAll.length - results.length,
-      full: screened.size === totalPayments,
+      injectedOutOfScope: injectedAll.filter((t) => !inScope(t)).length,
+      full: syntheticScreened === totalPayments,
+      realScreened: screened.size - syntheticScreened,
     },
   }
 }
@@ -155,7 +159,8 @@ export function evaluate(board: CaseBoard): Evaluation {
 export function formatEvaluation(e: Evaluation): string {
   const pct = (x: number) => `${(x * 100).toFixed(1)}%`
   const lines = [
-    ...(e.scope.full ? [] : [`Scope: ${e.scope.screenedPayments} of ${e.scope.totalPayments} payments screened; ${e.scope.injectedOutOfScope} injected case(s) outside the run are not counted.`]),
+    ...(e.scope.full ? [] : [`Scope: ${e.scope.screenedPayments} of ${e.scope.totalPayments} synthetic payments screened; ${e.scope.injectedOutOfScope} injected case(s) outside the run are not counted.`]),
+    ...(e.scope.realScreened ? [`Real payments screened: ${e.scope.realScreened} (not part of the accuracy figures; there is no ground truth for real data).`] : []),
     `Injected cases found:        ${e.detected}/${e.injected} (${pct(e.detectionRate)})`,
     `Correct signal type:         ${e.correctSignal}/${e.detected} (${pct(e.correctSignalRate)})`,
     `Expected signals recovered:  ${pct(e.expectedSignalRecall)}`,

@@ -101,7 +101,7 @@ export interface Evaluation {
   flaggedShare: { procurement: number; ledgers: number; real: number | null }
   verifierRejections: number
   verifierCorrections: number
-  scope: { screenedPayments: number; totalPayments: number; injectedOutOfScope: number; full: boolean }
+  scope: { screenedPayments: number; totalPayments: number; injectedOutOfScope: number; full: boolean; realScreened: number }
   cases: Array<{ id: string; title: string; detected: boolean; score: number | null; primarySignal: string; primaryFound: boolean; foundSignals: string[]; caseIds: number[] }>
 }
 
@@ -136,8 +136,8 @@ export const api = {
   evaluation: (mode: Mode) => get<Evaluation | null>(`/api/eval?mode=${mode}`),
   comparison: () => get<Comparison | null>("/api/comparison"),
   realSummary: (mode: Mode) => get<{ payments: number; flaggedPayments: number; bySignal: Record<string, number> } | null>(`/api/real-summary?mode=${mode}`),
-  run: async (mode: "team" | "single" | "compare", payers?: string[]) => {
-    const res = await fetch("/api/run", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ mode, payers }) })
+  run: async (mode: "team" | "single" | "compare", opts: { payers?: string[]; dataset?: "synthetic" | "real" } = {}) => {
+    const res = await fetch("/api/run", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ mode, ...opts }) })
     return res.ok
   },
 }

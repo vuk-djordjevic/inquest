@@ -131,7 +131,13 @@ Each source has its own adapter that converts it into the **common payment model
 
 **Demo cache.** With a search key set, run the demo once and commit `data/cache/web-cache.db`. Later runs, including offline ones, replay those searches, pages and LLM price extractions with their original links. This is the agents' recorded work, not a hand-written table.
 
-**Real data.** Drop OCDS JSON/JSONL files (e.g. from the [OCDS data registry](https://data.open-contracting.org/)) into `data/raw/real/` and rerun `npm run data`. Real payments are marked `dataset='real'`; the dashboard shows them only **in aggregate** (counts per signal), never by name.
+**Real data.** `python data/prep/fetch_real.py` downloads Serbian public procurement contracts for 2021 (about 64,000 awards) from the OCP Data Registry ([Serbia: OpenTender](https://data.open-contracting.org/en/publication/139), compiled by the Government Transparency Institute from the national Public Procurement Portal, CC BY-NC-SA 4.0, July 2020 to May 2022; pass `2020`, `2022` or `full` for other ranges). Any other OCDS JSON/JSONL file (optionally gzip-compressed) in `data/raw/real/` works too. Rerun `npm run data` afterwards. Real payments are marked `dataset='real'`; choose "Real procurement data" in the dashboard to screen them.
+
+The dashboard shows real data only **in aggregate** (counts per signal), never by name. Set `INQUEST_SHOW_REAL_CASES=1` to list real cases by name for local review; a risk signal is a reason to look, not a finding.
+
+What the real data allows: buyer and supplier (with national IDs), contract value, procedure type, number of bids per lot, tender notice date and deadline, CPV code. What it lacks: item quantities (so no unit-price comparison), budget plans, amendments. Calibration differs from the test data: about 62% of real open procedures received a single bid, so a single bid alone never flags a case; the minimum tender period for real data is 9 days (`minimumTenderDaysReal` in `data/reference/categories.json`), because lower-value procedures may legally be shorter. Check that value against the Public Procurement Law before relying on it.
+
+Large real runs and the LLM: the Risk agent calls the LLM only for cases that could still cross the flag threshold, and `INQUEST_LLM_MAX_CALLS` (default 300) caps LLM calls per run. With `MOZAIK_API_KEY` or a paired machine, prompts with real data go to Mozaik Cloud.
 
 ---
 
