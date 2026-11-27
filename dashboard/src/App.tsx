@@ -115,40 +115,24 @@ export function App() {
         <div className="brand">
           <h1>Inquest</h1>
         </div>
-        <nav className="tabs">
-          {(["live", "cases", "results"] as Tab[]).map((t) => (
-            <button key={t} className={`tab ${tab === t ? "active" : ""}`} onClick={() => setTab(t)}>
-              {t === "live" ? "Live" : t === "cases" ? "Cases" : "Results"}
-            </button>
-          ))}
+        <nav className="tabs" aria-label="Main navigation">
+          <button className={`tab ${tab === "live" ? "active" : ""}`} onClick={() => setTab("live")}>Live</button>
+          <button className={`tab ${tab === "cases" ? "active" : ""}`} onClick={() => setTab("cases")}>Cases</button>
         </nav>
-        <div className="spacer" />
-        <div className="runbar">
-          <select className="btn" value={scope} onChange={(e) => setScope(e.target.value as "demo" | "all")} disabled={running} aria-label="Scope">
-            <option value="demo">Demo institutions</option>
-            <option value="all">All {state?.dataset.payments.toLocaleString() ?? ""} payments</option>
-          </select>
-          <button className="btn primary" disabled={running} onClick={() => start("team")}>Run agent team</button>
-          <button className="btn" disabled={running} onClick={() => start("single")}>Run single agent</button>
-          <button className="btn" disabled={running} onClick={() => start("compare")}>Compare</button>
-          <select className="btn" value={mode} onChange={(e) => setMode(e.target.value as Mode)} aria-label="Board to view">
-            <option value="team">View: team board</option>
-            <option value="single">View: single-agent board</option>
-          </select>
-        </div>
-        <div className="chips">
-          <span className={`chip ${live.connected ? "ok" : "risk"}`}>{live.connected ? "live" : "offline"}</span>
-          <span className={`chip ${state?.llm.enabled ? "accent" : "warn"}`} title="LLM used for understanding, judging, writing and checking">
-            LLM: {state?.llm.enabled ? state.llm.modelFast : "offline fallbacks"}
-          </span>
-          <span className="chip" title="Where web results come from">web: {state?.web ?? "?"}</span>
-          {running && <span className="chip warn">running {state?.activeRun?.mode ?? ""}</span>}
-        </div>
       </header>
 
       <main className="main">
         {tab === "live" && (
           <div className="live-page">
+            <div className="live-toolbar">
+              <select className="btn" value={scope} onChange={(e) => setScope(e.target.value as "demo" | "all")} disabled={running} aria-label="Payment data scope">
+                <option value="demo">Demo institutions</option>
+                <option value="all">All {state?.dataset.payments.toLocaleString() ?? ""} payments</option>
+              </select>
+              <button className="btn primary" disabled={running} onClick={() => start("team")}>
+                {running ? "Team running" : "Run agent team"}
+              </button>
+            </div>
             <section className="panel live-stats">
               <div className="progress">
                 <div className="stat"><b>{p.queued.toLocaleString()}</b><span>payments queued</span></div>

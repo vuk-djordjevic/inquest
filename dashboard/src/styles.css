@@ -60,9 +60,9 @@ code, .mono { font-family: var(--mono); font-size: 12px; }
   padding: 10px 18px; background: var(--panel); border-bottom: 1px solid var(--border);
 }
 .brand { display: flex; align-items: baseline; gap: 10px; }
-.brand h1 { margin: 0; font-size: 18px; letter-spacing: 0.2px; }
+.brand h1 { margin: 0; font-size: 20px; letter-spacing: 0; }
 .brand span { color: var(--muted); font-size: 12px; }
-.tabs { display: flex; gap: 4px; }
+.tabs { display: flex; gap: 4px; margin-left: auto; }
 .tab {
   border: 1px solid transparent; background: none; color: var(--muted);
   padding: 6px 12px; border-radius: 8px; cursor: pointer;
@@ -80,7 +80,6 @@ code, .mono { font-family: var(--mono); font-size: 12px; }
 .chip.warn { background: var(--warn-soft); color: var(--warn); border-color: transparent; }
 .chip.risk { background: var(--risk-soft); color: var(--risk); border-color: transparent; }
 
-.runbar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .btn {
   border: 1px solid var(--border); background: var(--panel); color: var(--text);
   padding: 6px 12px; border-radius: 8px; cursor: pointer;
@@ -107,6 +106,7 @@ select.btn { padding-right: 8px; }
 .grow { flex: 1; }
 
 /* Live stats */
+.live-toolbar { display: flex; justify-content: flex-end; gap: 8px; padding: 0; }
 .progress { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; width: 100%; padding: 16px 20px; }
 .stat { display: flex; flex-direction: column; }
 .stat b { font-size: 20px; font-variant-numeric: tabular-nums; }
@@ -219,6 +219,8 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
 }
 
 @media (max-width: 560px) {
+  .live-toolbar { justify-content: stretch; }
+  .live-toolbar > * { flex: 1; min-width: 0; }
   .lanes { grid-template-columns: 1fr; }
   .progress { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 14px; }
 }
